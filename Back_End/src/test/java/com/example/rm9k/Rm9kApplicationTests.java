@@ -1,7 +1,9 @@
 package com.example.rm9k;
 
 import com.example.rm9k.models.Customer;
+import com.example.rm9k.models.RestaurantTable;
 import com.example.rm9k.repositories.CustomerRepository;
+import com.example.rm9k.repositories.RestaurantTableRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,9 @@ public class Rm9kApplicationTests {
 	@Autowired
 	CustomerRepository customerRepository;
 
+	@Autowired
+	RestaurantTableRepository restaurantTableRepository;
+
 	@Test
 	public void contextLoads() {
 	}
@@ -23,6 +28,13 @@ public class Rm9kApplicationTests {
 	public void canCreateCustomer(){
 		Customer customer = new Customer("Kirsty", "1231235");
 		customerRepository.save(customer);
+	}
+
+	@Test
+	public void canCreateRestaurantTable(){
+		RestaurantTable restaurantTable = new RestaurantTable(17, 5);
+		restaurantTableRepository.save(restaurantTable);
+
 	}
 
 }
