@@ -3,7 +3,6 @@ package com.example.rm9k.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,10 +17,12 @@ public class RestaurantTable {
 
 
     @Column(name = "table_number")
-    private  int tableNumber;
+    private int tableNumber;
 
     @Column(name = "capacity")
     private int capacity;
+
+
 
     @JsonIgnoreProperties("restaurantTable")
     @OneToMany(mappedBy = "restaurantTable")
@@ -70,6 +71,13 @@ public class RestaurantTable {
         return this.bookings.size();
     }
 
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
 
 
 
