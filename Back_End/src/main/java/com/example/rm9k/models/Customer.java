@@ -26,7 +26,7 @@ public class Customer {
 
     public Customer(String customerName, String customerNumber) {
         this.customerName = customerName;
-        this.customerName = customerNumber;
+        this.customerNumber = customerNumber;
         this.bookings = new ArrayList<>();
     }
 
@@ -46,16 +46,17 @@ public class Customer {
     }
 
 
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+
     public String getCustomerNumber() {
         return customerNumber;
     }
 
     public void setCustomerNumber(String customerNumber) {
         this.customerNumber = customerNumber;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
     }
 
     public void addBookingToCustomer(Booking booking){
