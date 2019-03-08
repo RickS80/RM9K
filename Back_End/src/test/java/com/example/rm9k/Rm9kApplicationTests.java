@@ -21,7 +21,7 @@ public class Rm9kApplicationTests {
 
 	@Test
 	public void canCreateCustomer(){
-		Customer customer = new Customer("Kirsty");
+		Customer customer = new Customer("Kirsty", "1231235");
 		customerRepository.save(customer);
 	}
 

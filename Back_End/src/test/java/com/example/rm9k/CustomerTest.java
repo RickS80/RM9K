@@ -12,7 +12,7 @@ public class CustomerTest {
 
     @Before
     public void before() {
-        customer = new Customer ("Davide");
+        customer = new Customer ("Davide", "123345");
     }
 
 

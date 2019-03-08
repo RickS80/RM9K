@@ -16,9 +16,21 @@ public class Customer {
     @Column(name = "customer_name")
     private String customerName;
 
+    @Column(name ="customer_contact")
+    private String customerNumber;
 
-    public Customer(String customerName) {
+
+    public String getCustomerNumber() {
+        return customerNumber;
+    }
+
+    public void setCustomerNumber(String customerNumber) {
+        this.customerNumber = customerNumber;
+    }
+
+    public Customer(String customerName, String customerNumber) {
         this.customerName = customerName;
+        this.customerName = customerNumber;
     }
 
     public Customer(){
