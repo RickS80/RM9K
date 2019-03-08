@@ -1,5 +1,7 @@
 package com.example.rm9k.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.persistence.Table;
 import java.util.ArrayList;
@@ -21,6 +23,7 @@ public class RestaurantTable {
     @Column(name = "capacity")
     private int capacity;
 
+    @JsonIgnoreProperties("restaurantTable")
     @OneToMany(mappedBy = "restaurantTable")
     private List<Booking> bookings;
 
