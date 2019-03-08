@@ -1,0 +1,26 @@
+
+.header {
+  background-color: orange;
+  height: 50px;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.header a{
+  margin-left: 10px;
+}
+
+.footer{
+  background-color: orange;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  color:black;
+  font-size: calc(10px + 2vmin);
+}
