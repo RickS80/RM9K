@@ -27,8 +27,7 @@ public class CustomerTest {
     @Test
     public  void canAddBookingToCustomer(){
         customer.addBookingToCustomer(booking);
-        assertEquals(1, customer.getBookings());
-
+        assertEquals(1, customer.getCustomerBookings());
     }
 
 

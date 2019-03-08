@@ -2,6 +2,8 @@ package com.example.rm9k.models;
 
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="tables")
@@ -19,10 +21,14 @@ public class RestaurantTable {
     @Column(name = "capacity")
     private int capacity;
 
+    @OneToMany(mappedBy = "restaurantTable")
+    private List<Booking> bookings;
+
 
     public RestaurantTable(int tableNumber, int capacity) {
         this.tableNumber = tableNumber;
         this.capacity = capacity;
+        this.bookings = new ArrayList<>();
     }
 
     public RestaurantTable(){
@@ -52,4 +58,16 @@ public class RestaurantTable {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
+
+    public void addBookingToTable(Booking booking){
+        this.bookings.add(booking);
+    }
+
+    public int getTableBookings(){
+        return this.bookings.size();
+    }
+
+
+
+
 }

@@ -46,7 +46,9 @@ public class Rm9kApplicationTests {
 	public void canCreateBooking(){
 		Customer customer = new Customer("Kirsty", "1231235");
 		customerRepository.save(customer);
-		Booking booking = new Booking(customer);
+		RestaurantTable restaurantTable = new RestaurantTable(17, 5);
+		restaurantTableRepository.save(restaurantTable);
+		Booking booking = new Booking(customer, restaurantTable);
 		bookingRepository.save(booking);
 
 	}

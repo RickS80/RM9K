@@ -62,9 +62,8 @@ public class Customer {
         this.bookings.add(booking);
     }
 
-    public int getBookings(){
+    public int getCustomerBookings(){
         return this.bookings.size();
-
     }
 
 }

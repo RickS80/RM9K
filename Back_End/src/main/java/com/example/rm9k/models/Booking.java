@@ -17,9 +17,15 @@ public class Booking {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name ="table_id", nullable = false)
+    private RestaurantTable restaurantTable;
 
-    public Booking(Customer customer) {
+
+    public Booking(Customer customer, RestaurantTable restaurantTable) {
         this.customer = customer;
+        this.restaurantTable = restaurantTable;
     }
 
 
@@ -41,5 +47,13 @@ public class Booking {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public RestaurantTable getRestaurantTable() {
+        return restaurantTable;
+    }
+
+    public void setRestaurantTable(RestaurantTable restaurantTable) {
+        this.restaurantTable = restaurantTable;
     }
 }
