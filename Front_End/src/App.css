@@ -24,3 +24,17 @@
   color:black;
   font-size: calc(10px + 2vmin);
 }
+
+div{
+  border: 2px solid grey;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 2px;
+
+}
