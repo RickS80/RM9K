@@ -1,7 +1,9 @@
 package com.example.rm9k;
 
+import com.example.rm9k.models.Booking;
 import com.example.rm9k.models.Customer;
 import com.example.rm9k.models.RestaurantTable;
+import com.example.rm9k.repositories.BookingRepository;
 import com.example.rm9k.repositories.CustomerRepository;
 import com.example.rm9k.repositories.RestaurantTableRepository;
 import org.junit.Test;
@@ -20,6 +22,9 @@ public class Rm9kApplicationTests {
 	@Autowired
 	RestaurantTableRepository restaurantTableRepository;
 
+	@Autowired
+	BookingRepository bookingRepository;
+
 	@Test
 	public void contextLoads() {
 	}
@@ -34,6 +39,15 @@ public class Rm9kApplicationTests {
 	public void canCreateRestaurantTable(){
 		RestaurantTable restaurantTable = new RestaurantTable(17, 5);
 		restaurantTableRepository.save(restaurantTable);
+
+	}
+
+	@Test
+	public void canCreateBooking(){
+		Customer customer = new Customer("Kirsty", "1231235");
+		customerRepository.save(customer);
+		Booking booking = new Booking(customer);
+		bookingRepository.save(booking);
 
 	}
 
