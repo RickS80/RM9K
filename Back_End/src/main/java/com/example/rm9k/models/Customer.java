@@ -24,6 +24,7 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<Booking> bookings;
 
+
     public Customer(String customerName, String customerNumber) {
         this.customerName = customerName;
         this.customerNumber = customerNumber;
@@ -65,6 +66,14 @@ public class Customer {
 
     public int getCustomerBookings(){
         return this.bookings.size();
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
     }
 
 }
