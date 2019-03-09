@@ -5,20 +5,32 @@ import NewBookingModalTrigger from './NewBookingModalTrigger';
 class NewBookingModal extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-
-     }
+    this.state = {
+      isOpen: false
+    };
   }
 
+  onOpen = () => {
+    this.setState({ isOpen: true }, () => {
+      this.closeButtonNode.focus(); // draw keyboard focus to the modal when opens
+    });
+    this.toggleScrollLock();
+  };
 
-  render() { 
-    return ( 
+  render() {
+    const { isOpen } = this.state;
+    const { triggerText, role } = this.props;
+    return (
       <React.Fragment>
-        <NewBookingModalTrigger/>
+        <NewBookingModalTrigger
+          onOpen={this.onOpen}
+          buttonRef={n => (this.openButtonNode = n)}
+          buttonText={triggerText}
+        />
 
-        <NewBookingModalContent/>
+        {isOpen && <NewBookingModalContent />}
       </React.Fragment>
-     );
+    );
   }
 }
  

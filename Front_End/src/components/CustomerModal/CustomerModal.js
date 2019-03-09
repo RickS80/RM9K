@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import CustomerModalTrigger from './CustomerModalTrigger';
-import './CustomerModalTrigger.css';
 import CustomerModalContent from './CustomerModalContent';
 
 class CustomerModal extends Component {

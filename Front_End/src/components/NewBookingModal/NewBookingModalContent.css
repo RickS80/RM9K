@@ -1,0 +1,76 @@
+
+/* backdrop of the modal, obscuring background */
+.c-modal-cover { 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Z index must be at a higher index to the rest of your page content */
+  z-index: 10; 
+  transform: translateZ(0);
+  background-color: rgba(#000, 0.5);
+}
+
+/* modal body itself */
+.c-modal {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  width: 50%;
+  height: 50%;
+  padding: 2.5em 1.5em 1.5em 1.5em;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  @media screen and (min-width: 500px) {
+    left: 50%;
+    top: 50%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    max-width: 30em;
+    max-height: calc(100% - 1em);
+  }
+}
+
+/* Close button for Modal */
+.c-modal__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: .5em;
+  line-height: 1;
+  background: #f6f6f7;
+  border: 0;
+  box-shadow: 0;
+  cursor: pointer;
+}
+
+.c-modal__close-icon {
+  width: 25px;
+  height: 25px;
+  fill: transparent;
+  stroke: black;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.c-modal__body {
+  padding-top: .25em;
+}
+
+
+/*  Utility class that hides the text for close button, but keeps it in place for screen readers*/
+.u-hide-visually {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}

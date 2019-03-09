@@ -6,8 +6,8 @@ const Header = ({customers}) => {
        return(
             <div className="header">
             <a>Home</a>
-            <NewBookingModal/>
-            <CustomerModal customers={customers} triggerText="Customers" ariaLabel="List of Customers ranked by number of Visits"/>
+               <NewBookingModal triggerText="NewBooking"/>
+               <CustomerModal customers={customers} triggerText="Customers" />
             <a>Table view</a>
             </div>
         )
