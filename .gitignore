@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+Back_End/.idea/workspace.xml
 
 # testing
 /coverage
