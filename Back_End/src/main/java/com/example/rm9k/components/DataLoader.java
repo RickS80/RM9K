@@ -24,11 +24,8 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     RestaurantTableRepository restaurantTableRepository;
 
-    public DataLoader() {
-    }
-
     @Override
-    public void run(ApplicationArguments args){
+    public void run(ApplicationArguments args) throws Exception{
         Customer customer1 = new Customer("Kirsty", "1231235");
         customerRepository.save(customer1);
         RestaurantTable restaurantTable1 = new RestaurantTable(17, 5);
