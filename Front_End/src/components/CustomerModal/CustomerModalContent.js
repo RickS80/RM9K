@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import FocusTrap from "focus-trap-react";
 import './CustomerModalContent.css';
 
 const CustomerModalContent = ({
