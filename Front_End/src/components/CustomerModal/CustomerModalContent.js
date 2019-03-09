@@ -14,7 +14,7 @@ const CustomerModalContent = ({
 }) => {
 
   return ReactDOM.createPortal(
-    <FocusTrap
+    <div
       className="c-modal-cover"
       role={role}
       tabIndex="-1"
@@ -36,7 +36,7 @@ const CustomerModalContent = ({
         </button>
         <div className="c-modal__body">CONTENT WILL GO HERE</div>
       </div>
-    </FocusTrap>,
+    </div>,
     document.body
   );
 };
