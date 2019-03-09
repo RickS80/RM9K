@@ -1,7 +1,9 @@
 import React from 'react';
 
-const CustomerModalTrigger = ({text}) => (
-  <button className="c-btn">{text}</button>
+const CustomerModalTrigger = ({ buttonText, onOpen }) => (
+  <button className="c-btn" onClick={onOpen}>
+    {buttonText}
+  </button>
 );
 
 export default CustomerModalTrigger;
