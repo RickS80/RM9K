@@ -29,7 +29,20 @@ const NewBookingModalContent = ({
           </svg>
         </button>
 
-        <h1 className="c-modal__body">Stuff goes here!</h1>
+        {/* //TODO: stop default behaviour (page refresh); */}
+
+        <div className="c-modal__body">
+          <h1>Add New Booking</h1>
+          <form action="/bookings" method="POST">
+            Table Number: <br/>
+            <input type="text" name="tableNumber" /><br/>
+            Customer Name: <br/>
+            <input type="text" name="customerName" /><br/>
+            Customer Number: <br/>
+            <input type="text" name="customerNumber" /><br/><br/>
+            <input type="submit" value="Submit"/>
+          </form>
+        </div>
       </div>
     </div>,
     document.body
