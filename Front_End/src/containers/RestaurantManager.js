@@ -15,7 +15,7 @@ class RestaurantManager extends Component {
             }
     }
      
-<<<<<<< HEAD
+
     
     // componentDidMount(){
     //     const url = "http://localhost:8080/bookings"
@@ -40,7 +40,7 @@ class RestaurantManager extends Component {
 
 
 
-=======
+
     componentDidMount(){
         const url = "http://localhost:8080/bookings"
         fetch(url)
@@ -61,7 +61,7 @@ class RestaurantManager extends Component {
             this.setState({restaurantTables: data._embedded.restaurantTables})
         })
     }
->>>>>>> develop
+
 
     render(){
         return(
