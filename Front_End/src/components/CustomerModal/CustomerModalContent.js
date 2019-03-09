@@ -5,18 +5,17 @@ import './CustomerModalContent.css';
 const CustomerModalContent = ({
   onClose,
   role = "dialog",
-  onKeyDown,
   modalRef,
   onClickAway,
   buttonRef
 }) => {
 
   return ReactDOM.createPortal(
-    <aside
+    <FocusTrap
+      tag = "aside"
       className="c-modal-cover"
       role={role}
       tabIndex="-1"
-      onKeyDown={onKeyDown}
       onClick={onClickAway}
     >
       <div className="c-modal" ref={modalRef}>
@@ -33,7 +32,7 @@ const CustomerModalContent = ({
         </button>
         <div className="c-modal__body">CONTENT WILL GO HERE</div>
       </div>
-    </aside>,
+    </FocusTrap>,
     document.body
   );
 };
