@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CustomerModal from '../components/CustomerModal';
 
 class Header extends Component{
     render(){
@@ -6,6 +7,7 @@ class Header extends Component{
             <div className="header">
             <a>Home</a>
             <a>New booking</a>
+            <CustomerModal/>
             <a>Table view</a>
             </div>
         )
