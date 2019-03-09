@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37a358c3-a92f-482f-8360-bc1e5e913769" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rm9k.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rm9k.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rm9k/components/DataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rm9k/components/DataLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rm9k/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rm9k/models/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/rm9k/models/RestaurantTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/rm9k/models/RestaurantTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/rm9k/Rm9kApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/rm9k/Rm9kApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/rm9k/components/DataLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/rm9k/components/DataLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/rm9k/configs/SpringDataRestGlobalConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/rm9k/configs/SpringDataRestGlobalConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/rm9k/models/Booking.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/rm9k/models/Booking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/rm9k/models/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/rm9k/models/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/rm9k/models/RestaurantTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/rm9k/models/RestaurantTable.class" afterDir="false" />
-    </list>
+    <list default="true" id="37a358c3-a92f-482f-8360-bc1e5e913769" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,10 +11,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/rm9k/models/Booking.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
+            <state relative-caret-position="662">
               <caret line="46" selection-start-line="46" selection-end-line="46" />
             </state>
           </provider>
@@ -98,7 +83,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/rm9k/models/Customer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
@@ -273,7 +258,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552084570827" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552084839986" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -548,13 +533,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/rm9k/models/Booking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/rm9k/repositories/CustomerRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -601,6 +579,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="22" column="36" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/rm9k/models/Booking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="662">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
         </state>
       </provider>
     </entry>
