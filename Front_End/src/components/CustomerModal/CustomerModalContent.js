@@ -32,12 +32,7 @@ const CustomerModalContent = ({
       onClick={onClickAway}
     >
       <div className="c-modal" ref={modalRef}>
-        <button
-          className="c-modal__close"
-          aria-label="Close Modal"
-          onClick={onClose}
-          ref={buttonRef}
-        >
+        <button className="c-modal__close" onClick={onClose} ref={buttonRef}>
           <span className="u-hide-visually">Close</span>
           <svg className="c-modal__close-icon" viewBox="0 0 40 40">
             <path d="M 10,10 L 30,30 M 30,10 L 10,30" />
