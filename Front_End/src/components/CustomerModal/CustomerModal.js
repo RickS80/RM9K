@@ -20,6 +20,7 @@ class CustomerModal extends Component {
 
   onClose = () => {
     this.setState({ isOpen: false });
+    this.openButtonNode.focus(); // return keyboard focus to main page when close
     this.toggleScrollLock();
   };
 
@@ -41,7 +42,8 @@ class CustomerModal extends Component {
       <Fragment>
         <CustomerModalTrigger
           onOpen={this.onOpen}
-          buttonText={triggerText}
+          buttonRef={n => this.openButtonNode = n}
+          text={triggerText}
         />
 
         {isOpen && (
