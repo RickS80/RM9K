@@ -1,12 +1,12 @@
 import React from 'react';
 import CustomerModal from '../components/CustomerModal/CustomerModal';
 
-const Header = (props) => {
+const Header = ({customers}) => {
        return(
             <div className="header">
             <a>Home</a>
             <a>New booking</a>
-                <CustomerModal triggerText="Customers" ariaLabel="List of Customers ranked by number of Visits"/>
+                <CustomerModal customers={customers} triggerText="Customers" ariaLabel="List of Customers ranked by number of Visits"/>
             <a>Table view</a>
             </div>
         )

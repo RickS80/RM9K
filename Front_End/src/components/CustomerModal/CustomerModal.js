@@ -48,6 +48,7 @@ class CustomerModal extends Component {
 
         {isOpen && (
           <CustomerModalContent
+            customers={this.props.customers}
             buttonRef={n => (this.closeButtonNode = n)}
             onClose={this.onClose}
             onKeyDown={this.onKeyDown}

@@ -4,6 +4,7 @@ import FocusTrap from "focus-trap-react";
 import './CustomerModalContent.css';
 
 const CustomerModalContent = ({
+  customers,
   onClose,
   role = "dialog",
   modalRef,
@@ -12,6 +13,15 @@ const CustomerModalContent = ({
   onKeyDown,
   buttonRef
 }) => {
+
+  const customersList = customers.map((customer)=>{
+      return (
+        <li>
+          ID: {customer.id}, Name: {customer.customerName}, Number: {customer.customerNumber}
+          , Number of Bookings: {customer.customerBookings}
+        </li>
+      );
+    })
 
   return ReactDOM.createPortal(
     <div
@@ -34,7 +44,8 @@ const CustomerModalContent = ({
             <path d="M 10,10 L 30,30 M 30,10 L 10,30" />
           </svg>
         </button>
-        <div className="c-modal__body">CONTENT WILL GO HERE</div>
+
+        <div className="c-modal__body">{customersList}</div>
       </div>
     </div>,
     document.body

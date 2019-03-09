@@ -6,17 +6,15 @@ import Footer from '../components/Footer';
 
 class RestaurantManager extends Component {
 
-   
-        constructor(props) {
-            super(props);
-            this.state = { 
-                bookings: [],
-                customers: [],
-                restaurantTables: []
-             }
-        }
+    constructor(props) {
+        super(props);
+        this.state = { 
+            bookings: [],
+            customers: [],
+            restaurantTables: []
+            }
+    }
      
-    
     componentDidMount(){
         const url = "http://localhost:8080/bookings"
         fetch(url)
@@ -38,16 +36,10 @@ class RestaurantManager extends Component {
         })
     }
 
-   
-
-
-
-
-
     render(){
         return(
             <div className="restaurant-manager">
-            <Header/>
+            <Header customers={this.state.customers}/>
             <TableViewContainer/>
             <Footer/>
             </div>
