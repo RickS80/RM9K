@@ -6,7 +6,7 @@ const Header = ({customers}) => {
        return(
             <div className="header">
             <a>Home</a>
-               <NewBookingModal triggerText="NewBooking"/>
+               <NewBookingModal triggerText="New Booking"/>
                <CustomerModal customers={customers} triggerText="Customers" />
             <a>Table view</a>
             </div>

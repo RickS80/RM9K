@@ -12,21 +12,22 @@ const Table = (props) => {
 
   const bookingsDataForTable = props.bookingsData.map((booking) => {
     console.log(booking)
-     return <td>{booking.customer.customerName}</td>
+     return <td value={booking.restaurantTable.tableNumber}>{booking.customer.customerName}</td>
   })
 
     const tables = [1,2,3,4,5,6,7,8,9,10]
     const tablesData = tables.map((table) =>{
-      return <th value={table} key={table}>Tab{table}</th>
+      return <tr><td value={table} key={table}>Table{table}</td></tr>
     })
     
-    const times = [12.00,12.30,13.00,13.30,14.00,14.30,15.00,15.30,16.00,16.30]
+    const times = ["12.00","12.30","13.00","13.30","14.00","14.30","15.00","15.30","16.00","16.30"]
     const timesData = times.map((time) =>{
-      return <tr><th>{time}</th></tr>
+      return <th>{time}</th>
     })
 
-
-
+    function createTable(){
+      
+    }
 
 
     return(
@@ -42,49 +43,63 @@ const Table = (props) => {
           <thead>
           <tr>
             <th></th>
-            {tablesData}
+            {timesData}
           </tr>
           </thead>
             <tbody>
-          <tr>
-            <td >12.00</td>
-          </tr>
-          <tr>
-            <td>12.30</td>
-          </tr>
-          <tr>
-            <td>13.00</td>
-          </tr>
-          <tr>
-            <td>13.30</td>
-          </tr>
-          <tr>
-            <td>14.00</td>  
-          </tr>
-          <tr>
-            <td>14.30</td>
-          </tr>
-          <tr>
-            <td>15.00</td>
-          </tr>
-          <tr>
-            <td>15.30</td>
-          </tr>
-          <tr>
-            <td>16.00</td>
-          </tr>
-          <tr>
-            <td>16.30</td>
-          </tr>
-          <tr>
-            <td>17.00</td>
-          </tr>
-          <tr>
-            <td>17.30</td>
-          </tr>
+          {tablesData}
           </tbody>
       </table>
       </div>
+
+      // <div>
+      // <table>
+      //     <thead>
+      //     <tr>
+      //       <th></th>
+      //       {tablesData}
+      //     </tr>
+      //     </thead>
+      //       <tbody>
+      //     <tr>
+      //       <td >12.00</td>
+      //     </tr>
+      //     <tr>
+      //       <td>12.30</td>
+      //     </tr>
+      //     <tr>
+      //       <td>13.00</td>
+      //     </tr>
+      //     <tr>
+      //       <td>13.30</td>
+      //     </tr>
+      //     <tr>
+      //       <td>14.00</td>  
+      //     </tr>
+      //     <tr>
+      //       <td>14.30</td>
+      //     </tr>
+      //     <tr>
+      //       <td>15.00</td>
+      //     </tr>
+      //     <tr>
+      //       <td>15.30</td>
+      //     </tr>
+      //     <tr>
+      //       <td>16.00</td>
+      //     </tr>
+      //     <tr>
+      //       <td>16.30</td>
+      //     </tr>
+      //     <tr>
+      //       <td>17.00</td>
+      //     </tr>
+      //     <tr>
+      //       <td>17.30</td>
+      //     </tr>
+      //     </tbody>
+      // </table>
+      // </div>
 
 
 
