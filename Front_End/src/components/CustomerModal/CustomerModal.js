@@ -12,9 +12,11 @@ class CustomerModal extends Component {
   }
 
   onOpen = () => {
-    this.setState({ isOpen: true });
+    this.setState({ isOpen: true }, () => {
+      this.closeButtonNode.focus(); // draw keyboard focus to the modal when opens
+    });
     this.toggleScrollLock();
-  }
+  };
 
   onClose = () => {
     this.setState({ isOpen: false });
@@ -37,20 +39,21 @@ class CustomerModal extends Component {
     const { triggerText, role } = this.props;
     return (
       <Fragment>
-        <CustomerModalTrigger 
+        <CustomerModalTrigger
           onOpen={this.onOpen}
           buttonText={triggerText}
         />
 
-        {(isOpen) &&
-          <CustomerModalContent 
+        {isOpen && (
+          <CustomerModalContent
+            buttonRef={n => (this.closeButtonNode = n)}
             onClose={this.onClose}
             onKeyDown={this.onKeyDown}
-            modalRef={n => this.modalNode = n}
+            modalRef={n => (this.modalNode = n)}
             onClickAway={this.onClickAway}
             role={role}
           />
-        }
+        )}
       </Fragment>
     );
   }
