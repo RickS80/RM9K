@@ -4,7 +4,10 @@ import './CustomerModalTrigger.css';
 
 class CustomerModal extends Component {
   render() {
-    return <CustomerModalTrigger />;
+    const { triggerText } = this.props;
+    return (
+      <CustomerModalTrigger text={triggerText} />
+    );
   }
 }
 
