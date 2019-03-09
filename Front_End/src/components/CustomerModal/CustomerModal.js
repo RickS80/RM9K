@@ -19,8 +19,13 @@ class CustomerModal extends Component {
     this.setState({ isOpen: false });
   };
 
-  onKeyDown = (event) => {
-    return event.keyCode === 27 && this.onClose();
+  onKeyDown = (evt) => {
+    return evt.keyCode === 27 && this.onClose();
+  }
+
+  onClickAway = (evt) => {
+    if (this.modalNode && this.modalNode.contains(evt.target)) return;
+    this.onClose();
   }
 
   render() {
@@ -37,6 +42,8 @@ class CustomerModal extends Component {
           <CustomerModalContent 
             onClose={this.onClose}
             onKeyDown={this.onKeyDown}
+            modalRef={n => this.modalNode = n}
+            onClickAway={this.onClickAway}
             role={role}
           />
         }

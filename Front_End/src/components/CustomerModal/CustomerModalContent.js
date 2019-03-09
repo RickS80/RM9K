@@ -2,15 +2,16 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import './CustomerModalContent.css';
 
-const CustomerModalContent = ({ onClose, role = "dialog", onKeyDown }) => {
+const CustomerModalContent = ({ onClose, role = "dialog", onKeyDown, modalRef, onClickAway }) => {
   return ReactDOM.createPortal(
     <aside
       className="c-modal-cover"
       role={role}
       tabIndex="-1"
       onKeyDown={onKeyDown}
+      onClick={onClickAway}
     >
-      <div className="c-modal">
+      <div className="c-modal" ref={modalRef}>
         <button
           className="c-modal__close"
           aria-label="Close Modal"
