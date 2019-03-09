@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from "react-dom";
+import FocusTrap from "focus-trap-react";
 import './CustomerModalContent.css';
 
 const CustomerModalContent = ({
@@ -7,15 +8,18 @@ const CustomerModalContent = ({
   role = "dialog",
   modalRef,
   onClickAway,
+  onFocus,
+  onKeyDown,
   buttonRef
 }) => {
 
   return ReactDOM.createPortal(
     <FocusTrap
-      tag = "aside"
       className="c-modal-cover"
       role={role}
       tabIndex="-1"
+      onFocus={onFocus}
+      onKeyDown={onKeyDown}
       onClick={onClickAway}
     >
       <div className="c-modal" ref={modalRef}>

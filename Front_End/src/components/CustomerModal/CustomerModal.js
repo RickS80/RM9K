@@ -43,7 +43,7 @@ class CustomerModal extends Component {
         <CustomerModalTrigger
           onOpen={this.onOpen}
           buttonRef={n => this.openButtonNode = n}
-          text={triggerText}
+          buttonText={triggerText}
         />
 
         {isOpen && (
