@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NewBookingModalContent from './NewBookingModalContent'
+import NewBookingModalTrigger from './NewBookingModalTrigger';
 
 class NewBookingModal extends Component {
   constructor(props) {
@@ -12,9 +13,11 @@ class NewBookingModal extends Component {
 
   render() { 
     return ( 
+      <React.Fragment>
+        <NewBookingModalTrigger/>
 
-      <NewBookingModalContent/>
-
+        <NewBookingModalContent/>
+      </React.Fragment>
      );
   }
 }
