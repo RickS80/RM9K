@@ -13,10 +13,12 @@ class CustomerModal extends Component {
 
   onOpen = () => {
     this.setState({ isOpen: true });
+    this.toggleScrollLock();
   }
 
   onClose = () => {
     this.setState({ isOpen: false });
+    this.toggleScrollLock();
   };
 
   onKeyDown = (evt) => {
@@ -27,6 +29,8 @@ class CustomerModal extends Component {
     if (this.modalNode && this.modalNode.contains(evt.target)) return;
     this.onClose();
   }
+
+  toggleScrollLock = () => document.querySelector('html').classList.toggle('u-lock-scroll');
 
   render() {
     const { isOpen } = this.state;
