@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import CustomerModalTrigger from './CustomerModalTrigger';
-import CustomerModalContent from './CustomerModalContent';
+import NewBookingModalContent from './NewBookingModalContent'
+import NewBookingModalTrigger from './NewBookingModalTrigger';
 
-class CustomerModal extends Component {
-  constructor(props){
+class NewBookingModal extends Component {
+  constructor(props) {
     super(props);
     this.state = {
       isOpen: false
@@ -23,31 +23,30 @@ class CustomerModal extends Component {
     this.toggleScrollLock();
   };
 
-  onKeyDown = (evt) => {
+  onKeyDown = evt => {
     return evt.keyCode === 27 && this.onClose();
-  }
+  };
 
-  onClickAway = (evt) => {
+  onClickAway = evt => {
     if (this.modalNode && this.modalNode.contains(evt.target)) return;
     this.onClose();
-  }
+  };
 
-  toggleScrollLock = () => document.querySelector('html').classList.toggle('u-lock-scroll');
+  toggleScrollLock = () => document.querySelector("html").classList.toggle("u-lock-scroll");
 
   render() {
     const { isOpen } = this.state;
     const { triggerText, role } = this.props;
     return (
       <Fragment>
-        <CustomerModalTrigger
+        <NewBookingModalTrigger
           onOpen={this.onOpen}
-          buttonRef={n => this.openButtonNode = n}
+          buttonRef={n => (this.openButtonNode = n)}
           buttonText={triggerText}
         />
 
         {isOpen && (
-          <CustomerModalContent
-            customers={this.props.customers}
+          <NewBookingModalContent
             buttonRef={n => (this.closeButtonNode = n)}
             onClose={this.onClose}
             onKeyDown={this.onKeyDown}
@@ -60,5 +59,5 @@ class CustomerModal extends Component {
     );
   }
 }
-
-export default CustomerModal;
+ 
+export default NewBookingModal;

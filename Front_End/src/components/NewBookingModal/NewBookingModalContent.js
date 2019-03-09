@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from "react-dom";
-import './CustomerModalContent.css';
+import ReactDOM from 'react-dom';
+import './NewBookingModalContent.css'
 
-const CustomerModalContent = ({
-  customers,
+const NewBookingModalContent = ({
   onClose,
   role = "dialog",
   modalRef,
@@ -12,15 +11,6 @@ const CustomerModalContent = ({
   onKeyDown,
   buttonRef
 }) => {
-
-  const customersList = customers.map((customer)=>{
-      return (
-        <li>
-          ID: {customer.id}, Name: {customer.customerName}, Number: {customer.customerNumber}
-          , Number of Bookings: {customer.customerBookings}
-        </li>
-      );
-    })
 
   return ReactDOM.createPortal(
     <div
@@ -39,11 +29,24 @@ const CustomerModalContent = ({
           </svg>
         </button>
 
-        <div className="c-modal__body">{customersList}</div>
+        {/* //TODO: stop default behaviour (page refresh); */}
+
+        <div className="c-modal__body">
+          <h1>Add New Booking</h1>
+          <form action="/bookings" method="POST">
+            Table Number: <br/>
+            <input type="text" name="tableNumber" /><br/>
+            Customer Name: <br/>
+            <input type="text" name="customerName" /><br/>
+            Customer Number: <br/>
+            <input type="text" name="customerNumber" /><br/><br/>
+            <input type="submit" value="Submit"/>
+          </form>
+        </div>
       </div>
     </div>,
     document.body
   );
 };
 
-export default CustomerModalContent;
+export default NewBookingModalContent
