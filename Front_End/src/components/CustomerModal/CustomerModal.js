@@ -19,9 +19,13 @@ class CustomerModal extends Component {
     this.setState({ isOpen: false });
   };
 
+  onKeyDown = (event) => {
+    return event.keyCode === 27 && this.onClose();
+  }
+
   render() {
     const { isOpen } = this.state;
-    const { triggerText } = this.props;
+    const { triggerText, role } = this.props;
     return (
       <Fragment>
         <CustomerModalTrigger 
@@ -32,6 +36,8 @@ class CustomerModal extends Component {
         {(isOpen) &&
           <CustomerModalContent 
             onClose={this.onClose}
+            onKeyDown={this.onKeyDown}
+            role={role}
           />
         }
       </Fragment>
