@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import CustomerModalTrigger from './CustomerModalTrigger';
+import './CustomerModalTrigger.css';
 
 class CustomerModal extends Component {
   render() {
-    return <button>Customers</button>;
+    return <CustomerModalTrigger />;
   }
 }
 
