@@ -1,6 +1,6 @@
 import React from 'react';
-import CustomerModal from '../components/CustomerModal/CustomerModal';
-import NewBookingModal from './NewBookingModal/NewBookingModal';
+import CustomerModal from '../components/Modals/CustomerModal/CustomerModal';
+import NewBookingModal from "./Modals/NewBookingModal/NewBookingModal";
 
 const Header = ({customers}) => {
        return(

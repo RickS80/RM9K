@@ -1,5 +1,5 @@
 import React from 'react';
-import './NewBookingModalTrigger.css'
+import '../ModalTrigger.css'
 
 const NewBookingModalTrigger = ({ buttonText, onOpen, buttonRef }) => (
   <button className="c-btn" onClick={onOpen} ref={buttonRef}>

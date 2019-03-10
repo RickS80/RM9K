@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from "react-dom";
-import './CustomerModalContent.css';
+import '../ModalContent.css';
 
 const CustomerModalContent = ({
   customers,

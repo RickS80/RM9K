@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './NewBookingModalContent.css'
+import '../ModalContent.css'
 
 const NewBookingModalContent = ({
   onClose,
