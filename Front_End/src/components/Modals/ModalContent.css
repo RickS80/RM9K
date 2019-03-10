@@ -1,4 +1,10 @@
 
+@keyframes modalFade {
+  from {transform: scale(0.7);opacity: 0;}
+  to {transform: scale(1);opacity: 1;}
+}
+
+
 /* backdrop of the modal, obscuring background */
 .c-modal-cover { 
   position: fixed;
@@ -12,6 +18,8 @@
 
 /* modal body itself */
 .c-modal {
+  animation-name: modalFade;
+  animation-duration: .5s;
   position: fixed;
   top: 20%;
   left: 10%;
