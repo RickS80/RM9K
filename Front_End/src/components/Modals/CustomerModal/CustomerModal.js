@@ -46,7 +46,7 @@ class CustomerModal extends Component {
   ]
   */
     const unsortedCustomers = this.props.customers;
-    console.log();
+    console.log(sortKey);
     this.setState({ customers: unsortedCustomers });
     
   }
