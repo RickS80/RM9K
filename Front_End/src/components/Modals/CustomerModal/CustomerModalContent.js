@@ -16,7 +16,7 @@ const CustomerModalContent = ({
   
   const customersList = customers.map(customer => {
     return (
-      <tr>
+      <tr key={customer.id}>
         <td>{customer.id}</td>
         <td>{customer.customerName}</td>
         <td>{customer.customerNumber}</td>

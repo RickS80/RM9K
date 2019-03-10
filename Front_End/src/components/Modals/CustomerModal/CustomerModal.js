@@ -11,9 +11,8 @@ class CustomerModal extends Component {
     };
   }
 
-  // componentWillMount() {
-  //   this.setState({customers: this.props.customers})
-  // }
+  componentDidMount() {
+  }
 
   onOpen = () => {
     this.setState({ isOpen: true }, () => {
@@ -46,10 +45,13 @@ class CustomerModal extends Component {
     {accountname:'chicken', negotiatedcontractvalue:'dance'},
   ]
   */
-    const data = this.props.customers;
-    data.sort((a, b) => a[sortKey].localeCompare(b[sortKey]))
-    this.setState({ data })
+    const unsortedCustomers = this.props.customers;
+    console.log();
+    this.setState({ customers: unsortedCustomers });
+    
   }
+
+  
 
   toggleScrollLock = () => document.querySelector('html').classList.toggle('u-lock-scroll');
 
