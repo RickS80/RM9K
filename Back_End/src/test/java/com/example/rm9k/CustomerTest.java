@@ -15,7 +15,7 @@ public class CustomerTest {
     @Before
     public void before() {
         customer = new Customer ("Davide", "123345");
-        booking = new Booking();
+//        booking = new Booking();
     }
 
 
@@ -24,11 +24,11 @@ public class CustomerTest {
         assertEquals("Davide",customer.getCustomerName());
     }
 
-    @Test
-    public  void canAddBookingToCustomer(){
-        customer.addBookingToCustomer(booking);
-        assertEquals(1, customer.getCustomerBookings());
-    }
+//    @Test
+//    public  void canAddBookingToCustomer(){
+//        customer.addBookingToCustomer(booking);
+//        assertEquals(1, customer.getCustomerBookings());
+//    }
 
 
 

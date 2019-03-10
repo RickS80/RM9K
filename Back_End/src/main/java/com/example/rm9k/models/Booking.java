@@ -14,12 +14,12 @@ public class Booking {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
+    @JoinColumn(name = "customer_id", nullable = true)
     private Customer customer;
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name ="table_id", nullable = false)
+    @JoinColumn(name ="table_id", nullable = true)
     private RestaurantTable restaurantTable;
 
 

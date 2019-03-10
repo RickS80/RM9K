@@ -67,9 +67,9 @@ public class RestaurantTable {
         this.bookings.add(booking);
     }
 
-    public int getTableBookings(){
-        return this.bookings.size();
-    }
+//    public int getTableBookings(){
+//        return this.bookings.size();
+//    }
 
     public List<Booking> getBookings() {
         return bookings;
