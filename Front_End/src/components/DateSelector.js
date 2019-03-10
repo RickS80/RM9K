@@ -3,7 +3,7 @@ import React, {Fragment} from 'react';
 
 const DateSelector = ({onDateSelect}) => {
   return (
-    <div>
+    <Fragment>
       <label for="date">Date</label>
       <input
         type="date"
@@ -14,7 +14,7 @@ const DateSelector = ({onDateSelect}) => {
         max="2019-12-31"
         onInput={(evt) => { onDateSelect(evt)}}
       />
-    </div>
+    </Fragment>
   );
 }
 
