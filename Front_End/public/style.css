@@ -1,0 +1,4 @@
+/* used to stop scrolling when modal is open */
+.u-lock-scroll {
+  overflow: hidden !important;
+}
