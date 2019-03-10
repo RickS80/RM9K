@@ -3,24 +3,23 @@ import ReactDOM from 'react-dom';
 import '../ModalContent.css'
 
 const NewBookingModalContent = ({
-  onClose,
-  role = "dialog",
+  buttonRef,
+  handleSubmit,
   modalRef,
   onClickAway,
+  onClose,
   onFocus,
   onKeyDown,
-  buttonRef,
-  handleSubmit
+  role = "dialog"
 }) => {
-
   return ReactDOM.createPortal(
     <div
       className="c-modal-cover"
-      role={role}
-      tabIndex="-1"
       onFocus={onFocus}
       onKeyDown={onKeyDown}
       onClick={onClickAway}
+      role={role}
+      tabIndex="-1"
     >
       <div className="c-modal" ref={modalRef}>
         <button className="c-modal__close" onClick={onClose} ref={buttonRef}>
@@ -35,13 +34,17 @@ const NewBookingModalContent = ({
         <div className="c-modal__body">
           <h1>Add New Booking</h1>
           <form action="/bookings" method="POST" onSubmit={handleSubmit}>
-            Table Number: <br/>
-            <input type="text" name="tableNumber" /><br/>
-            Customer Name: <br/>
-            <input type="text" name="customerName" /><br/>
-            Customer Number: <br/>
-            <input type="text" name="customerNumber" /><br/><br/>
-            <input type="submit" value="Add Booking"/>
+            Table Number: <br />
+            <input type="text" name="tableNumber" />
+            <br />
+            Customer Name: <br />
+            <input type="text" name="customerName" />
+            <br />
+            Customer Number: <br />
+            <input type="text" name="customerNumber" />
+            <br />
+            <br />
+            <input type="submit" value="Add Booking" />
           </form>
         </div>
       </div>

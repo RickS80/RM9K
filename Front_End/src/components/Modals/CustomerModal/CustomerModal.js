@@ -40,19 +40,19 @@ class CustomerModal extends Component {
     return (
       <Fragment>
         <CustomerModalTrigger
-          onOpen={this.onOpen}
           buttonRef={n => this.openButtonNode = n}
           buttonText={triggerText}
+          onOpen={this.onOpen}
         />
 
         {isOpen && (
           <CustomerModalContent
-            customers={this.props.customers}
             buttonRef={n => (this.closeButtonNode = n)}
-            onClose={this.onClose}
-            onKeyDown={this.onKeyDown}
+            customers={this.props.customers}
             modalRef={n => (this.modalNode = n)}
             onClickAway={this.onClickAway}
+            onClose={this.onClose}
+            onKeyDown={this.onKeyDown}
             role={role}
           />
         )}

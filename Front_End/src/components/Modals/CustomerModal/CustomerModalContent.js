@@ -3,33 +3,33 @@ import ReactDOM from "react-dom";
 import '../ModalContent.css';
 
 const CustomerModalContent = ({
+  buttonRef,
   customers,
-  onClose,
-  role = "dialog",
   modalRef,
   onClickAway,
-  onFocus,
+  onClose,
   onKeyDown,
-  buttonRef
+  onFocus,
+  role = "dialog"
 }) => {
-
-  const customersList = customers.map((customer)=>{
-      return (
-        <li>
-          ID: {customer.id}, Name: {customer.customerName}, Number: {customer.customerNumber}
-          , Number of Bookings: {customer.customerBookings}
-        </li>
-      );
-    })
+  const customersList = customers.map(customer => {
+    return (
+      <li>
+        ID: {customer.id}, Name: {customer.customerName}, Number:{" "}
+        {customer.customerNumber}, Number of Bookings:{" "}
+        {customer.customerBookings}
+      </li>
+    );
+  });
 
   return ReactDOM.createPortal(
     <div
       className="c-modal-cover"
-      role={role}
-      tabIndex="-1"
+      onClick={onClickAway}
       onFocus={onFocus}
       onKeyDown={onKeyDown}
-      onClick={onClickAway}
+      role={role}
+      tabIndex="-1"
     >
       <div className="c-modal" ref={modalRef}>
         <button className="c-modal__close" onClick={onClose} ref={buttonRef}>
