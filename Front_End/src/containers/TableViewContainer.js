@@ -21,8 +21,9 @@ class TableViewContainer extends Component{
         })
     }
 
-    onDateSelect = () => {
+    onDateSelect = (evt) => {
         console.log("you picked a date!")
+        console.log(evt.target.value)
     }
 
     render(){
