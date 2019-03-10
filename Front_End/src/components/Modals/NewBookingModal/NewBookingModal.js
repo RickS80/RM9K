@@ -32,6 +32,12 @@ class NewBookingModal extends Component {
     this.onClose();
   };
 
+  handleSubmit = evt => {
+    evt.preventDefault();
+    console.log(evt)
+    // posting data happens here
+  }
+
   toggleScrollLock = () => document.querySelector("html").classList.toggle("u-lock-scroll");
 
   render() {
@@ -40,18 +46,19 @@ class NewBookingModal extends Component {
     return (
       <Fragment>
         <NewBookingModalTrigger
-          onOpen={this.onOpen}
           buttonRef={n => (this.openButtonNode = n)}
           buttonText={triggerText}
+          onOpen={this.onOpen}
         />
 
         {isOpen && (
           <NewBookingModalContent
             buttonRef={n => (this.closeButtonNode = n)}
-            onClose={this.onClose}
-            onKeyDown={this.onKeyDown}
+            handleSubmit={this.handleSubmit}
             modalRef={n => (this.modalNode = n)}
             onClickAway={this.onClickAway}
+            onClose={this.onClose}
+            onKeyDown={this.onKeyDown}
             role={role}
           />
         )}
