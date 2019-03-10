@@ -12,8 +12,6 @@ class TableViewContainer extends Component{
          }
     }
 
-
-
     componentDidMount(){
         const url = "http://localhost:8080/bookings"
         fetch(url)
@@ -23,11 +21,14 @@ class TableViewContainer extends Component{
         })
     }
 
+    onDateSelect = () => {
+        console.log("you picked a date!")
+    }
 
     render(){
         return(
             <div className="table-view-container">
-            <DateSelector/>
+            <DateSelector onDateSelect={this.onDateSelect}/>
             <Table bookingsData={this.state.bookings}/>
             </div>
         )
