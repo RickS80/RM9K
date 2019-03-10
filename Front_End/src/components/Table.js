@@ -11,7 +11,7 @@ const Table = (props) => {
   })
 
   const bookingsDataForTable = props.bookingsData.map((booking) => {
-    console.log(booking)
+    // console.log(booking)
      return <td value={booking.restaurantTable.tableNumber}>{booking.customer.customerName}</td>
   })
 
@@ -25,9 +25,41 @@ const Table = (props) => {
       return <th>{time}</th>
     })
 
-    function createTable(){
-      
+    const dataForTabella = []
+
+      function makeData(){
+      var data = []
+      for(var i=0; i < tables.length; i++){
+         for(var j=0; j < bookingsDataForTable.length; j++){
+            if (tables[i] === bookingsDataForTable[j].props.value){
+
+               data.push(
+                <tr>  
+                <td>{tables[i]}</td> 
+                <td>{bookingsDataForTable[j].props.children}</td>   
+                </tr>)
+            }
+      }
+     }
+     dataForTabella.push(...data)
     }
+
+    // const dataForTable = function createTable(){
+    //   return <table> 
+    //         <thead>
+    //         <tr>
+    //         <th></th>
+    //         {timesData}
+    //         </tr>
+    //         </thead>
+
+
+
+
+            
+    //         </table>
+      
+    // }
 
 
     return(
@@ -42,12 +74,13 @@ const Table = (props) => {
       <table>
           <thead>
           <tr>
-            <th></th>
+            <th>Table</th>
             {timesData}
           </tr>
           </thead>
             <tbody>
-          {tablesData}
+          {dataForTabella}
+          {makeData()}
           </tbody>
       </table>
       </div>
