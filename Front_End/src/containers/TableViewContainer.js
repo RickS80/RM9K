@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Table from '../components/Table';
+import DateSelector from '../components/DateSelector'
 
 class TableViewContainer extends Component{
 
@@ -26,6 +27,7 @@ class TableViewContainer extends Component{
     render(){
         return(
             <div className="table-view-container">
+            <DateSelector/>
             <Table bookingsData={this.state.bookings}/>
             </div>
         )
