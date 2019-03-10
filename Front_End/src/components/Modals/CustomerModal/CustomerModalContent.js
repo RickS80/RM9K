@@ -10,8 +10,10 @@ const CustomerModalContent = ({
   onClose,
   onKeyDown,
   onFocus,
+  onSort,
   role = "dialog"
 }) => {
+  
   const customersList = customers.map(customer => {
     return (
       <tr>
@@ -42,13 +44,15 @@ const CustomerModalContent = ({
 
         <div className="c-modal__body">
           <table>
-            <tr>
-              <th>ID</th>
-              <th>Name:</th>
-              <th>Number:</th>
-              <th># of Bookings:</th>
-            </tr>
-            {customersList}
+            <thead>
+              <tr>
+                <th onClick={evt => onSort(evt, "id")}>ID</th>
+                <th onClick={evt => onSort(evt, "name")}>Name:</th>
+                <th onClick={evt => onSort(evt, "number")}>Number:</th>
+                <th onClick={evt => onSort(evt, "numOfBookings")}># of Bookings:</th>
+              </tr>
+            </thead>
+            <tbody>{customersList}</tbody>
           </table>
         </div>
       </div>
