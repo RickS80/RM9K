@@ -14,11 +14,12 @@ const CustomerModalContent = ({
 }) => {
   const customersList = customers.map(customer => {
     return (
-      <li>
-        ID: {customer.id}, Name: {customer.customerName}, Number:{" "}
-        {customer.customerNumber}, Number of Bookings:{" "}
-        {customer.customerBookings}
-      </li>
+      <tr>
+        <td>{customer.id}</td>
+        <td>{customer.customerName}</td>
+        <td>{customer.customerNumber}</td>
+        <td>{customer.customerBookings}</td>
+      </tr>
     );
   });
 
@@ -39,7 +40,17 @@ const CustomerModalContent = ({
           </svg>
         </button>
 
-        <div className="c-modal__body">{customersList}</div>
+        <div className="c-modal__body">
+          <table>
+            <tr>
+              <th>ID</th>
+              <th>Name:</th>
+              <th>Number:</th>
+              <th># of Bookings:</th>
+            </tr>
+            {customersList}
+          </table>
+        </div>
       </div>
     </div>,
     document.body
