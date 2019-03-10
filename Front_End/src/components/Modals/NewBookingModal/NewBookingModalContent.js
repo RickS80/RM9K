@@ -9,7 +9,8 @@ const NewBookingModalContent = ({
   onClickAway,
   onFocus,
   onKeyDown,
-  buttonRef
+  buttonRef,
+  handleSubmit
 }) => {
 
   return ReactDOM.createPortal(
@@ -33,14 +34,14 @@ const NewBookingModalContent = ({
 
         <div className="c-modal__body">
           <h1>Add New Booking</h1>
-          <form action="/bookings" method="POST">
+          <form action="/bookings" method="POST" onSubmit={handleSubmit}>
             Table Number: <br/>
             <input type="text" name="tableNumber" /><br/>
             Customer Name: <br/>
             <input type="text" name="customerName" /><br/>
             Customer Number: <br/>
             <input type="text" name="customerNumber" /><br/><br/>
-            <input type="submit" value="Submit"/>
+            <input type="submit" value="Add Booking"/>
           </form>
         </div>
       </div>

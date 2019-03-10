@@ -32,6 +32,11 @@ class NewBookingModal extends Component {
     this.onClose();
   };
 
+  handleSubmit = evt => {
+    evt.preventDefault();
+    // posting data happens here
+  }
+
   toggleScrollLock = () => document.querySelector("html").classList.toggle("u-lock-scroll");
 
   render() {
@@ -53,6 +58,7 @@ class NewBookingModal extends Component {
             modalRef={n => (this.modalNode = n)}
             onClickAway={this.onClickAway}
             role={role}
+            handleSubmit={this.handleSubmit}
           />
         )}
       </Fragment>
