@@ -20,10 +20,28 @@ public class Booking {
     @JoinColumn(name ="table_id", nullable = false)
     private RestaurantTable restaurantTable;
 
+    @Column(name = "date")
+    private String date;
 
-    public Booking(Customer customer, RestaurantTable restaurantTable) {
+    @Column(name = "start_time")
+    private String startTime;
+
+    @Column (name = "covers")
+    private int covers;
+
+    @Column (name = "total_spent")
+    private double totalSpent;
+
+
+
+    public Booking(Customer customer, RestaurantTable restaurantTable,
+                   String date, String startTime, int covers) {
         this.customer = customer;
         this.restaurantTable = restaurantTable;
+        this.date = date;
+        this.startTime = startTime;
+        this.covers = covers;
+        this.totalSpent = 0.00;
     }
 
 
@@ -53,5 +71,37 @@ public class Booking {
 
     public void setRestaurantTable(RestaurantTable restaurantTable) {
         this.restaurantTable = restaurantTable;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public int getCovers() {
+        return covers;
+    }
+
+    public void setCovers(int covers) {
+        this.covers = covers;
+    }
+
+    public double getTotalSpent() {
+        return totalSpent;
+    }
+
+    public void setTotalSpent(double totalSpent) {
+        this.totalSpent = totalSpent;
     }
 }

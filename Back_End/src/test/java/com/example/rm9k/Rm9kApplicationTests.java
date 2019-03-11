@@ -48,7 +48,7 @@ public class Rm9kApplicationTests {
 		customerRepository.save(customer);
 		RestaurantTable restaurantTable = new RestaurantTable(17, 5);
 		restaurantTableRepository.save(restaurantTable);
-		Booking booking = new Booking(customer, restaurantTable);
+		Booking booking = new Booking(customer, restaurantTable, "04/08/2019","1900",33);
 		bookingRepository.save(booking);
 	}
 
