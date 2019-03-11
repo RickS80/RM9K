@@ -50,11 +50,7 @@ public class Rm9kApplicationTests {
 		customerRepository.save(customer);
 		RestaurantTable restaurantTable = new RestaurantTable(17, 5);
 		restaurantTableRepository.save(restaurantTable);
-<<<<<<< HEAD
-		Booking booking = new Booking(customer, restaurantTable, "04/08/2019","1900",33);
-=======
 		Booking booking = new Booking(customer, restaurantTable, "04-08-2019","1900",33);
->>>>>>> develop
 		bookingRepository.save(booking);
 	}
 

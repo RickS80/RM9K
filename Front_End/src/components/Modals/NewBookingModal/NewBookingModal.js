@@ -75,14 +75,21 @@ class NewBookingModal extends Component {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
+      body: JSON.stringify(this.prepJson())
+    });
+  }
+
+  prepJson(){
+    const path = "http://localhost:8080";
+    let newBooking =
+      {
         customer: `${path}/customers/${this.state.customerId}`,
         restaurantTable: `${path}/restaurantTables/${this.state.tableId}`,
         date: `${this.state.bookingDate}`,
         startTime: `${this.state.startTime}`,
         covers: `${this.state.covers}`
-      })
-    });
+      } 
+    return newBooking;
   }
 
   render() {
