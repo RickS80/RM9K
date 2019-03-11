@@ -51,19 +51,19 @@ class NewBookingModal extends Component {
     console.log("tableId: ", this.state.tableId);
     // posting data happens here
 
-    const path = "http://localhost:8080/";
-    fetch(`http://localhost:8080/`, {
+    const path = "http://localhost:8080";
+    fetch(`${path}/bookings`, {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        "customer": "http://localhost:8080/customers/3",
-        "restaurantTable": "http://localhost:8080/restaurantTables/1",
-        "date": "05/07/2019",
-        "startTime": "1900",
-        "covers": 3
+        customer: `${path}/customers/${this.state.customerId}`,
+        restaurantTable: `${path}/restaurantTables/${this.state.tableId}`,
+        date: "05/07/2019",
+        startTime: "1900",
+        covers: 3
       })
     });
   }
