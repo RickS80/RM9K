@@ -57,21 +57,17 @@ class NewBookingModal extends Component {
   }
 
   handleDateChange(evt){
-    console.log(evt.target.value);
-    this.setState({date: evt.target.value});
+    // change date format
+    this.setState({bookingDate: evt.target.value});
   }
 
   handleCoverChange(evt) {
-    console.log(evt.target.value);
     this.setState({ covers: evt.target.value });
   }
 
   handleSubmit(evt) {
     evt.preventDefault();
-    console.log("customerId: ", this.state.customerId);
-    console.log("tableId: ", this.state.tableId);
     // posting data happens here
-
     const path = "http://localhost:8080";
     fetch(`${path}/bookings`, {
       method: "POST",
@@ -82,7 +78,7 @@ class NewBookingModal extends Component {
       body: JSON.stringify({
         customer: `${path}/customers/${this.state.customerId}`,
         restaurantTable: `${path}/restaurantTables/${this.state.tableId}`,
-        date: "05/07/2019",
+        date: `${this.state.bookingDate}`,
         startTime: `${this.state.startTime}`,
         covers: `${this.state.covers}`
       })
