@@ -59,8 +59,11 @@ class NewBookingModal extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        customer: `http://localhost:8080/customers/${this.state.customerId}`,
-        restaurantTable: `http://localhost:8080//customers/${this.state.tableId}`
+        "customer": "http://localhost:8080/customers/3",
+        "restaurantTable": "http://localhost:8080/restaurantTables/1",
+        "date": "05/07/2019",
+        "startTime": "1900",
+        "covers": 3
       })
     });
   }
