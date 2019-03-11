@@ -108,13 +108,14 @@ class NewBookingModal extends Component {
 
         {isOpen && (
           <NewBookingModalContent
+            restaurantTables={this.props.restaurantTables}
             buttonRef={n => (this.closeButtonNode = n)}
             handleSubmit={this.handleSubmit}
             modalRef={n => (this.modalNode = n)}
             onClickAway={this.onClickAway}
             onClose={this.onClose}
             onKeyDown={this.onKeyDown}
-            role='dialog'
+            role="dialog"
             handleCustomerIdChange={this.handleCustomerIdChange}
             handleTableIdChange={this.handleTableIdChange}
             handleStartTimeChange={this.handleStartTimeChange}

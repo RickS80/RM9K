@@ -70,7 +70,7 @@ class RestaurantManager extends Component {
     render(){
         return(
             <div className="restaurant-manager">
-            <Header customers={this.state.customers}/>
+            <Header customers={this.state.customers} restaurantTables={this.state.restaurantTables}/>
             <TableViewContainer clickEditBooking={this.clickEditBooking}/>
             <Footer/>
             </div>

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "../ModalContent.css";
 
 const NewBookingModalContent = (props) => {
+  
   function makeSelectTimeOptions() {
     const businessStartTime = 1100;
     const businessEndTime = 2200;
@@ -26,6 +27,10 @@ const NewBookingModalContent = (props) => {
     const hours = time.toString().substr(0, 2);
     const min = time.toString().substr(2, 3);
     return `${hours}:${min}`;
+  }
+
+  function makeTableOptions(){
+    console.log('tables arrived with modal', props.restaurantTables);
   }
 
   return ReactDOM.createPortal(
@@ -60,6 +65,7 @@ const NewBookingModalContent = (props) => {
               onChange={props.handleTableIdChange}
             />
             <br />
+            {console.log(makeTableOptions())}
             Customer ID: <br />
             <input
               type="number"
