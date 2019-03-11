@@ -58,7 +58,9 @@ class NewBookingModal extends Component {
 
   handleDateChange(evt){
     // change date format
-    this.setState({bookingDate: evt.target.value});
+    const date = evt.target.value;
+    const reversedDate = date.split(`-`).reverse().join(`-`);
+    this.setState({ bookingDate: reversedDate});
   }
 
   handleCoverChange(evt) {
