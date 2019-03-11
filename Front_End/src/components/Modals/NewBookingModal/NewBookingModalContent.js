@@ -14,13 +14,13 @@ const NewBookingModalContent = ({
   handleTableIdChange,
   handleCustomerIdChange,
   handleStartTimeChange,
-  handleCoverChange
+  handleCoverChange,
+  handleDateChange
 }) => {
-
-  function makeSelectTimeOptions (){
+  function makeSelectTimeOptions() {
     const businessStartTime = 1100;
     const businessEndTime = 2200;
-    let timeOptions = [] 
+    let timeOptions = [];
     let currentOption = businessStartTime;
     while (currentOption <= businessEndTime) {
       timeOptions.push(
@@ -28,18 +28,18 @@ const NewBookingModalContent = ({
           {prettifyTime(currentOption)}
         </option>
       );
-      currentOption += 30
-      if (currentOption % 100 === 60){
-        currentOption += 40
+      currentOption += 30;
+      if (currentOption % 100 === 60) {
+        currentOption += 40;
       }
     }
-    return timeOptions
+    return timeOptions;
   }
 
-  function prettifyTime(time){
-    const hours = time.toString().substr(0,2)
-    const min = time.toString().substr(2,3) 
-    return `${hours}:${min}`
+  function prettifyTime(time) {
+    const hours = time.toString().substr(0, 2);
+    const min = time.toString().substr(2, 3);
+    return `${hours}:${min}`;
   }
 
   return ReactDOM.createPortal(
@@ -77,6 +77,16 @@ const NewBookingModalContent = ({
               placeholder="Customer ID"
               onChange={handleCustomerIdChange}
             />
+            <br />
+            Date: <br />
+            <input
+              type="date"
+              name="bookingdate"
+              onInput={evt => {
+                handleDateChange(evt);
+              }}
+            >
+            </input>
             <br />
             StartTime: <br />
             <select name="starttime" onChange={handleStartTimeChange}>

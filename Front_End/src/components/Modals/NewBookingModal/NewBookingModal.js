@@ -16,6 +16,7 @@ class NewBookingModal extends Component {
     this.handleStartTimeChange = this.handleStartTimeChange.bind(this);
     this.handleCoverChange = this.handleCoverChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
   }
 
   onOpen = () => {
@@ -53,6 +54,11 @@ class NewBookingModal extends Component {
 
   handleStartTimeChange(evt) {
     this.setState({ startTime: evt.target.value });
+  }
+
+  handleDateChange(evt){
+    console.log(evt.target.value);
+    this.setState({date: evt.target.value});
   }
 
   handleCoverChange(evt) {
@@ -107,6 +113,7 @@ class NewBookingModal extends Component {
             handleTableIdChange={this.handleTableIdChange}
             handleStartTimeChange={this.handleStartTimeChange}
             handleCoverChange={this.handleCoverChange}
+            handleDateChange={this.handleDateChange}
           />
         )}
       </Fragment>
