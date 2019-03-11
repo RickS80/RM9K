@@ -10,15 +10,18 @@ const CustomerModalContent = ({
   onClose,
   onKeyDown,
   onFocus,
+  onSort,
   role = "dialog"
 }) => {
+  
   const customersList = customers.map(customer => {
     return (
-      <li>
-        ID: {customer.id}, Name: {customer.customerName}, Number:{" "}
-        {customer.customerNumber}, Number of Bookings:{" "}
-        {customer.customerBookings}
-      </li>
+      <tr key={customer.id}>
+        <td>{customer.id}</td>
+        <td>{customer.customerName}</td>
+        <td>{customer.customerNumber}</td>
+        <td>{customer.customerBookings}</td>
+      </tr>
     );
   });
 
@@ -39,7 +42,19 @@ const CustomerModalContent = ({
           </svg>
         </button>
 
-        <div className="c-modal__body">{customersList}</div>
+        <div className="c-modal__body">
+          <table>
+            <thead>
+              <tr>
+                <th onClick={evt => onSort(evt, "id")}>ID</th>
+                <th onClick={evt => onSort(evt, "customerName")}>Name:</th>
+                <th onClick={evt => onSort(evt, "customerNumber")}>Number:</th>
+                <th onClick={evt => onSort(evt, "customerBookings")}># of Bookings:</th>
+              </tr>
+            </thead>
+            <tbody>{customersList}</tbody>
+          </table>
+        </div>
       </div>
     </div>,
     document.body

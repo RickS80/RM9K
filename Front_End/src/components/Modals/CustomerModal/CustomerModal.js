@@ -6,8 +6,12 @@ class CustomerModal extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      // customers: []
     };
+  }
+
+  componentDidMount() {
   }
 
   onOpen = () => {
@@ -32,6 +36,23 @@ class CustomerModal extends Component {
     this.onClose();
   }
 
+  onSort = (evt, sortKey) => {
+  /*
+  assuming your data is something like
+  [
+    {accountname:'foo', negotiatedcontractvalue:'bar'},
+    {accountname:'monkey', negotiatedcontractvalue:'spank'},
+    {accountname:'chicken', negotiatedcontractvalue:'dance'},
+  ]
+  */
+    const unsortedCustomers = this.props.customers;
+    console.log(sortKey);
+    this.setState({ customers: unsortedCustomers });
+    
+  }
+
+  
+
   toggleScrollLock = () => document.querySelector('html').classList.toggle('u-lock-scroll');
 
   render() {
@@ -53,6 +74,7 @@ class CustomerModal extends Component {
             onClickAway={this.onClickAway}
             onClose={this.onClose}
             onKeyDown={this.onKeyDown}
+            onSort={this.onSort}
             role={role}
           />
         )}

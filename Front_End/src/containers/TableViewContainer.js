@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Table from '../components/Table';
+import DateSelector from '../components/DateSelector'
 
 class TableViewContainer extends Component{
 
@@ -11,8 +12,6 @@ class TableViewContainer extends Component{
          }
     }
 
-
-
     componentDidMount(){
         const url = "http://localhost:8080/bookings"
         fetch(url)
@@ -22,11 +21,19 @@ class TableViewContainer extends Component{
         })
     }
 
+    onDateSelect = (evt) => {
+        console.log("you picked a date!")
+        console.log(evt.target.value)
+    }
 
     render(){
         return(
             <div className="table-view-container">
+
             <Table  clickEditBooking={this.props.clickEditBooking} bookingsData={this.state.bookings}/>
+            <DateSelector onDateSelect={this.onDateSelect}/>
+            
+
             </div>
         )
     }
