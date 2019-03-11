@@ -9,9 +9,13 @@ class NewBookingModal extends Component {
       isOpen: false,
       tableId: null,
       customerId: null,
+      customerName: null,
+      customerContact: null,
       covers: null
     };
     this.handleCustomerIdChange = this.handleCustomerIdChange.bind(this);
+    this.handleCustomerNameChange = this.handleCustomerNameChange.bind(this);
+    this.handleCustomerContactChange = this.handleCustomerContactChange.bind(this);
     this.handleTableIdChange = this.handleTableIdChange.bind(this);
     this.handleStartTimeChange = this.handleStartTimeChange.bind(this);
     this.handleCoverChange = this.handleCoverChange.bind(this);
@@ -48,6 +52,14 @@ class NewBookingModal extends Component {
     this.setState({ customerId: evt.target.value });
   }
 
+  handleCustomerNameChange(evt){
+    this.setState({customerName: evt.target.value});
+  }
+
+  handleCustomerContactChange(evt) {
+    this.setState({ customerContact: evt.target.value });
+  }
+
   handleTableIdChange(evt) {
     this.setState({ tableId: evt.target.value });
   }
@@ -56,11 +68,14 @@ class NewBookingModal extends Component {
     this.setState({ startTime: evt.target.value });
   }
 
-  handleDateChange(evt){
+  handleDateChange(evt) {
     // change date format
     const date = evt.target.value;
-    const reversedDate = date.split(`-`).reverse().join(`-`);
-    this.setState({ bookingDate: reversedDate});
+    const reversedDate = date
+      .split(`-`)
+      .reverse()
+      .join(`-`);
+    this.setState({ bookingDate: reversedDate });
   }
 
   handleCoverChange(evt) {
@@ -79,19 +94,18 @@ class NewBookingModal extends Component {
       },
       body: JSON.stringify(this.prepJson())
     });
-    this.onClose()
+    this.onClose();
   }
 
-  prepJson(){
+  prepJson() {
     const path = "http://localhost:8080";
-    let newBooking =
-      {
-        customer: `${path}/customers/${this.state.customerId}`,
-        restaurantTable: `${path}/restaurantTables/${this.state.tableId}`,
-        date: `${this.state.bookingDate}`,
-        startTime: `${this.state.startTime}`,
-        covers: `${this.state.covers}`
-      } 
+    let newBooking = {
+      customer: `${path}/customers/${this.state.customerId}`,
+      restaurantTable: `${path}/restaurantTables/${this.state.tableId}`,
+      date: `${this.state.bookingDate}`,
+      startTime: `${this.state.startTime}`,
+      covers: `${this.state.covers}`
+    };
     return newBooking;
   }
 
@@ -117,6 +131,8 @@ class NewBookingModal extends Component {
             onKeyDown={this.onKeyDown}
             role="dialog"
             handleCustomerIdChange={this.handleCustomerIdChange}
+            handleCustomerNameChange={this.handleCustomerNameChange}
+            handleCustomerContactChange={this.handleCustomerContactChange}
             handleTableIdChange={this.handleTableIdChange}
             handleStartTimeChange={this.handleStartTimeChange}
             handleCoverChange={this.handleCoverChange}
