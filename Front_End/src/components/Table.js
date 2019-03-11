@@ -29,16 +29,16 @@ const Table = (props) => {
       for(var i=0; i < tables.length; i++){
          for(var j=0; j < props.bookingsData.length; j++){
             if (tables[i] === props.bookingsData[j].restaurantTable.tableNumber){
+              let number = props.bookingsData[j].id
                data.push(
                 <tr>  
-                <td>{tables[i]}</td> 
-                <td id={props.bookingsData[j].id} onClick={evt => {props.clickEditBooking()}}>{props.bookingsData[j].customer.customerName}</td>   
+                <td>{tables[i]}</td>
+                <td id={props.bookingsData[j].id} onClick={evt => {props.clickEditBooking(number)}}>{props.bookingsData[j].customer.customerName}</td>   
                 </tr>)
             }
       }
      }
      dataForTabella.push(...data)
-     console.log(...dataForTabella)
     }
 
 
