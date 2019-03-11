@@ -30,7 +30,21 @@ const NewBookingModalContent = (props) => {
   }
 
   function makeTableOptions(){
-    console.log('tables arrived with modal', props.restaurantTables);
+    const allRestaurantTables = props.restaurantTables;
+    
+    const arrayOfRestaurantTables = []
+
+    for (var i = 0; i < allRestaurantTables.length; i++) {
+      
+      arrayOfRestaurantTables.push(
+        <option value={allRestaurantTables[i].id}>
+          Table Number: {allRestaurantTables[i].tableNumber}, Covers:
+          {allRestaurantTables[i].capacity}
+        </option>
+      );
+    }
+
+    return arrayOfRestaurantTables
   }
 
   return ReactDOM.createPortal(
@@ -58,14 +72,15 @@ const NewBookingModalContent = (props) => {
           <h1>Add New Booking</h1>
           <form onSubmit={props.handleSubmit}>
             Table ID: <br />
-            <input
-              type="number"
-              name="tableId"
-              placeholder="Table ID"
-              onChange={props.handleTableIdChange}
-            />
-            <br />
-            {console.log(makeTableOptions())}
+            <select onChange={props.handleTableIdChange}>
+              <option value="" disabled selected>
+                Please Select a Table
+              </option>
+              {makeTableOptions()}
+            </select>
+            
+            
+            <br/>
             Customer ID: <br />
             <input
               type="number"
