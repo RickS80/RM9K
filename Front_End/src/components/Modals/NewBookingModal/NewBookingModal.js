@@ -10,17 +10,20 @@ class NewBookingModal extends Component {
       tableId: null,
       customerId: null,
       customerName: null,
-      customerContact: null,
+      customerNumber: null,
       covers: null
     };
     this.handleCustomerIdChange = this.handleCustomerIdChange.bind(this);
     this.handleCustomerNameChange = this.handleCustomerNameChange.bind(this);
-    this.handleCustomerContactChange = this.handleCustomerContactChange.bind(this);
+    this.handleCustomerNumberChange = this.handleCustomerNumberChange.bind(
+      this
+    );
     this.handleTableIdChange = this.handleTableIdChange.bind(this);
     this.handleStartTimeChange = this.handleStartTimeChange.bind(this);
     this.handleCoverChange = this.handleCoverChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
+    this.checkIfInArray = this.checkIfInArray.bind(this);
   }
 
   onOpen = () => {
@@ -52,12 +55,12 @@ class NewBookingModal extends Component {
     this.setState({ customerId: evt.target.value });
   }
 
-  handleCustomerNameChange(evt){
-    this.setState({customerName: evt.target.value});
+  handleCustomerNameChange(evt) {
+    this.setState({ customerName: evt.target.value });
   }
 
-  handleCustomerContactChange(evt) {
-    this.setState({ customerContact: evt.target.value });
+  handleCustomerNumberChange(evt) {
+    this.setState({ customerNumber: evt.target.value });
   }
 
   handleTableIdChange(evt) {
@@ -82,8 +85,33 @@ class NewBookingModal extends Component {
     this.setState({ covers: evt.target.value });
   }
 
+  checkIfInArray(customerName, customerNumber, arrayOfCustomers) {
+    let result = false;
+    arrayOfCustomers.forEach(customer => {
+      console.log(customer);
+      if (
+        customer.customerName == customerName &&
+        customer.customerNumber == customerNumber
+      ) {
+        result = true;
+      }
+    });
+    return result;
+  }
+
   handleSubmit(evt) {
     evt.preventDefault();
+    const customerExists = this.checkIfInArray(
+      this.state.customerName,
+      this.state.customerNumber,
+      this.props.customers
+    );
+    console.log(customerExists);
+    // go through customers[] and check if customerName and Number exist.
+    // if so: retrieve Customer ID and post booking to DB
+    // if not, make new customer
+    // then retrieve Customer ID and post booking to DB
+
     // posting data happens here
     const path = "http://localhost:8080";
     fetch(`${path}/bookings`, {
@@ -132,7 +160,7 @@ class NewBookingModal extends Component {
             role="dialog"
             handleCustomerIdChange={this.handleCustomerIdChange}
             handleCustomerNameChange={this.handleCustomerNameChange}
-            handleCustomerContactChange={this.handleCustomerContactChange}
+            handleCustomerNumberChange={this.handleCustomerNumberChange}
             handleTableIdChange={this.handleTableIdChange}
             handleStartTimeChange={this.handleStartTimeChange}
             handleCoverChange={this.handleCoverChange}

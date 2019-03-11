@@ -99,12 +99,12 @@ const NewBookingModalContent = (props) => {
             />
 
             <br />
-            Customer Contact:
+            Customer Number:
             <input
               type="number"
-              name="customerContact"
+              name="customerNumber"
               placeholder="Customer Phone"
-              onChange={props.handleCustomerContactChange}
+              onChange={props.handleCustomerNumberChange}
             />
 
 
