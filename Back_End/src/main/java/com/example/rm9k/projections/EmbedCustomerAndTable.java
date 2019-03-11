@@ -12,6 +12,7 @@ public interface EmbedCustomerAndTable {
     Long getId();
     Customer getCustomer();
     RestaurantTable getRestaurantTable();
+    String getDate();
     String getStartTime();
     int getCovers();
     double getTotalSpent();

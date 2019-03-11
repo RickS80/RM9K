@@ -20,6 +20,9 @@ public class Booking {
     @JoinColumn(name ="table_id", nullable = false)
     private RestaurantTable restaurantTable;
 
+    @Column(name = "date")
+    private String date;
+
     @Column(name = "start_time")
     private String startTime;
 
@@ -32,9 +35,10 @@ public class Booking {
 
 
     public Booking(Customer customer, RestaurantTable restaurantTable,
-                   String startTime, int covers) {
+                   String date, String startTime, int covers) {
         this.customer = customer;
         this.restaurantTable = restaurantTable;
+        this.date = date;
         this.startTime = startTime;
         this.covers = covers;
         this.totalSpent = 0.00;
@@ -67,6 +71,14 @@ public class Booking {
 
     public void setRestaurantTable(RestaurantTable restaurantTable) {
         this.restaurantTable = restaurantTable;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getStartTime() {
