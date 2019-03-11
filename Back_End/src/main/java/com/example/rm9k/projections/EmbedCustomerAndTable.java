@@ -11,4 +11,7 @@ import org.springframework.data.rest.core.config.Projection;
 public interface EmbedCustomerAndTable {
     Customer getCustomer();
     RestaurantTable getRestaurantTable();
+    String getStartTime();
+    int getCovers();
+    double getTotalSpent();
 }
