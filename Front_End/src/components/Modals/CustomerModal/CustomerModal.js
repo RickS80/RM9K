@@ -1,18 +1,17 @@
-import React, { Component, Fragment } from 'react';
-import CustomerModalTrigger from './CustomerModalTrigger';
-import CustomerModalContent from './CustomerModalContent';
+import React, { Component, Fragment } from "react";
+import CustomerModalTrigger from "./CustomerModalTrigger";
+import CustomerModalContent from "./CustomerModalContent";
 
 class CustomerModal extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      isOpen: false,
+      isOpen: false
       // customers: []
     };
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   onOpen = () => {
     this.setState({ isOpen: true }, () => {
@@ -27,17 +26,17 @@ class CustomerModal extends Component {
     this.toggleScrollLock();
   };
 
-  onKeyDown = (evt) => {
+  onKeyDown = evt => {
     return evt.keyCode === 27 && this.onClose();
-  }
+  };
 
-  onClickAway = (evt) => {
+  onClickAway = evt => {
     if (this.modalNode && this.modalNode.contains(evt.target)) return;
     this.onClose();
-  }
+  };
 
   onSort = (evt, sortKey) => {
-  /*
+    /*
   assuming your data is something like
   [
     {accountname:'foo', negotiatedcontractvalue:'bar'},
@@ -48,12 +47,10 @@ class CustomerModal extends Component {
     const unsortedCustomers = this.props.customers;
     console.log(sortKey);
     this.setState({ customers: unsortedCustomers });
-    
-  }
+  };
 
-  
-
-  toggleScrollLock = () => document.querySelector('html').classList.toggle('u-lock-scroll');
+  toggleScrollLock = () =>
+    document.querySelector("html").classList.toggle("u-lock-scroll");
 
   render() {
     const { isOpen } = this.state;
@@ -61,7 +58,7 @@ class CustomerModal extends Component {
     return (
       <Fragment>
         <CustomerModalTrigger
-          buttonRef={n => this.openButtonNode = n}
+          buttonRef={n => (this.openButtonNode = n)}
           buttonText={triggerText}
           onOpen={this.onOpen}
         />

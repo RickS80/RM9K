@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import '../ModalContent.css'
+import React from "react";
+import ReactDOM from "react-dom";
+import "../ModalContent.css";
 
 const NewBookingModalContent = ({
   buttonRef,
@@ -53,4 +53,4 @@ const NewBookingModalContent = ({
   );
 };
 
-export default NewBookingModalContent
+export default NewBookingModalContent;

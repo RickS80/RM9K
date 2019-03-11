@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from 'react';
-import NewBookingModalContent from './NewBookingModalContent'
-import NewBookingModalTrigger from './NewBookingModalTrigger';
+import React, { Component, Fragment } from "react";
+import NewBookingModalContent from "./NewBookingModalContent";
+import NewBookingModalTrigger from "./NewBookingModalTrigger";
 
 class NewBookingModal extends Component {
   constructor(props) {
@@ -34,11 +34,12 @@ class NewBookingModal extends Component {
 
   handleSubmit = evt => {
     evt.preventDefault();
-    console.log(evt)
+    console.log(evt);
     // posting data happens here
-  }
+  };
 
-  toggleScrollLock = () => document.querySelector("html").classList.toggle("u-lock-scroll");
+  toggleScrollLock = () =>
+    document.querySelector("html").classList.toggle("u-lock-scroll");
 
   render() {
     const { isOpen } = this.state;
@@ -66,5 +67,5 @@ class NewBookingModal extends Component {
     );
   }
 }
- 
+
 export default NewBookingModal;
