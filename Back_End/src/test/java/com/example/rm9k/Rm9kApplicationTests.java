@@ -12,7 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+<<<<<<< HEAD
 import static org.junit.Assert.assertEquals;
+=======
+import java.util.List;
+>>>>>>> develop
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -50,9 +54,14 @@ public class Rm9kApplicationTests {
 		customerRepository.save(customer);
 		RestaurantTable restaurantTable = new RestaurantTable(17, 5);
 		restaurantTableRepository.save(restaurantTable);
-		Booking booking = new Booking(customer, restaurantTable, "1900", 3);
+		Booking booking = new Booking(customer, restaurantTable, "04-08-2019","1900",33);
 		bookingRepository.save(booking);
 	}
 
+	@Test
+	public void findBookingsByDate(){
+		List<Booking> found = bookingRepository.findBookingsByDate("04-08-2019");
+
+	}
 
 }
