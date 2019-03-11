@@ -11,19 +11,19 @@ class NewBookingModal extends Component {
       customerId: null,
       customerName: null,
       customerNumber: null,
-      covers: null
+      covers: null,
+      bookingDate: null,
+      startTime: null
     };
     this.handleCustomerIdChange = this.handleCustomerIdChange.bind(this);
     this.handleCustomerNameChange = this.handleCustomerNameChange.bind(this);
-    this.handleCustomerNumberChange = this.handleCustomerNumberChange.bind(
-      this
-    );
+    this.handleCustomerNumberChange = this.handleCustomerNumberChange.bind(this);
     this.handleTableIdChange = this.handleTableIdChange.bind(this);
     this.handleStartTimeChange = this.handleStartTimeChange.bind(this);
     this.handleCoverChange = this.handleCoverChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
-    this.checkIfInArray = this.checkIfInArray.bind(this);
+    this.findCustomerInArray = this.findCustomerInArray.bind(this);
   }
 
   onOpen = () => {
@@ -85,15 +85,15 @@ class NewBookingModal extends Component {
     this.setState({ covers: evt.target.value });
   }
 
-  checkIfInArray(customerName, customerNumber, arrayOfCustomers) {
-    let result = false;
+  findCustomerInArray(customerName, customerNumber, arrayOfCustomers) {
+    let result = null;
     arrayOfCustomers.forEach(customer => {
       console.log(customer);
       if (
-        customer.customerName == customerName &&
-        customer.customerNumber == customerNumber
+        customer.customerName === customerName &&
+        customer.customerNumber === customerNumber
       ) {
-        result = true;
+        result = customer;
       }
     });
     return result;
@@ -101,31 +101,32 @@ class NewBookingModal extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    const customerExists = this.checkIfInArray(
+    const existingCustomer = this.findCustomerInArray( // check if the customer from the new booking already exists, and find it
       this.state.customerName,
       this.state.customerNumber,
       this.props.customers
     );
-    console.log(customerExists);
-    // go through customers[] and check if customerName and Number exist.
-    // if so: retrieve Customer ID and post booking to DB
-    // if not, make new customer
-    // then retrieve Customer ID and post booking to DB
+    console.log(`customer id:`, existingCustomer);
+    if (existingCustomer) {
+      this.setState({ customerId: existingCustomer.id }); // set the existing customers Id into state
+      console.log(this.prepBookingJson()); // this isn't working (can't set state properly?)
+      this.makeBookingPost(); // post the new booking with the existing customers Id
+    } else {
+      this.makeCustomerPost(); // create a new customer with current state (name and number)
+      const newCustomer = this.findCustomerInArray( // fetch the newly created customer
+      this.state.customerName,
+      this.state.customerNumber,
+      this.props.customers
+      );
+      this.setState({ customerId: newCustomer.id }); // set the new customer id into state
+      this.makeBookingPost(); // POST (with new customer ID)
+    }
 
-    // posting data happens here
-    const path = "http://localhost:8080";
-    fetch(`${path}/bookings`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(this.prepJson())
-    });
-    this.onClose();
+  
+    this.onClose(); // close the modal
   }
 
-  prepJson() {
+  prepBookingJson() {
     const path = "http://localhost:8080";
     let newBooking = {
       customer: `${path}/customers/${this.state.customerId}`,
@@ -135,6 +136,38 @@ class NewBookingModal extends Component {
       covers: `${this.state.covers}`
     };
     return newBooking;
+  }
+
+  makeBookingPost() {
+    const path = "http://localhost:8080";
+    fetch(`${path}/bookings`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(this.prepBookingJson())
+    });
+  }
+
+  prepCustomerJson() {
+    let newCustomer = {
+      customerName: `${this.state.customerName}`,
+      customerNumber: `${this.state.customerNumber}`,
+    };
+    return newCustomer;
+  }
+
+  makeCustomerPost(){
+    const path = "http://localhost:8080";
+    fetch(`${path}/customers`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(this.prepCustomerJson())
+    });
   }
 
   render() {
