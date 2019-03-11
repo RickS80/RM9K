@@ -3,6 +3,7 @@ package com.example.rm9k;
 
 import com.example.rm9k.models.Booking;
 import com.example.rm9k.models.Customer;
+import com.example.rm9k.models.RestaurantTable;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,12 +11,15 @@ import static org.junit.Assert.assertEquals;
 
 public class CustomerTest {
     Customer customer;
-    Booking booking;
+    RestaurantTable restaurantTable;
+    Booking booking
+
 
     @Before
     public void before() {
         customer = new Customer ("Davide", "123345");
-//        booking = new Booking();
+        restaurantTable = new RestaurantTable(3, 6);
+        booking = new Booking(customer, restaurantTable, "09-07-2019",2 );
     }
 
 
@@ -24,11 +28,14 @@ public class CustomerTest {
         assertEquals("Davide",customer.getCustomerName());
     }
 
-//    @Test
-//    public  void canAddBookingToCustomer(){
-//        customer.addBookingToCustomer(booking);
-//        assertEquals(1, customer.getCustomerBookings());
-//    }
+    @Test
+    public void bookingsStartsEmpty(){
+        assertEquals(0, customer.getBookingLength());
+
+    }
+
+
+
 
 
 

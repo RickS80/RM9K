@@ -71,6 +71,10 @@ public class Customer {
         return bookings;
     }
 
+    public int getBookingLength(){
+        return this.bookings.size();
+    }
+
     public void setBookings(List<Booking> bookings) {
         this.bookings = bookings;
     }

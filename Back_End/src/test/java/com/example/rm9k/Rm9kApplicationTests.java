@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static org.junit.Assert.assertEquals;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class Rm9kApplicationTests {
@@ -51,5 +53,6 @@ public class Rm9kApplicationTests {
 		Booking booking = new Booking(customer, restaurantTable, "1900", 3);
 		bookingRepository.save(booking);
 	}
+
 
 }
