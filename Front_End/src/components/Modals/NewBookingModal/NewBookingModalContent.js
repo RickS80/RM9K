@@ -12,8 +12,25 @@ const NewBookingModalContent = ({
   onKeyDown,
   role = "dialog",
   handleTableIdChange,
-  handleCustomerIdChange
+  handleCustomerIdChange,
+  handleStartTimeChange
 }) => {
+
+  function makeSelectTimeOptions (){
+    const businessStartTime = 1100;
+    const businessEndTime = 2200;
+    let timeOptions = [] 
+    let currentOption = businessStartTime;
+    while (currentOption <= businessEndTime) {
+      timeOptions.push(<option value={currentOption}>{currentOption}</option>)
+      currentOption += 30
+      if (currentOption % 100 === 60){
+        currentOption += 40
+      }
+    }
+    return timeOptions
+  }
+
   return ReactDOM.createPortal(
     <div
       className="c-modal-cover"
@@ -35,11 +52,30 @@ const NewBookingModalContent = ({
           <h1>Add New Booking</h1>
           <form onSubmit={handleSubmit}>
             Table ID: <br />
-            <input type="number" name="tableId" onChange={handleTableIdChange}/>
+            <input
+              type="number"
+              name="tableId"
+              onChange={handleTableIdChange}
+            />
             <br />
             Customer ID: <br />
-            <input type="number" name="customerId" onChange={handleCustomerIdChange}/>
+            <input
+              type="number"
+              name="customerId"
+              onChange={handleCustomerIdChange}
+            />
             <br />
+            StartTime: <br />
+            <select name="starttime" onChange={handleStartTimeChange}>
+              {makeSelectTimeOptions()}
+            </select>
+            <br />
+            Covers: <br />
+            <input
+              type="number"
+              name="covers"
+              onChange={handleCoverChange}
+            />
             <br />
             <input type="submit" value="Add Booking" />
           </form>

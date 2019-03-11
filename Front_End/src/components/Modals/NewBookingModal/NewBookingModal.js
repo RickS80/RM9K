@@ -9,9 +9,12 @@ class NewBookingModal extends Component {
       isOpen: false,
       tableId: null,
       customerId: null,
+      covers: null
     };
     this.handleCustomerIdChange = this.handleCustomerIdChange.bind(this);
     this.handleTableIdChange = this.handleTableIdChange.bind(this);
+    this.handleStartTimeChange = this.handleStartTimeChange.bind(this);
+    this.handleCoverChange = this.handleCoverChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -37,12 +40,24 @@ class NewBookingModal extends Component {
     this.onClose();
   };
 
+  toggleScrollLock = () =>
+    document.querySelector("html").classList.toggle("u-lock-scroll");
+
   handleCustomerIdChange(evt) {
     this.setState({ customerId: evt.target.value });
   }
 
   handleTableIdChange(evt) {
     this.setState({ tableId: evt.target.value });
+  }
+
+  handleStartTimeChange(evt) {
+    this.setState({ startTime: evt.target.value });
+  }
+
+  handleCoverChange(evt) {
+    console.log(evt.target.value);
+    this.setState({ covers: evt.target.value });
   }
 
   handleSubmit(evt) {
@@ -62,13 +77,11 @@ class NewBookingModal extends Component {
         customer: `${path}/customers/${this.state.customerId}`,
         restaurantTable: `${path}/restaurantTables/${this.state.tableId}`,
         date: "05/07/2019",
-        startTime: "1900",
+        startTime: `${this.state.startTime}`,
         covers: 3
       })
     });
   }
-
-  toggleScrollLock = () => document.querySelector("html").classList.toggle("u-lock-scroll");
 
   render() {
     const { isOpen } = this.state;
@@ -92,6 +105,8 @@ class NewBookingModal extends Component {
             role={role}
             handleCustomerIdChange={this.handleCustomerIdChange}
             handleTableIdChange={this.handleTableIdChange}
+            handleStartTimeChange={this.handleStartTimeChange}
+            handleCoverChange={this.handleCoverChange}
           />
         )}
       </Fragment>
