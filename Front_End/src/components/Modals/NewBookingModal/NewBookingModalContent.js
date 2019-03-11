@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import '../ModalContent.css'
+import React from "react";
+import ReactDOM from "react-dom";
+import "../ModalContent.css";
 
 const NewBookingModalContent = ({
   buttonRef,
@@ -85,11 +85,13 @@ const NewBookingModalContent = ({
               onInput={evt => {
                 handleDateChange(evt);
               }}
-            >
-            </input>
+            />
             <br />
             StartTime: <br />
             <select name="starttime" onChange={handleStartTimeChange}>
+              <option value="" disabled selected>
+                Please Select a Time
+              </option>
               {makeSelectTimeOptions()}
             </select>
             <br />
@@ -110,4 +112,4 @@ const NewBookingModalContent = ({
   );
 };
 
-export default NewBookingModalContent
+export default NewBookingModalContent;

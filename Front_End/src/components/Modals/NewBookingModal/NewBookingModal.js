@@ -79,6 +79,7 @@ class NewBookingModal extends Component {
       },
       body: JSON.stringify(this.prepJson())
     });
+    this.onClose()
   }
 
   prepJson(){

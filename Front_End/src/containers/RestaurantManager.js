@@ -20,7 +20,6 @@ class RestaurantManager extends Component {
     clickEditBooking(evt){
         console.log(evt);
     }
-
     
     // componentDidMount(){
     //     const url = "http://localhost:8080/bookings"
