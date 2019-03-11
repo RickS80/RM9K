@@ -32,12 +32,12 @@ public class Booking {
 
 
     public Booking(Customer customer, RestaurantTable restaurantTable,
-                   String startTime, int covers, double totalSpent) {
+                   String startTime, int covers) {
         this.customer = customer;
         this.restaurantTable = restaurantTable;
         this.startTime = startTime;
         this.covers = covers;
-        this.totalSpent = totalSpent;
+        this.totalSpent = 0.00;
     }
 
 
