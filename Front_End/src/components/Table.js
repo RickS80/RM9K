@@ -43,13 +43,36 @@ class Table extends Component{
       console.log(this.props.bookingsData)
       const toUpdate = []
       for(var i=0; i < this.state.tables.length; i++){
-               toUpdate.push(
+        const foundBooking = this.props.bookingsData.find((booking) => booking.restaurantTable.tableNumber === this.state.tables[i])
+        console.log(foundBooking)
+        if (foundBooking) {
+        toUpdate.push(
                 <tr>  
                 <td>{this.state.tables[i]}</td>
-                <BookingRow bookingsData={this.props.bookingsData}/>
+                <BookingRow bookingsData={[foundBooking]}/>
+                </tr> 
+                )
+    }else{
+        toUpdate.push(
+                <tr>  
+                <td>{this.state.tables[i]}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 </tr>
                  )    
-     }
+                }
+              }
     return(
       <div>
       <table>
