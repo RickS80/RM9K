@@ -9,7 +9,6 @@ import org.springframework.data.rest.core.config.Projection;
 
 @Projection(name = "embedCustomerAndTable", types = Booking.class)
 public interface EmbedCustomerAndTable {
-    int getId();
     Customer getCustomer();
     RestaurantTable getRestaurantTable();
 }

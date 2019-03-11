@@ -12,12 +12,10 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name ="table_id", nullable = false)
     private RestaurantTable restaurantTable;

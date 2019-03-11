@@ -50,7 +50,6 @@ public class Rm9kApplicationTests {
 		restaurantTableRepository.save(restaurantTable);
 		Booking booking = new Booking(customer, restaurantTable);
 		bookingRepository.save(booking);
-
 	}
 
 }

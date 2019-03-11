@@ -23,7 +23,7 @@ public class Customer {
     @Column(name ="customer_contact")
     private String customerNumber;
 
-    @JsonIgnoreProperties("customer")
+    @JsonIgnore
     @OneToMany(mappedBy = "customer")
     private List<Booking> bookings;
 
@@ -65,10 +65,6 @@ public class Customer {
 
     public void addBookingToCustomer(Booking booking){
         this.bookings.add(booking);
-    }
-
-    public int getCustomerBookings(){
-        return this.bookings.size();
     }
 
     public List<Booking> getBookings() {
