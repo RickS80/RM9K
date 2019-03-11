@@ -12,14 +12,14 @@ import static org.junit.Assert.assertEquals;
 public class CustomerTest {
     Customer customer;
     RestaurantTable restaurantTable;
-    Booking booking
+    Booking booking;
 
 
     @Before
     public void before() {
         customer = new Customer ("Davide", "123345");
         restaurantTable = new RestaurantTable(3, 6);
-        booking = new Booking(customer, restaurantTable, "09-07-2019",2 );
+        booking = new Booking(customer, restaurantTable, "12-01-2018","0900",2 );
     }
 
 
@@ -29,10 +29,11 @@ public class CustomerTest {
     }
 
     @Test
-    public void bookingsStartsEmpty(){
-        assertEquals(0, customer.getBookingLength());
-
+    public void canAddBooking(){
+        customer.addBookingToCustomer(booking);
+        assertEquals(1, customer.getBookingLength());
     }
+
 
 
 
