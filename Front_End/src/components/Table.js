@@ -2,14 +2,6 @@ import React from 'react';
 
 const Table = (props) => {
 
-  const bookingsDataForList = props.bookingsData.map((booking) => {
-     return <ul>
-            <li>{"Name"} : {booking.customer.customerName}</li>
-            <li>{"Number"} {booking.customer.customerNumber}</li>
-            <li>{"Table Number"} : {booking.restaurantTable.tableNumber} </li>
-            </ul>
-  })
-
 
     const tables = [1,2,3,4,5,6,7,8,9,10]
     const tablesData = tables.map((table) =>{
@@ -44,10 +36,6 @@ const Table = (props) => {
 
     return(
 
-      // <div>
-      //   {bookingsDataForList}
-      // </div>
-
 
 
       <div>
@@ -65,55 +53,6 @@ const Table = (props) => {
           </tbody>
       </table>
       </div>
-
-      // <div>
-      // <table>
-      //     <thead>
-      //     <tr>
-      //       <th></th>
-      //       {tablesData}
-      //     </tr>
-      //     </thead>
-      //       <tbody>
-      //     <tr>
-      //       <td >12.00</td>
-      //     </tr>
-      //     <tr>
-      //       <td>12.30</td>
-      //     </tr>
-      //     <tr>
-      //       <td>13.00</td>
-      //     </tr>
-      //     <tr>
-      //       <td>13.30</td>
-      //     </tr>
-      //     <tr>
-      //       <td>14.00</td>  
-      //     </tr>
-      //     <tr>
-      //       <td>14.30</td>
-      //     </tr>
-      //     <tr>
-      //       <td>15.00</td>
-      //     </tr>
-      //     <tr>
-      //       <td>15.30</td>
-      //     </tr>
-      //     <tr>
-      //       <td>16.00</td>
-      //     </tr>
-      //     <tr>
-      //       <td>16.30</td>
-      //     </tr>
-      //     <tr>
-      //       <td>17.00</td>
-      //     </tr>
-      //     <tr>
-      //       <td>17.30</td>
-      //     </tr>
-      //     </tbody>
-      // </table>
-      // </div>
 
     )
 }
