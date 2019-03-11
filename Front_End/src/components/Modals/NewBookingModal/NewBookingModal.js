@@ -6,8 +6,12 @@ class NewBookingModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      tableId: null,
+      customerId: null,
     };
+    this.handleCustomerIdChange = this.handleCustomerIdChange.bind(this);
+    this.handleTableIdChange = this.handleTableIdChange.bind(this);
   }
 
   onOpen = () => {
@@ -32,11 +36,30 @@ class NewBookingModal extends Component {
     this.onClose();
   };
 
-  handleSubmit = evt => {
+  handleCustomerIdChange(evt) {
+    this.setState({ customerId: evt.target.value });
+  }
+
+  handleTableIdChange(evt) {
+    this.setState({ tableId: evt.target.value });
+  }
+
+  handleSubmit(evt) {
     evt.preventDefault();
-    console.log(evt)
+    console.log("customerId: ", this.state.customerId);
+    console.log("tableId: ", this.state.tableId);
     // posting data happens here
   }
+
+  createbookingJson(customerId, tableId){
+    const path = "http://localhost:8080"
+    const json = {
+      "customer": `${path}/customers/${customerId}`,
+      "restaurantTable": `${path}/customers/${tableId}`
+    }
+    return json
+  }
+
 
   toggleScrollLock = () => document.querySelector("html").classList.toggle("u-lock-scroll");
 
@@ -60,6 +83,8 @@ class NewBookingModal extends Component {
             onClose={this.onClose}
             onKeyDown={this.onKeyDown}
             role={role}
+            handleCustomerIdChange={this.handleCustomerIdChange}
+            handleTableIdChange={this.handleTableIdChange}
           />
         )}
       </Fragment>

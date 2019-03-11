@@ -10,7 +10,9 @@ const NewBookingModalContent = ({
   onClose,
   onFocus,
   onKeyDown,
-  role = "dialog"
+  role = "dialog",
+  handleTableIdChange,
+  handleCustomerIdChange
 }) => {
   return ReactDOM.createPortal(
     <div
@@ -29,16 +31,14 @@ const NewBookingModalContent = ({
           </svg>
         </button>
 
-        {/* //TODO: stop default behaviour (page refresh); */}
-
         <div className="c-modal__body">
           <h1>Add New Booking</h1>
-          <form action="/bookings" method="POST" onSubmit={handleSubmit}>
+          <form action="/bookings/" method="POST" onSubmit={handleSubmit}>
             Table Number: <br />
-            <input type="text" name="tableNumber" />
+            <input type="number" name="tableId" onChange={handleTableIdChange}/>
             <br />
             Customer Name: <br />
-            <input type="text" name="customerName" />
+            <input type="number" name="customerId" onChange={handleCustomerIdChange}/>
             <br />
             Customer Number: <br />
             <input type="text" name="customerNumber" />
