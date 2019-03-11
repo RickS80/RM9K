@@ -2,21 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "../ModalContent.css";
 
-const NewBookingModalContent = ({
-  buttonRef,
-  handleSubmit,
-  modalRef,
-  onClickAway,
-  onClose,
-  onFocus,
-  onKeyDown,
-  role = "dialog",
-  handleTableIdChange,
-  handleCustomerIdChange,
-  handleStartTimeChange,
-  handleCoverChange,
-  handleDateChange
-}) => {
+const NewBookingModalContent = (props) => {
   function makeSelectTimeOptions() {
     const businessStartTime = 1100;
     const businessEndTime = 2200;
@@ -45,14 +31,18 @@ const NewBookingModalContent = ({
   return ReactDOM.createPortal(
     <div
       className="c-modal-cover"
-      onFocus={onFocus}
-      onKeyDown={onKeyDown}
-      onClick={onClickAway}
-      role={role}
+      onFocus={props.onFocus}
+      onKeyDown={props.onKeyDown}
+      onClick={props.onClickAway}
+      role={props.role}
       tabIndex="-1"
     >
-      <div className="c-modal" ref={modalRef}>
-        <button className="c-modal__close" onClick={onClose} ref={buttonRef}>
+      <div className="c-modal" ref={props.modalRef}>
+        <button
+          className="c-modal__close"
+          onClick={props.onClose}
+          ref={props.buttonRef}
+        >
           <span className="u-hide-visually">Close</span>
           <svg className="c-modal__close-icon" viewBox="0 0 40 40">
             <path d="M 10,10 L 30,30 M 30,10 L 10,30" />
@@ -61,13 +51,13 @@ const NewBookingModalContent = ({
 
         <div className="c-modal__body">
           <h1>Add New Booking</h1>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={props.handleSubmit}>
             Table ID: <br />
             <input
               type="number"
               name="tableId"
               placeholder="Table ID"
-              onChange={handleTableIdChange}
+              onChange={props.handleTableIdChange}
             />
             <br />
             Customer ID: <br />
@@ -75,7 +65,7 @@ const NewBookingModalContent = ({
               type="number"
               name="customerId"
               placeholder="Customer ID"
-              onChange={handleCustomerIdChange}
+              onChange={props.handleCustomerIdChange}
             />
             <br />
             Date: <br />
@@ -83,12 +73,12 @@ const NewBookingModalContent = ({
               type="date"
               name="bookingdate"
               onInput={evt => {
-                handleDateChange(evt);
+                props.handleDateChange(evt);
               }}
             />
             <br />
             StartTime: <br />
-            <select name="starttime" onChange={handleStartTimeChange}>
+            <select name="starttime" onChange={props.handleStartTimeChange}>
               <option value="" disabled selected>
                 Please Select a Time
               </option>
@@ -100,7 +90,7 @@ const NewBookingModalContent = ({
               type="number"
               name="covers"
               placeholder="Covers"
-              onChange={handleCoverChange}
+              onChange={props.handleCoverChange}
             />
             <br />
             <input type="submit" value="Add Booking" />

@@ -97,7 +97,7 @@ class NewBookingModal extends Component {
 
   render() {
     const { isOpen } = this.state;
-    const { triggerText, role } = this.props;
+    const { triggerText } = this.props;
     return (
       <Fragment>
         <NewBookingModalTrigger
@@ -114,7 +114,7 @@ class NewBookingModal extends Component {
             onClickAway={this.onClickAway}
             onClose={this.onClose}
             onKeyDown={this.onKeyDown}
-            role={role}
+            role='dialog'
             handleCustomerIdChange={this.handleCustomerIdChange}
             handleTableIdChange={this.handleTableIdChange}
             handleStartTimeChange={this.handleStartTimeChange}
