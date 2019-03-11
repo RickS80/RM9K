@@ -10,56 +10,36 @@ const Table = (props) => {
             </ul>
   })
 
-  const bookingsDataForTable = props.bookingsData.map((booking) => {
-    // console.log(booking)
-     return <td value={booking.restaurantTable.tableNumber}>{booking.customer.customerName}</td>
-  })
 
     const tables = [1,2,3,4,5,6,7,8,9,10]
     const tablesData = tables.map((table) =>{
       return <tr><td value={table} key={table}>Table{table}</td></tr>
     })
     
-    const times = ["12.00","12.30","13.00","13.30","14.00","14.30","15.00","15.30","16.00","16.30"]
+    const times = ["12.00","12.30","13.00","13.30","14.00","14.30","15.00","15.30","16.00","16.30","17.00","17.30","18.00"]
     const timesData = times.map((time) =>{
       return <th>{time}</th>
     })
+
 
     const dataForTabella = []
 
       function makeData(){
       var data = []
       for(var i=0; i < tables.length; i++){
-         for(var j=0; j < bookingsDataForTable.length; j++){
-            if (tables[i] === bookingsDataForTable[j].props.value){
-
+         for(var j=0; j < props.bookingsData.length; j++){
+            if (tables[i] === props.bookingsData[j].restaurantTable.tableNumber){
                data.push(
                 <tr>  
                 <td>{tables[i]}</td> 
-                <td>{bookingsDataForTable[j].props.children}</td>   
+                <td id={props.bookingsData[j].id} onClick={evt => {props.clickEditBooking()}}>{props.bookingsData[j].customer.customerName}</td>   
                 </tr>)
             }
       }
      }
      dataForTabella.push(...data)
+     console.log(...dataForTabella)
     }
-
-    // const dataForTable = function createTable(){
-    //   return <table> 
-    //         <thead>
-    //         <tr>
-    //         <th></th>
-    //         {timesData}
-    //         </tr>
-    //         </thead>
-
-
-
-
-            
-    //         </table>
-      
-    // }
 
 
     return(
@@ -80,6 +60,7 @@ const Table = (props) => {
           </thead>
             <tbody>
           {dataForTabella}
+          {}
           {makeData()}
           </tbody>
       </table>
@@ -134,42 +115,6 @@ const Table = (props) => {
       // </table>
       // </div>
 
-
-
-      // <table>
-      //     <thead>
-      //     <tr>
-      //       <th>Time</th>
-      //       <th>Name</th>
-      //       <th>Covers</th>
-      //       <th>Table</th>
-      //       <th>Contact details</th>
-      //     </tr>
-      //     </thead>
-      //       <tbody>
-      //     <tr>
-      //       <td>8</td>
-      //       <td>Mark Davidson</td>
-      //       <td>4</td>
-      //       <td>35</td>
-      //       <td>07928989892</td>
-      //     </tr>
-      //     <tr>
-      //       <td>8.30</td>
-      //       <td>Albert Smith</td>
-      //       <td>2</td>
-      //       <td>19</td>
-      //       <td>Albert@sas.com</td>
-      //     </tr>
-      //     <tr>
-      //       <td>9</td>
-      //       <td>Larry</td>
-      //       <td>2</td>
-      //       <td>101</td>
-      //       <td>No contacts</td>
-      //     </tr>
-      //     </tbody>
-      // </table>
     )
 }
 

@@ -26,7 +26,7 @@ class TableViewContainer extends Component{
     render(){
         return(
             <div className="table-view-container">
-            <Table bookingsData={this.state.bookings}/>
+            <Table  clickEditBooking={this.props.clickEditBooking} bookingsData={this.state.bookings}/>
             </div>
         )
     }

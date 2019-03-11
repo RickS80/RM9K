@@ -13,8 +13,13 @@ class RestaurantManager extends Component {
             customers: [],
             restaurantTables: []
             }
+
+            this.clickEditBooking = this.clickEditBooking.bind(this);
     }
-     
+    
+    clickEditBooking(evt){
+        console.log(evt);
+    }
 
     
     // componentDidMount(){
@@ -67,7 +72,7 @@ class RestaurantManager extends Component {
         return(
             <div className="restaurant-manager">
             <Header customers={this.state.customers}/>
-            <TableViewContainer/>
+            <TableViewContainer clickEditBooking={this.clickEditBooking}/>
             <Footer/>
             </div>
         )
