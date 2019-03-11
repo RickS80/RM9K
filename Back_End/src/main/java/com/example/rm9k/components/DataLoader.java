@@ -30,20 +30,29 @@ public class DataLoader implements ApplicationRunner {
         customerRepository.save(customer1);
         RestaurantTable restaurantTable1 = new RestaurantTable(17, 5);
         restaurantTableRepository.save(restaurantTable1);
+<<<<<<< HEAD
         Booking booking1 = new Booking(customer1, restaurantTable1,"23/09/2019", "20:00", 4);
+=======
+        Booking booking1 = new Booking(customer1, restaurantTable1,"23-09-2019", "20:00", 4);
+>>>>>>> develop
         bookingRepository.save(booking1);
 
         Customer customer2 = new Customer("Rick", "1231234");
         customerRepository.save(customer2);
         RestaurantTable restaurantTable2 = new RestaurantTable(1, 5);
         restaurantTableRepository.save(restaurantTable2);
+<<<<<<< HEAD
         Booking booking2 = new Booking(customer2, restaurantTable2,"23/04/2019", "20:00", 4);
+=======
+        Booking booking2 = new Booking(customer2, restaurantTable2,"23-04-2019", "20:00", 4);
+>>>>>>> develop
         bookingRepository.save(booking2);
 
         Customer customer3 = new Customer("John", "1013994");
         customerRepository.save(customer3);
         RestaurantTable restaurantTable3 = new RestaurantTable(18, 2);
         restaurantTableRepository.save(restaurantTable3);
+<<<<<<< HEAD
         Booking booking3 = new Booking(customer3, restaurantTable3,"23/09/2019", "16:00", 3);
         bookingRepository.save(booking3);
 
@@ -51,6 +60,15 @@ public class DataLoader implements ApplicationRunner {
         bookingRepository.save(booking4);
 
         Booking booking5 = new Booking(customer1, restaurantTable3, "23/09/2019","10:00", 5);
+=======
+        Booking booking3 = new Booking(customer3, restaurantTable3,"23-09-2019", "16:00", 3);
+        bookingRepository.save(booking3);
+
+        Booking booking4 = new Booking(customer2, restaurantTable1,"23-09-2019", "20:00", 4);
+        bookingRepository.save(booking4);
+
+        Booking booking5 = new Booking(customer1, restaurantTable3, "23-09-2019","10:00", 5);
+>>>>>>> develop
         bookingRepository.save(booking5);
 
 
