@@ -78,7 +78,7 @@ class NewBookingModal extends Component {
         restaurantTable: `${path}/restaurantTables/${this.state.tableId}`,
         date: "05/07/2019",
         startTime: `${this.state.startTime}`,
-        covers: 3
+        covers: `${this.state.covers}`
       })
     });
   }

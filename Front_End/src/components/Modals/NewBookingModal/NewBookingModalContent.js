@@ -13,7 +13,8 @@ const NewBookingModalContent = ({
   role = "dialog",
   handleTableIdChange,
   handleCustomerIdChange,
-  handleStartTimeChange
+  handleStartTimeChange,
+  handleCoverChange
 }) => {
 
   function makeSelectTimeOptions (){
