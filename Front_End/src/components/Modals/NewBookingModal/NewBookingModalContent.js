@@ -33,15 +33,12 @@ const NewBookingModalContent = ({
 
         <div className="c-modal__body">
           <h1>Add New Booking</h1>
-          <form action="/bookings/" method="POST" onSubmit={handleSubmit}>
-            Table Number: <br />
+          <form onSubmit={handleSubmit}>
+            Table ID: <br />
             <input type="number" name="tableId" onChange={handleTableIdChange}/>
             <br />
-            Customer Name: <br />
+            Customer ID: <br />
             <input type="number" name="customerId" onChange={handleCustomerIdChange}/>
-            <br />
-            Customer Number: <br />
-            <input type="text" name="customerNumber" />
             <br />
             <br />
             <input type="submit" value="Add Booking" />

@@ -12,6 +12,7 @@ class NewBookingModal extends Component {
     };
     this.handleCustomerIdChange = this.handleCustomerIdChange.bind(this);
     this.handleTableIdChange = this.handleTableIdChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   onOpen = () => {
@@ -49,17 +50,20 @@ class NewBookingModal extends Component {
     console.log("customerId: ", this.state.customerId);
     console.log("tableId: ", this.state.tableId);
     // posting data happens here
-  }
 
-  createbookingJson(customerId, tableId){
-    const path = "http://localhost:8080"
-    const json = {
-      "customer": `${path}/customers/${customerId}`,
-      "restaurantTable": `${path}/customers/${tableId}`
-    }
-    return json
+    const path = "http://localhost:8080/";
+    fetch(`http://localhost:8080/`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        customer: `http://localhost:8080/customers/${this.state.customerId}`,
+        restaurantTable: `http://localhost:8080//customers/${this.state.tableId}`
+      })
+    });
   }
-
 
   toggleScrollLock = () => document.querySelector("html").classList.toggle("u-lock-scroll");
 
