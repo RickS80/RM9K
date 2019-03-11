@@ -23,13 +23,23 @@ const NewBookingModalContent = ({
     let timeOptions = [] 
     let currentOption = businessStartTime;
     while (currentOption <= businessEndTime) {
-      timeOptions.push(<option value={currentOption}>{currentOption}</option>)
+      timeOptions.push(
+        <option value={prettifyTime(currentOption)}>
+          {prettifyTime(currentOption)}
+        </option>
+      );
       currentOption += 30
       if (currentOption % 100 === 60){
         currentOption += 40
       }
     }
     return timeOptions
+  }
+
+  function prettifyTime(time){
+    const hours = time.toString().substr(0,2)
+    const min = time.toString().substr(2,3) 
+    return `${hours}:${min}`
   }
 
   return ReactDOM.createPortal(
@@ -56,6 +66,7 @@ const NewBookingModalContent = ({
             <input
               type="number"
               name="tableId"
+              placeholder="Table ID"
               onChange={handleTableIdChange}
             />
             <br />
@@ -63,6 +74,7 @@ const NewBookingModalContent = ({
             <input
               type="number"
               name="customerId"
+              placeholder="Customer ID"
               onChange={handleCustomerIdChange}
             />
             <br />
@@ -75,6 +87,7 @@ const NewBookingModalContent = ({
             <input
               type="number"
               name="covers"
+              placeholder="Covers"
               onChange={handleCoverChange}
             />
             <br />
