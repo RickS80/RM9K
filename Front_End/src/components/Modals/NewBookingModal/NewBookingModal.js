@@ -16,6 +16,7 @@ class NewBookingModal extends Component {
     this.handleStartTimeChange = this.handleStartTimeChange.bind(this);
     this.handleCoverChange = this.handleCoverChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
   }
 
   onOpen = () => {
@@ -55,17 +56,18 @@ class NewBookingModal extends Component {
     this.setState({ startTime: evt.target.value });
   }
 
+  handleDateChange(evt){
+    // change date format
+    this.setState({bookingDate: evt.target.value});
+  }
+
   handleCoverChange(evt) {
-    console.log(evt.target.value);
     this.setState({ covers: evt.target.value });
   }
 
   handleSubmit(evt) {
     evt.preventDefault();
-    console.log("customerId: ", this.state.customerId);
-    console.log("tableId: ", this.state.tableId);
     // posting data happens here
-
     const path = "http://localhost:8080";
     fetch(`${path}/bookings`, {
       method: "POST",
@@ -76,7 +78,7 @@ class NewBookingModal extends Component {
       body: JSON.stringify({
         customer: `${path}/customers/${this.state.customerId}`,
         restaurantTable: `${path}/restaurantTables/${this.state.tableId}`,
-        date: "05/07/2019",
+        date: `${this.state.bookingDate}`,
         startTime: `${this.state.startTime}`,
         covers: `${this.state.covers}`
       })
@@ -107,6 +109,7 @@ class NewBookingModal extends Component {
             handleTableIdChange={this.handleTableIdChange}
             handleStartTimeChange={this.handleStartTimeChange}
             handleCoverChange={this.handleCoverChange}
+            handleDateChange={this.handleDateChange}
           />
         )}
       </Fragment>
