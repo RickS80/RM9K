@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from 'react';
-import NewBookingModalContent from './NewBookingModalContent'
-import NewBookingModalTrigger from './NewBookingModalTrigger';
+import React, { Component, Fragment } from "react";
+import NewBookingModalContent from "./NewBookingModalContent";
+import NewBookingModalTrigger from "./NewBookingModalTrigger";
 
 class NewBookingModal extends Component {
   constructor(props) {
@@ -17,7 +17,9 @@ class NewBookingModal extends Component {
     };
     this.handleCustomerIdChange = this.handleCustomerIdChange.bind(this);
     this.handleCustomerNameChange = this.handleCustomerNameChange.bind(this);
-    this.handleCustomerNumberChange = this.handleCustomerNumberChange.bind(this);
+    this.handleCustomerNumberChange = this.handleCustomerNumberChange.bind(
+      this
+    );
     this.handleTableIdChange = this.handleTableIdChange.bind(this);
     this.handleStartTimeChange = this.handleStartTimeChange.bind(this);
     this.handleCoverChange = this.handleCoverChange.bind(this);
@@ -101,7 +103,8 @@ class NewBookingModal extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    const existingCustomer = this.findCustomerInArray( // check if the customer from the new booking already exists, and find it
+    const existingCustomer = this.findCustomerInArray(
+      // check if the customer from the new booking already exists, and find it
       this.state.customerName,
       this.state.customerNumber,
       this.props.customers
@@ -113,16 +116,16 @@ class NewBookingModal extends Component {
       this.makeBookingPost(); // post the new booking with the existing customers Id
     } else {
       this.makeCustomerPost(); // create a new customer with current state (name and number)
-      const newCustomer = this.findCustomerInArray( // fetch the newly created customer
-      this.state.customerName,
-      this.state.customerNumber,
-      this.props.customers
+      const newCustomer = this.findCustomerInArray(
+        // fetch the newly created customer
+        this.state.customerName,
+        this.state.customerNumber,
+        this.props.customers
       );
       this.setState({ customerId: newCustomer.id }); // set the new customer id into state
       this.makeBookingPost(); // POST (with new customer ID)
     }
 
-  
     this.onClose(); // close the modal
   }
 
@@ -153,12 +156,12 @@ class NewBookingModal extends Component {
   prepCustomerJson() {
     let newCustomer = {
       customerName: `${this.state.customerName}`,
-      customerNumber: `${this.state.customerNumber}`,
+      customerNumber: `${this.state.customerNumber}`
     };
     return newCustomer;
   }
 
-  makeCustomerPost(){
+  makeCustomerPost() {
     const path = "http://localhost:8080";
     fetch(`${path}/customers`, {
       method: "POST",
@@ -204,5 +207,5 @@ class NewBookingModal extends Component {
     );
   }
 }
- 
+
 export default NewBookingModal;
