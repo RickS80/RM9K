@@ -139,9 +139,7 @@ class NewBookingModal extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(this.prepBookingJson())
-    }).then(
-      this.props.refreshData()
-    );
+    });
   }
 
   prepCustomerJson() {
