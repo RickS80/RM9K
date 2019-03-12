@@ -1,8 +1,9 @@
 import React from 'react';
 import CustomerModal from '../components/Modals/CustomerModal/CustomerModal';
 import NewBookingModal from "./Modals/NewBookingModal/NewBookingModal";
+import EditModal from './Modals/EditModal/EditModal';
 
-const Header = ({ customers, restaurantTables, refreshData}) => {
+const Header = ({ customers, restaurantTables, refreshData, bookings, idOfEdit}) => {
        return (
          <div className="header">
            <a>Home</a>
@@ -17,7 +18,7 @@ const Header = ({ customers, restaurantTables, refreshData}) => {
              refreshData={refreshData}
              triggerText="Customers"
            />
-           <a>Table view</a>
+           <EditModal bookings={bookings} idOfEdit={idOfEdit}/>
          </div>
        );
     }

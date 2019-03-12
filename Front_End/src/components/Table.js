@@ -15,9 +15,10 @@ class Table extends Component{
         }
         
 }
+
+
     
     render(){
-       console.log(this.props.bookingsData)
       const toUpdate = []
       for(var i=0; i < this.state.tables.length; i++){
         const foundBookings = []
@@ -32,7 +33,7 @@ class Table extends Component{
         toUpdate.push(
                 <tr>  
                 <td> Table {this.state.tables[i]}</td>
-                <BookingRow bookingsData={foundBookings}/>
+                <BookingRow bookingsData={foundBookings}   passUp={this.props.passUp}/>
                 </tr> 
                 )
     }else{
