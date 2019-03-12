@@ -20,7 +20,7 @@ const CustomerModalContent = ({
         <td>{customer.id}</td>
         <td>{customer.customerName}</td>
         <td>{customer.customerNumber}</td>
-        <td>{customer.customerBookings}</td>
+        <td>{customer._embedded.bookings.length}</td>
       </tr>
     );
   });
