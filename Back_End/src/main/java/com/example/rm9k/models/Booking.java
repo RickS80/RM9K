@@ -104,4 +104,10 @@ public class Booking {
     public void setTotalSpent(double totalSpent) {
         this.totalSpent = totalSpent;
     }
+
+
+
+
+
+
 }

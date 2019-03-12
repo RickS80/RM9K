@@ -1,6 +1,7 @@
 package com.example.rm9k.controllers;
 
 import com.example.rm9k.models.Booking;
+import com.example.rm9k.models.RestaurantTable;
 import com.example.rm9k.repositories.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,4 +22,13 @@ public class BookingController {
     public List<Booking> findBookingsByDate(@PathVariable String date){
         return bookingRepository.findBookingsByDate(date);
     }
+//
+    @GetMapping("/date/{date}/startTime/{startTime}")
+    public List<Booking> findBookingByDateAndStartTime(@PathVariable String date, String startTime){
+        return bookingRepository.findBookingByDateAndStartTime(date, startTime);
+    }
+
+
+
+
 }

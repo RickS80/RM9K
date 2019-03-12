@@ -14,6 +14,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class Rm9kApplicationTests {
@@ -54,11 +56,22 @@ public class Rm9kApplicationTests {
 		bookingRepository.save(booking);
 	}
 
-
+//
 	@Test
 	public void findBookingsByDate(){
 		List<Booking> found = bookingRepository.findBookingsByDate("04-08-2019");
-
+	}
+//
+	@Test
+	public void findBookingByDateAndTime(){
+		Customer customer = new Customer("Kirsty", "1231235");
+		customerRepository.save(customer);
+		RestaurantTable restaurantTable = new RestaurantTable(17, 5);
+		restaurantTableRepository.save(restaurantTable);
+		Booking booking = new Booking(customer, restaurantTable, "04-08-2019","1900",33);
+		bookingRepository.save(booking);
+		List<Booking> found = bookingRepository.findBookingByDateAndStartTime("04-08-2019","1900");
 	}
 
-}
+
+};
