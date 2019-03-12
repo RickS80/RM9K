@@ -21,7 +21,7 @@ const CustomerModalContent = ({
         <td data-title="id">{customer.id}</td>
         <td data-title="customerName">{customer.customerName}</td>
         <td data-title="customerNumber">{customer.customerNumber}</td>
-        <td data-title="customerBookings">{customer._embedded.bookings.length}</td>
+        {/* <td data-title="customerBookings">{customer._embedded.bookings.length}</td> */}
       </tr>
     );
   });
