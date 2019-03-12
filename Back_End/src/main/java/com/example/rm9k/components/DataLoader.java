@@ -26,31 +26,44 @@ public class DataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception{
+
+        RestaurantTable restaurantTable1 = new RestaurantTable(1, 4);
+        restaurantTableRepository.save(restaurantTable1);
+        RestaurantTable restaurantTable2 = new RestaurantTable(2, 8);
+        restaurantTableRepository.save(restaurantTable2);
+        RestaurantTable restaurantTable3 = new RestaurantTable(3, 2);
+        restaurantTableRepository.save(restaurantTable3);
+        RestaurantTable restaurantTable4 = new RestaurantTable(4, 6);
+        restaurantTableRepository.save(restaurantTable4);
+        RestaurantTable restaurantTable5 = new RestaurantTable(5, 4);
+        restaurantTableRepository.save(restaurantTable5);
+        RestaurantTable restaurantTable6 = new RestaurantTable(6, 3);
+        restaurantTableRepository.save(restaurantTable6);
+        RestaurantTable restaurantTable7 = new RestaurantTable(7, 1);
+        restaurantTableRepository.save(restaurantTable7);
+        RestaurantTable restaurantTable8 = new RestaurantTable(8, 10);
+        restaurantTableRepository.save(restaurantTable8);
+        RestaurantTable restaurantTable9 = new RestaurantTable(9, 5);
+        restaurantTableRepository.save(restaurantTable9);
+        RestaurantTable restaurantTable10 = new RestaurantTable(10, 5);
+        restaurantTableRepository.save(restaurantTable10);
+
         Customer customer1 = new Customer("Kirsty", "1231235");
         customerRepository.save(customer1);
-        RestaurantTable restaurantTable1 = new RestaurantTable(17, 5);
-        restaurantTableRepository.save(restaurantTable1);
-        Booking booking1 = new Booking(customer1, restaurantTable1,"23/09/2019", "20:00", 4);
-        bookingRepository.save(booking1);
-
         Customer customer2 = new Customer("Rick", "1231234");
         customerRepository.save(customer2);
-        RestaurantTable restaurantTable2 = new RestaurantTable(1, 5);
-        restaurantTableRepository.save(restaurantTable2);
-        Booking booking2 = new Booking(customer2, restaurantTable2,"23/04/2019", "20:00", 4);
-        bookingRepository.save(booking2);
-
         Customer customer3 = new Customer("John", "1013994");
         customerRepository.save(customer3);
-        RestaurantTable restaurantTable3 = new RestaurantTable(18, 2);
-        restaurantTableRepository.save(restaurantTable3);
-        Booking booking3 = new Booking(customer3, restaurantTable3,"23/09/2019", "16:00", 3);
+
+        Booking booking1 = new Booking(customer1, restaurantTable1,"23-09-2019", "20:00", 4);
+        bookingRepository.save(booking1);
+        Booking booking2 = new Booking(customer2, restaurantTable2,"23-04-2019", "20:00", 4);
+        bookingRepository.save(booking2);
+        Booking booking3 = new Booking(customer3, restaurantTable3,"23-09-2019", "16:00", 3);
         bookingRepository.save(booking3);
-
-        Booking booking4 = new Booking(customer2, restaurantTable1,"23/09/2019", "20:00", 4);
+        Booking booking4 = new Booking(customer2, restaurantTable1,"23-09-2019", "20:00", 4);
         bookingRepository.save(booking4);
-
-        Booking booking5 = new Booking(customer1, restaurantTable3, "23/09/2019","10:00", 5);
+        Booking booking5 = new Booking(customer1, restaurantTable3, "23-09-2019","10:00", 5);
         bookingRepository.save(booking5);
 
 

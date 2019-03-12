@@ -15,64 +15,43 @@ class RestaurantManager extends Component {
             }
 
             this.clickEditBooking = this.clickEditBooking.bind(this);
+            this.refreshData = this.refreshData.bind(this);
     }
     
     clickEditBooking(evt){
         //this evt is the id of the booking cliccked in order to edit the booking
         console.log(evt);
     }
-
     
-    // componentDidMount(){
-    //     const url = "http://localhost:8080/bookings"
-    //     fetch(url)
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //         this.setState({bookings: data._embedded.bookings})
-    //     })
-    //     const url1 = "http://localhost:8080/customers"
-    //     fetch(url1)
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //         this.setState({customers: data._embedded.customers})
-    //     })
-    //     const url2 = "http://localhost:8080/restaurantTables"
-    //     fetch(url2)
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //         this.setState({restaurantTables: data._embedded.restaurantTables})
-    //     })
-    // }
-
-
-
-
-    componentDidMount(){
-        const url = "http://localhost:8080/bookings"
-        fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-            this.setState({bookings: data._embedded.bookings})
-        })
-        const url1 = "http://localhost:8080/customers"
-        fetch(url1)
-        .then((res) => res.json())
-        .then((data) => {
-            this.setState({customers: data._embedded.customers})
-        })
-        const url2 = "http://localhost:8080/restaurantTables"
-        fetch(url2)
-        .then((res) => res.json())
-        .then((data) => {
-            this.setState({restaurantTables: data._embedded.restaurantTables})
-        })
+    componentDidMount() {
+        this.refreshData();
     }
 
+    refreshData(){
+        const url = "http://localhost:8080/bookings"
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => {
+                this.setState({ bookings: data._embedded.bookings })
+            })
+        const url1 = "http://localhost:8080/customers"
+        fetch(url1)
+            .then((res) => res.json())
+            .then((data) => {
+                this.setState({ customers: data._embedded.customers })
+            })
+        const url2 = "http://localhost:8080/restaurantTables"
+        fetch(url2)
+            .then((res) => res.json())
+            .then((data) => {
+                this.setState({ restaurantTables: data._embedded.restaurantTables })
+            })
+    }
 
     render(){
         return(
             <div className="restaurant-manager">
-            <Header customers={this.state.customers}/>
+            <Header customers={this.state.customers} restaurantTables={this.state.restaurantTables} refreshData={this.refreshData}/>
             <TableViewContainer clickEditBooking={this.clickEditBooking}/>
             <Footer/>
             </div>

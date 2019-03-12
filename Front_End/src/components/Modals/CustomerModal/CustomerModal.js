@@ -61,7 +61,7 @@ class CustomerModal extends Component {
     return (
       <Fragment>
         <CustomerModalTrigger
-          buttonRef={n => this.openButtonNode = n}
+          buttonRef={n => (this.openButtonNode = n)}
           buttonText={triggerText}
           onOpen={this.onOpen}
         />
