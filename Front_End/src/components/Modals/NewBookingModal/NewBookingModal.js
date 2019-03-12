@@ -39,6 +39,7 @@ class NewBookingModal extends Component {
     this.setState({ isOpen: false });
     this.openButtonNode.focus(); // return keyboard focus to main page when close
     this.toggleScrollLock();
+    this.props.refreshData();
   };
 
   onKeyDown = evt => {
@@ -88,38 +89,32 @@ class NewBookingModal extends Component {
   }
 
   findCustomerInArray(customerNumber, arrayOfCustomers) {
-    let result = null;
-    arrayOfCustomers.forEach(customer => {
-      if (customer.customerNumber === customerNumber) {
-        result = customer;
-      }
-    });
-    return result;
-  }
-
+    return arrayOfCustomers.find(customer => {
+      return customer.customerNumber === customerNumber
+      })
+    }
+  
   handleSubmit(evt) {
     evt.preventDefault();
     const existingCustomer = this.findCustomerInArray(
-      // check if the customer from the new booking already exists, and find it
       this.state.customerNumber,
       this.props.customers
     );
     if (existingCustomer) {
-      this.setState({ customerId: existingCustomer.id }, this.makeBookingPost); // set the existing customers Id into state
-      // console.log(this.prepBookingJson()); // this isn't working (can't set state properly?)
-      // this.makeBookingPost(); // post the new booking with the existing customers Id
+      this.setState({ customerId: existingCustomer.id }, this.makeBookingPost);
     } else {
-      this.makeCustomerPost();
-      this.props.refreshData() // create a new customer with current state (name and number)
-      // const newCustomer = this.findCustomerInArray(
-      //   // fetch the newly created customer
-      //   this.state.customerNumber,
-      //   this.props.customers
-      // );
-      this.setState({ customerId: (this.props.customers.length + 1) }, this.makeBookingPost); // set the new customer id into state
+      
+      this.makeCustomerPost() // make a new customer using the data provided in form
+        .then(res => res.json())
+        .then(data => {
+          return data.id; // retrieve new customer ID from API response
+        })
+        .then(
+          (res)=>{this.setState({ customerId: res }, this.makeBookingPost)} // make new booking with ID
+        ).then(
+          (res) => this.props.refreshData() // refreshing the data to reload the table - doesn't work?
+        );
     }
-
-    this.props.refreshData();
     this.onClose(); // close the modal
   }
 
@@ -157,7 +152,7 @@ class NewBookingModal extends Component {
 
   makeCustomerPost() {
     const path = "http://localhost:8080";
-    fetch(`${path}/customers`, {
+    return fetch(`${path}/customers`, {
       method: "POST",
       headers: {
         Accept: "application/json",

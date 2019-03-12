@@ -11,16 +11,17 @@ const CustomerModalContent = ({
   onKeyDown,
   onFocus,
   onSort,
+  refreshData,
   role = "dialog"
 }) => {
   
   const customersList = customers.map(customer => {
     return (
-      <tr key={customer.id}>
-        <td>{customer.id}</td>
-        <td>{customer.customerName}</td>
-        <td>{customer.customerNumber}</td>
-        <td>{customer.customerBookings}</td>
+      <tr key={customer.id} data-item={customer}>
+        <td data-title="id">{customer.id}</td>
+        <td data-title="customerName">{customer.customerName}</td>
+        <td data-title="customerNumber">{customer.customerNumber}</td>
+        <td data-title="customerBookings">{customer._embedded.bookings.length}</td>
       </tr>
     );
   });
@@ -46,9 +47,10 @@ const CustomerModalContent = ({
           <table>
             <thead>
               <tr>
+
                 <th onClick={evt => onSort(evt, "id")}>ID</th>
                 <th onClick={evt => onSort(evt, "customerName")}>Name:</th>
-                <th onClick={evt => onSort(evt, "customerNumber")}>Number:</th>
+                <th onClick={evt => onSort(evt, "customerNumber")}>Contact:</th>
                 <th onClick={evt => onSort(evt, "customerBookings")}># of Bookings:</th>
               </tr>
             </thead>
