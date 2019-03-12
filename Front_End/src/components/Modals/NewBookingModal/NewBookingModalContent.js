@@ -72,12 +72,14 @@ const NewBookingModalContent = (props) => {
           <h2>New Booking</h2>
           <form onSubmit={props.handleSubmit}>
             Table ID: 
-            <select onChange={props.handleTableIdChange}>
-              <option value="" disabled selected>
+            <div class="custom-select" style="width:200px;">
+              <select onChange={props.handleTableIdChange}>
+                <option value="" disabled selected>
                 Please Select a Table
-              </option>
-              {makeTableOptions()}
-            </select>
+                </option>
+                {makeTableOptions()}
+              </select>
+            </div>
             
             
             <br/>
