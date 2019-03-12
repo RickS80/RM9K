@@ -24,8 +24,9 @@ public class BookingController {
     }
 //
     @GetMapping("/date/{date}/startTime/{startTime}")
-    public List<Booking> findBookingByDateAndStartTime(@PathVariable String date, String startTime){
-        return bookingRepository.findBookingByDateAndStartTime(date, startTime);
+    public List<Booking> findBookingByDateAndStartTimeAndRestaurantTable
+        (@PathVariable String date, String startTime, RestaurantTable restaurantTable){
+        return bookingRepository.findBookingByDateAndStartTimeAndRestaurantTable(date, startTime, restaurantTable);
     }
 
 

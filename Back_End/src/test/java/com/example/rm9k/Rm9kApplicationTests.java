@@ -70,7 +70,7 @@ public class Rm9kApplicationTests {
 		restaurantTableRepository.save(restaurantTable);
 		Booking booking = new Booking(customer, restaurantTable, "04-08-2019","1900",33);
 		bookingRepository.save(booking);
-		List<Booking> found = bookingRepository.findBookingByDateAndStartTime("04-08-2019","1900");
+		List<Booking> found = bookingRepository.findBookingByDateAndStartTimeAndRestaurantTable("04-08-2019","1900", restaurantTable);
 	}
 
 
