@@ -25,6 +25,21 @@ class TableViewContainer extends Component{
     onDateSelect = (evt) => {
         console.log("you picked a date!")
         console.log(evt.target.value)
+        const requestedDate = (evt.target.value);
+        const formattedDate = requestedDate
+          .split(`-`)
+          .reverse()
+          .join(`-`);
+        this.getBookingsForDate(formattedDate);
+    }
+
+    getBookingsForDate(date) {
+        const url = `http://localhost:8080/bookings/date/${date}`
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => {
+                this.setState({ bookings: data }, console.log(this.state.bookings))
+            })
     }
 
     render(){
