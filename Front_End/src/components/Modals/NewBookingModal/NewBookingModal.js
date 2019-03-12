@@ -87,14 +87,10 @@ class NewBookingModal extends Component {
     this.setState({ covers: evt.target.value });
   }
 
-  findCustomerInArray(customerName, customerNumber, arrayOfCustomers) {
+  findCustomerInArray(customerNumber, arrayOfCustomers) {
     let result = null;
     arrayOfCustomers.forEach(customer => {
-      console.log(customer);
-      if (
-        customer.customerName === customerName &&
-        customer.customerNumber === customerNumber
-      ) {
+      if (customer.customerNumber === customerNumber) {
         result = customer;
       }
     });
@@ -105,31 +101,29 @@ class NewBookingModal extends Component {
     evt.preventDefault();
     const existingCustomer = this.findCustomerInArray(
       // check if the customer from the new booking already exists, and find it
-      this.state.customerName,
       this.state.customerNumber,
       this.props.customers
     );
-    console.log(`customer id:`, existingCustomer);
     if (existingCustomer) {
-      this.setState({ customerId: existingCustomer.id }); // set the existing customers Id into state
-      console.log(this.prepBookingJson()); // this isn't working (can't set state properly?)
-      this.makeBookingPost(); // post the new booking with the existing customers Id
+      this.setState({ customerId: existingCustomer.id }, this.makeBookingPost); // set the existing customers Id into state
+      // console.log(this.prepBookingJson()); // this isn't working (can't set state properly?)
+      // this.makeBookingPost(); // post the new booking with the existing customers Id
     } else {
-      this.makeCustomerPost(); // create a new customer with current state (name and number)
-      const newCustomer = this.findCustomerInArray(
-        // fetch the newly created customer
-        this.state.customerName,
-        this.state.customerNumber,
-        this.props.customers
-      );
-      this.setState({ customerId: newCustomer.id }); // set the new customer id into state
-      this.makeBookingPost(); // POST (with new customer ID)
+      this.makeCustomerPost();
+      this.props.refreshData() // create a new customer with current state (name and number)
+      // const newCustomer = this.findCustomerInArray(
+      //   // fetch the newly created customer
+      //   this.state.customerNumber,
+      //   this.props.customers
+      // );
+      this.setState({ customerId: (this.props.customers.length + 1) }, this.makeBookingPost); // set the new customer id into state
     }
 
     this.onClose(); // close the modal
   }
 
   prepBookingJson() {
+    debugger  
     const path = "http://localhost:8080";
     let newBooking = {
       customer: `${path}/customers/${this.state.customerId}`,

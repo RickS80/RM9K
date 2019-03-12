@@ -78,16 +78,8 @@ const NewBookingModalContent = (props) => {
               </option>
               {makeTableOptions()}
             </select>
-            
-            
-            <br/>
-            Customer ID: 
-            <input
-              type="number"
-              name="customerId"
-              placeholder="Customer ID"
-              onChange={props.handleCustomerIdChange}
-            />
+  
+          
 
             <br/>
             Customer Name:

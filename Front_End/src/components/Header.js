@@ -10,6 +10,7 @@ const Header = ({ customers, restaurantTables, refreshData}) => {
              triggerText="New Booking"
              restaurantTables={restaurantTables}
              refreshData={refreshData}
+             customers={customers}
            />
            <CustomerModal
              customers={customers}
