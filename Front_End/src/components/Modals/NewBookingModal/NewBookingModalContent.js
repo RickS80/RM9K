@@ -5,8 +5,8 @@ import "../ModalContent.css";
 const NewBookingModalContent = (props) => {
   
   function makeSelectTimeOptions() {
-    const businessStartTime = 1100;
-    const businessEndTime = 2200;
+    const businessStartTime = 1200;
+    const businessEndTime = 2000;
     let timeOptions = [];
     let currentOption = businessStartTime;
     while (currentOption <= businessEndTime) {
