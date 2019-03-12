@@ -104,12 +104,17 @@ class NewBookingModal extends Component {
       this.setState({ customerId: existingCustomer.id }, this.makeBookingPost);
     } else {
       
-      this.makeCustomerPost();
-      // this.props.refreshData();
-      this.setState({ customerId: (this.props.customers.length) }, this.makeBookingPost);
+      this.makeCustomerPost() // make a new customer using the data provided in form
+        .then(res => res.json())
+        .then(data => {
+          return data.id; // retrieve new customer ID from API response
+        })
+        .then(
+          (res)=>{this.setState({ customerId: res }, this.makeBookingPost)} // make new booking with ID
+        ).then(
+          (res) => this.props.refreshData() // refreshing the data to reload the table - doesn't work?
+        );
     }
-
-    this.props.refreshData();
     this.onClose(); // close the modal
   }
 
@@ -134,9 +139,7 @@ class NewBookingModal extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(this.prepBookingJson())
-    }).then(
-      this.props.refreshData()
-    );
+    });
   }
 
   prepCustomerJson() {
@@ -149,14 +152,14 @@ class NewBookingModal extends Component {
 
   makeCustomerPost() {
     const path = "http://localhost:8080";
-    fetch(`${path}/customers`, {
+    return fetch(`${path}/customers`, {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
       body: JSON.stringify(this.prepCustomerJson())
-    }).then(this.props.refreshData());
+    });
   }
 
   render() {
