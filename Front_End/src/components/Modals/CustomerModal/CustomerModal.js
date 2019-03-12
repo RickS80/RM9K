@@ -39,20 +39,36 @@ class CustomerModal extends Component {
     this.onClose();
   }
 
+
+
   onSort = (evt, sortKey) => {
-  /*
-  assuming your data is something like
-  [
-    {accountname:'foo', negotiatedcontractvalue:'bar'},
-    {accountname:'monkey', negotiatedcontractvalue:'spank'},
-    {accountname:'chicken', negotiatedcontractvalue:'dance'},
-  ]
-  */
+    
+
     const unsortedCustomers = this.props.customers;
-    console.log(sortKey);
+    // console.log(sortKey);
+   
+    unsortedCustomers.sort(function(a,b) {
+      if (sortKey == "customerBookings"){
+      // console.log(sortKey);
+      // console.log(a._embedded.bookings.length)
+      // console.log(b._embedded.bookings.length)
+      return b._embedded.bookings.length - a._embedded.bookings.length
+      }
+      else if (sortKey == "customerName"){
+        if(a.customerName < b.customerName) { return -1; }
+        if(a.customerName > b.customerName) { return 1; }
+        return 0;
+    }
+      else {
+      return a[sortKey] - b[sortKey]
+      }
+    })
+    
     this.setState({ customers: unsortedCustomers });
     
   }
+
+  
 
   
 
