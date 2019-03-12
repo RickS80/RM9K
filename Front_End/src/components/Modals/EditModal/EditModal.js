@@ -19,6 +19,17 @@ class EditModal extends Component {
   this.setState({bookingSelected: bookingFound})
 }
 
+  handleDeleteClick = () =>{
+    const bookingIdToDelete = this.state.bookingSelected.id;
+    const path = "http://localhost:8080";
+    fetch(`${path}/bookings/${bookingIdToDelete}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+  }
 
   onOpen = () => {
     this.setState({ isOpen: true }, () => {
@@ -65,6 +76,7 @@ class EditModal extends Component {
             onClose={this.onClose}
             onKeyDown={this.onKeyDown}
             bookingSelected = {this.state.bookingSelected}
+            handleDeleteClick = {this.handleDeleteClick}
             role="pizza"/>)}
         </React.Fragment>
     )
