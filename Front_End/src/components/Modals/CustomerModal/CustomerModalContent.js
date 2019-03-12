@@ -11,10 +11,12 @@ const CustomerModalContent = ({
   onKeyDown,
   onFocus,
   onSort,
+  refreshData,
   role = "dialog"
 }) => {
   
   const customersList = customers.map(customer => {
+    // this.refreshData()
     return (
       <tr key={customer.id}>
         <td>{customer.id}</td>

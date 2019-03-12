@@ -15,10 +15,13 @@ class CustomerModal extends Component {
   }
 
   onOpen = () => {
+    this.props.refreshData();
     this.setState({ isOpen: true }, () => {
       this.closeButtonNode.focus(); // draw keyboard focus to the modal when opens
     });
     this.toggleScrollLock();
+    
+    
   };
 
   onClose = () => {
@@ -64,6 +67,7 @@ class CustomerModal extends Component {
           buttonRef={n => (this.openButtonNode = n)}
           buttonText={triggerText}
           onOpen={this.onOpen}
+          refreshData={this.props.refreshData}
         />
 
         {isOpen && (
