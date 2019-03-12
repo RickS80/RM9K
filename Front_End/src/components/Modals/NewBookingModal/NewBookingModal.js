@@ -119,11 +119,11 @@ class NewBookingModal extends Component {
       this.setState({ customerId: (this.props.customers.length + 1) }, this.makeBookingPost); // set the new customer id into state
     }
 
+    this.props.refreshData();
     this.onClose(); // close the modal
   }
 
   prepBookingJson() {
-    debugger  
     const path = "http://localhost:8080";
     let newBooking = {
       customer: `${path}/customers/${this.state.customerId}`,
