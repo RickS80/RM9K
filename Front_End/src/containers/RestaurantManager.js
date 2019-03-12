@@ -19,6 +19,7 @@ class RestaurantManager extends Component {
     }
     
     clickEditBooking(evt){
+        //this evt is the id of the booking cliccked in order to edit the booking
         console.log(evt);
     }
     

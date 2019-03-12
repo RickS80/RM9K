@@ -5,8 +5,8 @@ import "../ModalContent.css";
 const NewBookingModalContent = (props) => {
   
   function makeSelectTimeOptions() {
-    const businessStartTime = 1100;
-    const businessEndTime = 2200;
+    const businessStartTime = 1200;
+    const businessEndTime = 2000;
     let timeOptions = [];
     let currentOption = businessStartTime;
     while (currentOption <= businessEndTime) {
@@ -71,25 +71,37 @@ const NewBookingModalContent = (props) => {
         <div className="c-modal__body">
           <h1>Add New Booking</h1>
           <form onSubmit={props.handleSubmit}>
-            Table ID: <br />
+            Table ID:
             <select onChange={props.handleTableIdChange}>
               <option value="" disabled selected>
                 Please Select a Table
               </option>
               {makeTableOptions()}
             </select>
-            
-            
+  
+          
+
             <br/>
-            Customer ID: <br />
+            Customer Name:
+            <input
+              type="text"
+              name="customerName"
+              placeholder="Customer Name"
+              onChange={props.handleCustomerNameChange}
+            />
+
+            <br />
+            Customer Number:
             <input
               type="number"
-              name="customerId"
-              placeholder="Customer ID"
-              onChange={props.handleCustomerIdChange}
+              name="customerNumber"
+              placeholder="Customer Phone"
+              onChange={props.handleCustomerNumberChange}
             />
+
+
             <br />
-            Date: <br />
+            Date: 
             <input
               type="date"
               name="bookingdate"
@@ -98,7 +110,7 @@ const NewBookingModalContent = (props) => {
               }}
             />
             <br />
-            StartTime: <br />
+            StartTime: 
             <select name="starttime" onChange={props.handleStartTimeChange}>
               <option value="" disabled selected>
                 Please Select a Time
@@ -106,7 +118,7 @@ const NewBookingModalContent = (props) => {
               {makeSelectTimeOptions()}
             </select>
             <br />
-            Covers: <br />
+            Covers: 
             <input
               type="number"
               name="covers"
