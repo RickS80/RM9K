@@ -11,11 +11,13 @@ class RestaurantManager extends Component {
         this.state = { 
             bookings: [],
             customers: [],
-            restaurantTables: []
+            restaurantTables: [],
+            idForEdit: null
             }
 
             this.clickEditBooking = this.clickEditBooking.bind(this);
             this.refreshData = this.refreshData.bind(this);
+            this.passUp = this.passUp.bind(this)
     }
     
     clickEditBooking(evt){
@@ -48,11 +50,16 @@ class RestaurantManager extends Component {
             })
     }
 
+    passUp(evt){
+        this.setState({ idForEdit: evt })
+
+    }
+
     render(){
         return(
             <div className="restaurant-manager">
-            <Header customers={this.state.customers} restaurantTables={this.state.restaurantTables} refreshData={this.refreshData}/>
-            <TableViewContainer clickEditBooking={this.clickEditBooking}/>
+            <Header customers={this.state.customers} restaurantTables={this.state.restaurantTables} refreshData={this.refreshData} bookings={this.state.bookings} idOfEdit={this.state.idForEdit}/>
+            <TableViewContainer clickEditBooking={this.clickEditBooking} passUp={this.passUp}/>
             <Footer/>
             </div>
         )

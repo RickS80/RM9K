@@ -12,6 +12,7 @@ class TableViewContainer extends Component{
          }
     }
 
+
     componentDidMount(){
         const url = "http://localhost:8080/bookings"
         fetch(url)
@@ -46,7 +47,7 @@ class TableViewContainer extends Component{
         return(
             <div className="table-view-container">
 
-            <Table  clickEditBooking={this.props.clickEditBooking} bookingsData={this.state.bookings}/>
+            <Table  clickEditBooking={this.props.clickEditBooking} bookingsData={this.state.bookings} passUp={this.props.passUp}/>
             <DateSelector onDateSelect={this.onDateSelect}/>
             
 
