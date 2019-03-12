@@ -13,49 +13,32 @@ class Table extends Component{
           data: [],
           bookings: []
         }
-        console.log(this.props.bookingsData)
+        
 }
-
-
-
-    //const dataForTabella = []
-    
-  // componentDidMount(){
-  //       // console.log(props.bookingsData)
-  //     //var data = []
-  //     // const toUpdate = []
-  //     // for(var i=0; i < this.state.tables.length; i++){
-  //     //          toUpdate.push(
-  //     //           <tr>  
-  //     //           <td>{this.state.tables[i]}</td>
-  //     //           <BookingRow bookingsData={this.props.bookingsData}/>
-  //     //           </tr>
-  //     //            )    
-  //    }
-  //   //  this.setState({data: toUpdate})
-  //   //  console.log(data.length)
-  //    //dataForTabella.push(...data) 
-   
-
     
     render(){
-
-      console.log(this.props.bookingsData)
+       console.log(this.props.bookingsData)
       const toUpdate = []
       for(var i=0; i < this.state.tables.length; i++){
-        const foundBooking = this.props.bookingsData.find((booking) => booking.restaurantTable.tableNumber === this.state.tables[i])
-        console.log(foundBooking)
-        if (foundBooking) {
+        const foundBookings = []
+        this.props.bookingsData.forEach((booking) => {
+          if (booking.restaurantTable.tableNumber === this.state.tables[i]){
+            foundBookings.push(booking)
+          }
+        }
+        )
+       
+        if (foundBookings) {
         toUpdate.push(
                 <tr>  
-                <td>{this.state.tables[i]}</td>
-                <BookingRow bookingsData={[foundBooking]}/>
+                <td> Table {this.state.tables[i]}</td>
+                <BookingRow bookingsData={foundBookings}/>
                 </tr> 
                 )
     }else{
         toUpdate.push(
                 <tr>  
-                <td>{this.state.tables[i]}</td>
+                <td> Table {this.state.tables[i]}</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -78,7 +61,7 @@ class Table extends Component{
       <table>
         <thead>
         <tr>
-        <th>Table</th>
+        <th></th>
         <TimesRow/>
         </tr>
         </thead> 

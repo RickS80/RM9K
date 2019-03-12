@@ -13,7 +13,7 @@ const BookingRow = (props) => {
                 const foundBooking = props.bookingsData.find((booking) => booking.startTime === times[i])
                 if (foundBooking) {
                 data.push(
-                    <td>|{foundBooking.covers}|{foundBooking.customer.customerName}</td>
+                    <td>{foundBooking.customer.customerName}|{foundBooking.covers}|</td>
                 )
             }else{
                 data.push(
