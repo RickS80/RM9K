@@ -89,15 +89,11 @@ class NewBookingModal extends Component {
   }
 
   findCustomerInArray(customerNumber, arrayOfCustomers) {
-    let result = null;
-    arrayOfCustomers.forEach(customer => {
-      if (customer.customerNumber === customerNumber) {
-        result = customer;
-      }
-    });
-    return result;
-  }
-
+    return arrayOfCustomers.find(customer => {
+      return customer.customerNumber === customerNumber
+      })
+    }
+  
   handleSubmit(evt) {
     evt.preventDefault();
     const existingCustomer = this.findCustomerInArray(
@@ -107,9 +103,10 @@ class NewBookingModal extends Component {
     if (existingCustomer) {
       this.setState({ customerId: existingCustomer.id }, this.makeBookingPost);
     } else {
+      
       this.makeCustomerPost();
-      this.props.refreshData();
-      this.setState({ customerId: (this.props.customers.length + 1) }, this.makeBookingPost);
+      // this.props.refreshData();
+      this.setState({ customerId: (this.props.customers.length) }, this.makeBookingPost);
     }
 
     this.props.refreshData();
@@ -137,7 +134,9 @@ class NewBookingModal extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(this.prepBookingJson())
-    });
+    }).then(
+      this.props.refreshData()
+    );
   }
 
   prepCustomerJson() {
@@ -157,7 +156,7 @@ class NewBookingModal extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(this.prepCustomerJson())
-    });
+    }).then(this.props.refreshData());
   }
 
   render() {
