@@ -44,6 +44,7 @@ const CustomerModalContent = ({
         </button>
 
         <div className="c-modal__body">
+        <h2>Customer Details</h2>
           <table>
             <thead>
               <tr>

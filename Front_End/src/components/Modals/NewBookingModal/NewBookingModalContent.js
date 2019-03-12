@@ -1,12 +1,12 @@
-import React from "react";
+  import React from "react";
 import ReactDOM from "react-dom";
 import "../ModalContent.css";
 
 const NewBookingModalContent = (props) => {
   
   function makeSelectTimeOptions() {
-    const businessStartTime = 1200;
-    const businessEndTime = 2000;
+    const businessStartTime = 1100;
+    const businessEndTime = 2200;
     let timeOptions = [];
     let currentOption = businessStartTime;
     while (currentOption <= businessEndTime) {
@@ -69,37 +69,25 @@ const NewBookingModalContent = (props) => {
         </button>
 
         <div className="c-modal__body">
-          <h1>Add New Booking</h1>
+          <h2>New Booking</h2>
           <form onSubmit={props.handleSubmit}>
-            Table ID:
+            Table ID: 
             <select onChange={props.handleTableIdChange}>
               <option value="" disabled selected>
                 Please Select a Table
               </option>
               {makeTableOptions()}
             </select>
-  
-          
-
+            
+            
             <br/>
-            Customer Name:
-            <input
-              type="text"
-              name="customerName"
-              placeholder="Customer Name"
-              onChange={props.handleCustomerNameChange}
-            />
-
-            <br />
-            Customer Number:
+            Customer ID: 
             <input
               type="number"
-              name="customerNumber"
-              placeholder="Customer Phone"
-              onChange={props.handleCustomerNumberChange}
+              name="customerId"
+              placeholder="Customer ID"
+              onChange={props.handleCustomerIdChange}
             />
-
-
             <br />
             Date: 
             <input
@@ -117,8 +105,9 @@ const NewBookingModalContent = (props) => {
               </option>
               {makeSelectTimeOptions()}
             </select>
-            <br />
-            Covers: 
+            <br/>
+            
+            Covers:
             <input
               type="number"
               name="covers"
@@ -126,6 +115,7 @@ const NewBookingModalContent = (props) => {
               onChange={props.handleCoverChange}
             />
             <br />
+            <br></br>
             <input type="submit" value="Add Booking" />
           </form>
         </div>
