@@ -14,7 +14,7 @@ const CustomerModalContent = ({
   refreshData,
   role = "dialog"
 }) => {
-  
+
   const customersList = customers.map(customer => {
     return (
       <tr key={customer.id} data-item={customer}>

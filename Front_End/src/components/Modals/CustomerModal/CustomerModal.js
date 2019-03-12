@@ -3,7 +3,7 @@ import CustomerModalTrigger from './CustomerModalTrigger';
 import CustomerModalContent from './CustomerModalContent';
 
 class CustomerModal extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       isOpen: false,
@@ -20,8 +20,8 @@ class CustomerModal extends Component {
       this.closeButtonNode.focus(); // draw keyboard focus to the modal when opens
     });
     this.toggleScrollLock();
-    
-    
+
+
   };
 
   onClose = () => {
@@ -42,35 +42,35 @@ class CustomerModal extends Component {
 
 
   onSort = (evt, sortKey) => {
-    
+
 
     const unsortedCustomers = this.props.customers;
     // console.log(sortKey);
-   
-    unsortedCustomers.sort(function(a,b) {
-      if (sortKey == "customerBookings"){
-      // console.log(sortKey);
-      // console.log(a._embedded.bookings.length)
-      // console.log(b._embedded.bookings.length)
-      return b._embedded.bookings.length - a._embedded.bookings.length
+
+    unsortedCustomers.sort(function (a, b) {
+      if (sortKey == "customerBookings") {
+        // console.log(sortKey);
+        // console.log(a._embedded.bookings.length)
+        // console.log(b._embedded.bookings.length)
+        return b._embedded.bookings.length - a._embedded.bookings.length
       }
-      else if (sortKey == "customerName"){
-        if(a.customerName < b.customerName) { return -1; }
-        if(a.customerName > b.customerName) { return 1; }
+      else if (sortKey == "customerName") {
+        if (a.customerName < b.customerName) { return -1; }
+        if (a.customerName > b.customerName) { return 1; }
         return 0;
-    }
+      }
       else {
-      return a[sortKey] - b[sortKey]
+        return a[sortKey] - b[sortKey]
       }
     })
-    
+
     this.setState({ customers: unsortedCustomers });
-    
+
   }
 
-  
 
-  
+
+
 
   toggleScrollLock = () => document.querySelector('html').classList.toggle('u-lock-scroll');
 

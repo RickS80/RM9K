@@ -52,7 +52,7 @@ public class DataLoader implements ApplicationRunner {
         customerRepository.save(customer1);
         Customer customer2 = new Customer("Rick", "1231234");
         customerRepository.save(customer2);
-        Customer customer3 = new Customer("John", "1013994");
+        Customer customer3 = new Customer("Jonathan", "1013994");
         customerRepository.save(customer3);
 
         Booking booking1 = new Booking(customer1, restaurantTable1,"23-09-2019", "20:00", 4);
@@ -63,7 +63,7 @@ public class DataLoader implements ApplicationRunner {
         bookingRepository.save(booking3);
         Booking booking4 = new Booking(customer2, restaurantTable1,"23-09-2019", "20:00", 4);
         bookingRepository.save(booking4);
-        Booking booking5 = new Booking(customer1, restaurantTable3, "23-09-2019","10:00", 5);
+        Booking booking5 = new Booking(customer1, restaurantTable3, "23-09-2019","12:00", 5);
         bookingRepository.save(booking5);
 
 
