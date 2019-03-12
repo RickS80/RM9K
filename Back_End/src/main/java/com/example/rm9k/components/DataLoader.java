@@ -54,20 +54,57 @@ public class DataLoader implements ApplicationRunner {
         customerRepository.save(customer2);
         Customer customer3 = new Customer("John", "1013994");
         customerRepository.save(customer3);
+        Customer customer4 = new Customer("Davide", "1013433");
+        customerRepository.save(customer4);
+        Customer customer5 = new Customer("Ebinesar", "1014565");
+        customerRepository.save(customer5);
 
-        Booking booking1 = new Booking(customer1, restaurantTable1,"23-09-2019", "20:00", 4);
+        Booking booking1 = new Booking(customer1, restaurantTable1,"14-04-2019", "12:00", 1);
         bookingRepository.save(booking1);
-        Booking booking2 = new Booking(customer2, restaurantTable2,"23-04-2019", "20:00", 4);
+        Booking booking2 = new Booking(customer2, restaurantTable2,"14-04-2019", "12:00", 4);
         bookingRepository.save(booking2);
-        Booking booking3 = new Booking(customer3, restaurantTable3,"23-09-2019", "16:00", 3);
+        Booking booking3 = new Booking(customer3, restaurantTable3,"14-04-2019", "16:00", 6);
         bookingRepository.save(booking3);
-        Booking booking4 = new Booking(customer2, restaurantTable1,"23-09-2019", "20:00", 4);
+        Booking booking4 = new Booking(customer2, restaurantTable5,"14-04-2019", "19:00", 4);
         bookingRepository.save(booking4);
-        Booking booking5 = new Booking(customer1, restaurantTable3, "23-09-2019","10:00", 5);
+        Booking booking5 = new Booking(customer1, restaurantTable4, "14-04-2019","15:00", 5);
         bookingRepository.save(booking5);
+        Booking booking6 = new Booking(customer5, restaurantTable10,"14-04-2019", "20:00", 5);
+        bookingRepository.save(booking6);
+        Booking booking7 = new Booking(customer4, restaurantTable8,"14-04-2019", "20:00", 10);
+        bookingRepository.save(booking7);
+        Booking booking8 = new Booking(customer5, restaurantTable7,"14-04-2019", "16:00", 2);
+        bookingRepository.save(booking8);
+        Booking booking9 = new Booking(customer2, restaurantTable9,"14-04-2019", "19:00", 4);
+        bookingRepository.save(booking9);
+        Booking booking10 = new Booking(customer1, restaurantTable6, "14-04-2019","15:00", 5);
+        bookingRepository.save(booking10);
 
 
-        }
+        Booking booking11 = new Booking(customer1, restaurantTable1,"15-04-2019", "13:00", 1);
+        bookingRepository.save(booking11);
+        Booking booking12 = new Booking(customer2, restaurantTable2,"15-04-2019", "12:00", 4);
+        bookingRepository.save(booking12);
+        Booking booking13 = new Booking(customer3, restaurantTable3,"15-04-2019", "15:00", 6);
+        bookingRepository.save(booking13);
+        Booking booking14 = new Booking(customer2, restaurantTable5,"15-04-2019", "19:00", 4);
+        bookingRepository.save(booking14);
+        Booking booking15 = new Booking(customer1, restaurantTable4, "15-04-2019","16:00", 5);
+        bookingRepository.save(booking15);
+        Booking booking16 = new Booking(customer5, restaurantTable10,"15-04-2019", "12:00", 5);
+        bookingRepository.save(booking16);
+        Booking booking17 = new Booking(customer4, restaurantTable1,"15-04-2019", "20:00", 10);
+        bookingRepository.save(booking17);
+        Booking booking18 = new Booking(customer5, restaurantTable7,"15-04-2019", "16:00", 2);
+        bookingRepository.save(booking18);
+        Booking booking19 = new Booking(customer2, restaurantTable9,"15-04-2019", "19:00", 4);
+        bookingRepository.save(booking19);
+        Booking booking20 = new Booking(customer1, restaurantTable2, "15-04-2019","15:00", 5);
+        bookingRepository.save(booking20);
+
+
+
+    }
 
 
     }
