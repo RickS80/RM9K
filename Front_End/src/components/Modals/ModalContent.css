@@ -98,6 +98,15 @@ h2 {
   text-align: center;
 }
 
+.c-modal__body {
+  font-family: Cuprum;
+  font-size: 20px;
+  color: #141414;
+  border-color: #ff7f50;
+  border-radius: 20px;
+  text-align: center;
+}
+
 
 
 
