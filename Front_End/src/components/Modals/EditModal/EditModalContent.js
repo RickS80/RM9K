@@ -35,7 +35,7 @@ const EditModalContent = (props) => {
               />
               <lable />
             </form>
-            <button onClick={props.handleDeleteClick} value="DELETE THIS BOOKING">
+            <button className="btn-delete-booking" onClick={props.handleDeleteClick} value="DELETE THIS BOOKING">
               DELETE THIS BOOKING
             </button>
           </div>

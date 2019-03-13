@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Cuprum');
+
 
 .body {
 
@@ -11,7 +13,7 @@
 
 .header {
   background-color: #3f5e5a;
-  height: 50px;
+  height: 100px;
   position: fixed;
   top: 0;
   left: 0;
@@ -22,7 +24,7 @@
   align-items: left;
   vertical-align: middle;
   /* justify-content: center; */
-  font-size: calc(10px + 2vmin);
+  
   color: black;
   
   
@@ -34,8 +36,11 @@
   right: 30px;
   top: 10px;
   text-align: right;
-  font-weight: bold;
-  color: #ff7f50;
+  font-weight: bolder;
+  color: #d9e5d6;
+  font-family: Cuprum;
+  margin-top: 10px;
+  font-size: 50px;
 }
 
 .footer{
@@ -45,8 +50,9 @@
   height: 30px;
   width: 100%;
   overflow: hidden;
-  color:#141414;
+  color:#d9e5d6;
   font-size: 15px;
+  font-color: #141414;
   text-align: center;
   padding-top: 10px;
 }
@@ -59,6 +65,7 @@
 } */
 
 table, th, td {
+  
   border: 1px solid black;
   padding: 5px;
   margin-top: 20px;
@@ -70,6 +77,15 @@ table, th, td {
 .restaurant-manager {
  margin-top: 75px;
  margin-left: 10px;
+ 
+}
+
+.table-view-container {
+  text-align: center;
+}
+
+.date-selector {
+
 }
 
 

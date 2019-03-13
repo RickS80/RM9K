@@ -1,13 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Cuprum');
+
+
 .c-btn {
   padding: 5px 10px;
   color: black;
   background: #69bcb3;
   border: 2px solid #3f535a;
   border-radius: 20px;
+  border-color: #ff7f50;
   cursor: pointer;
   transition: background .15s ease-out;
-  font-size: 16px;
+  font-size: 25px;
+  font-family: Cuprum;
   margin: 10px;
+  margin-top: 26px;
+  padding: 10px;
  
   &:hover {
     background: #cbddfb;
