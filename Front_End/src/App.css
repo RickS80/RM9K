@@ -69,23 +69,25 @@ table, th, td {
   border: 1px solid black;
   padding: 5px;
   margin-top: 20px;
-  margin-left: 10px;
+  margin-left: 4px;
   color: #3f5e5a;
   margin-bottom: 20px;
 }
 
 .restaurant-manager {
- margin-top: 75px;
- margin-left: 10px;
+ margin-top: 150px;
+
  
 }
 
 .table-view-container {
   text-align: center;
+  font-size: 19px;
+  
 }
 
 .date-selector {
-
+  font-size: 50px;
 }
 
 
