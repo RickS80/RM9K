@@ -6,7 +6,7 @@
 
 
 /* backdrop of the modal, obscuring background */
-.c-modal-cover { 
+.c-modal-cover {
   position: fixed;
   top: 0;
   left: 0;
