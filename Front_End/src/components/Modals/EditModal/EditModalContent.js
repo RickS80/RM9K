@@ -70,35 +70,44 @@ const EditModalContent = (props) => {
               <lable>Name:</lable>
               <input
                id = "name"
+               className="newInput"
                onChange = {handleChange}
                 type="text"
                 placeholder={props.bookingSelected.customer.customerName}
               />
               <br />
+              <br />
                <lable>Time:</lable>
               <input
                 type= "text"
+                className="newInput"
                 placeholder={props.bookingSelected.startTime}
                 id = "time"
                 onChange = {handleChange}
               />
               <br />
+              <br />
                <lable>Date:</lable>
               <input
               id = "date"
+              className="newInput"
               onChange = {handleChange}
                 type="date"
               />
+              <br />
                <br />
                <lable>Covers:</lable>
                <input 
                id = "covers"
+               className="newInput"
                onChange = {handleChange}
                placeholder={props.bookingSelected.covers}></input>
+               <br />
                <br />
                <lable>Table:</lable>
                <select 
                id = "table"
+               className="newInput"
                onChange = {handleChange}
                >
               <option value="select a table" disabled selected>
@@ -106,7 +115,8 @@ const EditModalContent = (props) => {
               {makeTableOptions()}
              </select>
                <br />
-               <button className="btn-submit" type="submit" onClick={props.onClose}>Edit</button>
+               <br />
+               <button className="btn-edit" type="submit" onClick={props.onClose}>Edit</button>
             </form>
             <button className="btn-delete-booking" onClick={props.handleDeleteClick} value="DELETE THIS BOOKING">
               Delete Booking
