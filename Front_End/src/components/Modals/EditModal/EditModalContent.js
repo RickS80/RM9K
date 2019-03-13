@@ -109,7 +109,7 @@ const EditModalContent = (props) => {
                <button className="btn-submit" type="submit" onClick={props.onClose}>Edit</button>
             </form>
             <button className="btn-delete-booking" onClick={props.handleDeleteClick} value="DELETE THIS BOOKING">
-              DELETE THIS BOOKING
+              Delete Booking
             </button>
           </div>
         </div>
