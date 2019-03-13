@@ -81,11 +81,13 @@ th, td {
   /* padding: 5px; */
   padding-top: 10px;
   padding-bottom: 10px;
-  
-  
   color: #141414  ;
   margin-bottom: 60px;
   font-size: 15px;
+}
+
+th {
+  font-size: 20px;
 }
 
 
