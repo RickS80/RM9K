@@ -22,6 +22,7 @@ class Table extends Component{
       const toUpdate = []
       for(var i=0; i < this.state.tables.length; i++){
         const foundBookings = []
+        console.log(this.props.bookingsData)
         this.props.bookingsData.forEach((booking) => {
           if (booking.restaurantTable.tableNumber === this.state.tables[i]){
             foundBookings.push(booking)

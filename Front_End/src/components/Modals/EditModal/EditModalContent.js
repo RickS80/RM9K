@@ -57,7 +57,7 @@ const EditModalContent = (props) => {
 
           <div className="c-modal__body">
             <h2>Edit Booking</h2>
-            <form>
+            <form onSubmit = {(e) => {e.preventDefault(); props.editBooking(state)}}>
               <lable>{props.bookingSelected.customer.customerName}</lable>
               <br />
               <br />
@@ -101,7 +101,7 @@ const EditModalContent = (props) => {
              </select>
                <br />
                <br />
-               <button className="btn-edit" type="submit" onClick={props.onClose}>Edit</button>
+               <button className="btn-edit" type="submit">Edit</button>
             </form>
             <button className="btn-delete-booking" onClick={props.handleDeleteClick} value="DELETE THIS BOOKING">
               Delete Booking

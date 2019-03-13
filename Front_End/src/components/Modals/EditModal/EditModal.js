@@ -36,6 +36,7 @@ class EditModal extends Component {
   editBooking(data) {
       console.log(data)
     const bookingIdToEdit = this.state.bookingSelected.id;
+    console.log(bookingIdToEdit)
     const path = "http://localhost:8080";
     fetch(`${path}/bookings/${bookingIdToEdit}`, {
       method: "PATCH",
