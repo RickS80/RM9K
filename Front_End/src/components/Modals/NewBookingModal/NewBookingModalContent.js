@@ -72,7 +72,9 @@ const NewBookingModalContent = (props) => {
           <h2>Add New Booking</h2>
           <form onSubmit={props.handleSubmit}>
             Table ID:
-            <select onChange={props.handleTableIdChange}>
+            <select 
+            className="newInput"
+            onChange={props.handleTableIdChange}>
               <option value="" disabled selected>
                 Please Select a Table
               </option>
@@ -80,29 +82,32 @@ const NewBookingModalContent = (props) => {
             </select>
   
           
-
+            <br/>
             <br/>
             Customer Name:  
             <input
+              className="newInput"
               type="text"
               name="customerName"
               placeholder="Customer Name"
               onChange={props.handleCustomerNameChange}
             />
-
+            <br/>
             <br />
             Customer Contact:  
             <input
+              className="newInput"
               type="number"
               name="customerNumber"
               placeholder="Customer Contact"
               onChange={props.handleCustomerNumberChange}
             />
 
-
+            <br/>
             <br />
             Date: 
             <input
+              className="newInput"
               type="date"
               name="bookingdate"
               onInput={evt => {
@@ -110,22 +115,28 @@ const NewBookingModalContent = (props) => {
               }}
             />
             <br />
+            <br/>
             StartTime: 
-            <select name="starttime" onChange={props.handleStartTimeChange}>
+            <select 
+            className="newInput"
+            name="starttime" onChange={props.handleStartTimeChange}>
               <option value="" disabled selected>
                 Please Select a Time
               </option>
               {makeSelectTimeOptions()}
             </select>
             <br />
+            <br/>
             Covers: 
             <input
+              className="newInput"
               type="number"
               name="covers"
               placeholder="Covers"
               onChange={props.handleCoverChange}
             />
             <br />
+            <br/>
             <input className="btn-submit" type="submit" value="Add Booking" />
           </form>
         </div>

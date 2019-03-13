@@ -50,9 +50,9 @@ const CustomerModalContent = ({
               <tr>
 
                 <th onClick={evt => onSort(evt, "id")}>ID</th>
-                <th onClick={evt => onSort(evt, "customerName")}>Name:</th>
-                <th onClick={evt => onSort(evt, "customerNumber")}>Contact:</th>
-                <th onClick={evt => onSort(evt, "customerBookings")}># of Bookings:</th>
+                <th onClick={evt => onSort(evt, "customerName")}>Name</th>
+                <th onClick={evt => onSort(evt, "customerNumber")}>Contact</th>
+                <th className="bookingsColumn" onClick={evt => onSort(evt, "customerBookings")}># Bookings</th>
               </tr>
             </thead>
             <tbody>{customersList}</tbody>

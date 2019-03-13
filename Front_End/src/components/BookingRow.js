@@ -12,6 +12,7 @@ const BookingRow = (props) => {
                 const foundBooking = props.bookingsData.find((booking) => booking.startTime === times[i])
                 if (foundBooking) {
                     let number = foundBooking.id
+                    
                 data.push(
                     <React.Fragment>
                     <td colspan=""  id={foundBooking.id} onClick={evt => {props.passUp(number)}} >{foundBooking.customer.customerName}|{foundBooking.covers}|</td>      

@@ -110,13 +110,10 @@ h2 {
   text-align: center;
 }
 
-
-
-
-
-
-  
-
+.bookingsColumn {
+  table-layout: fixed;
+  width: 100px;
+}
 
 .btn-delete-booking{
   padding: 5px 10px;
@@ -131,6 +128,20 @@ h2 {
   position: absolute;
   right: 0;
   bottom: 0;
-
 }
+
+.newInput{
+  background: #69bcb3;
+  border-radius: 5px;
+  font-family: Cuprum;
+  font-size: 18px;
+  color:#141414;
+  border-color: #ff7f50;
+  float: right;
+  width: 250px;
+  text-align: center;
+}
+
+
+
  
