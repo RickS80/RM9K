@@ -86,12 +86,22 @@ table, th, td {
   text-align: center;
   font-size: 40px;
   font-family: Cuprum;
-  font-color: #141414;
+  color: #141414;
   
 }
 
 .date-selector {
   font-size: 50px;
+}
+
+.date-input {
+  font-size: 30px;
+  font-family: Cuprum;
+  color: #141414;
+  background-color: #8ae0d6;
+  border-color: #ff7f50;
+  border-radius: 20px;
+  text-align: center;
 }
 
 

@@ -6,6 +6,7 @@ const DateSelector = ({onDateSelect}) => {
     <Fragment>
       <label for="date">Date   </label>
       <input
+        className="date-input"
         type="date"
         id="date"
         name="date"
