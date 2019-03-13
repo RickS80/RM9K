@@ -5,7 +5,7 @@ import '../ModalContent.css';
 const EditModalContent = (props) => {
 
     const [state, setState] = useState(
-        {name: "",
+        {
         time: "",
         date: "",
         covers: "",
@@ -17,15 +17,6 @@ const EditModalContent = (props) => {
         setState({...state, [id]: value})
     }
 
-
-    function handleDateChange(date) {
-        // change date format
-        const reversedDate = date
-          .split(`-`)
-          .reverse()
-          .join(`-`);
-          return reversedDate
-      }
 
       function makeTableOptions(){
         const allRestaurantTables = props.restaurantTables;
@@ -67,13 +58,8 @@ const EditModalContent = (props) => {
           <div className="c-modal__body">
             <h1>Edit Booking</h1>
             <form onSubmit = {(e) => {e.preventDefault(); props.editBooking(state)}}>
-              <lable>Name:</lable>
-              <input
-               id = "name"
-               onChange = {handleChange}
-                type="text"
-                placeholder={props.bookingSelected.customer.customerName}
-              />
+              
+              <lable>{props.bookingSelected.customer.customerName}</lable>
               <br />
                <lable>Time:</lable>
               <input
