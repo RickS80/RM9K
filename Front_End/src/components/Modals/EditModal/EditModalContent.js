@@ -58,14 +58,8 @@ const EditModalContent = (props) => {
           <div className="c-modal__body">
             <h2>Edit Booking</h2>
             <form>
-              <lable>Name:</lable>
-              <input
-               id = "name"
-               className="newInput"
-               onChange = {handleChange}
-                type="text"
-                placeholder={props.bookingSelected.customer.customerName}
-              />
+              <lable>{props.bookingSelected.customer.customerName}</lable>
+              <br />
               <br />
               <br />
                <lable>Time:</lable>
