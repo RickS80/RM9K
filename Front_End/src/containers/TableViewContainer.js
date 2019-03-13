@@ -46,11 +46,9 @@ class TableViewContainer extends Component{
     render(){
         return(
             <div className="table-view-container">
+            <input type="submit" onClick={this.props.refreshData}/>
             <DateSelector className="date-selector" onDateSelect={this.onDateSelect}/>
             <Table  clickEditBooking={this.props.clickEditBooking} bookingsData={this.state.bookings} passUp={this.props.passUp}/>
-            
-            
-
             </div>
         )
     }

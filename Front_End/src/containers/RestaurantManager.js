@@ -30,6 +30,7 @@ class RestaurantManager extends Component {
     }
 
     refreshData(){
+        console.log("refreshing Data")
         const url = "http://localhost:8080/bookings"
         fetch(url)
             .then((res) => res.json())
@@ -47,7 +48,7 @@ class RestaurantManager extends Component {
             .then((res) => res.json())
             .then((data) => {
                 this.setState({ restaurantTables: data._embedded.restaurantTables })
-            })
+            }).then(()=>{console.log("finished refreshing data")})
     }
 
     passUp(evt){
@@ -59,7 +60,7 @@ class RestaurantManager extends Component {
         return(
             <div className="restaurant-manager">
             <Header customers={this.state.customers} restaurantTables={this.state.restaurantTables} refreshData={this.refreshData} bookings={this.state.bookings} idOfEdit={this.state.idForEdit}/>
-            <TableViewContainer clickEditBooking={this.clickEditBooking} passUp={this.passUp}/>
+                <TableViewContainer clickEditBooking={this.clickEditBooking} refreshData={this.refreshData} passUp={this.passUp}/>
             <Footer/>
             </div>
         )
