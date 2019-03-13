@@ -89,15 +89,14 @@ th, td {
 
 th {
   font-size: 20px;
+  background-color: #69bcb3;
 }
-
 
 .restaurant-manager {
  margin-top: 150px;
 
  
 }
-
 .table-view-container {
   text-align: center;
   font-size: 40px;
@@ -118,6 +117,13 @@ th {
   border-color: #ff7f50;
   border-radius: 20px;
   text-align: center;
+}
+
+.table_title {
+  background-color: #69bcb3;
+  font-weight: bolder;
+  font-size: 15px;
+
 }
 
 

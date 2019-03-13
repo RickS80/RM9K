@@ -32,7 +32,7 @@ class Table extends Component{
         if (foundBookings) {
         toUpdate.push(
                 <tr>  
-                <td> Table {this.state.tables[i]}</td>
+                <td className="table_title"> Table {this.state.tables[i]}</td>
                 <BookingRow bookingsData={foundBookings}   passUp={this.props.passUp}/>
                 </tr> 
                 )
