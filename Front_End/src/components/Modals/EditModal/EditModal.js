@@ -33,7 +33,6 @@ class EditModal extends Component {
   }
 
   editBooking(data) {
-    debugger
     const bookingIdToEdit = this.state.bookingSelected.id;
     const path = "http://localhost:8080";
     fetch(`${path}/bookings/${bookingIdToEdit}`, {
@@ -80,7 +79,7 @@ class EditModal extends Component {
         <React.Fragment>
             <EditModalTrigger
             buttonRef={n => (this.openButtonNode = n)}
-            buttonText="pizza"
+            buttonText="Edit"
             onOpen={this.onOpen}/>
 
             {this.state.isOpen && (
@@ -93,7 +92,7 @@ class EditModal extends Component {
             bookingSelected = {this.state.bookingSelected}
             handleDeleteClick = {this.handleDeleteClick}
             editBooking = {this.editBooking}
-            role="pizza"/>)}
+            role="Edit"/>)}
         </React.Fragment>
     )
   }
