@@ -69,7 +69,7 @@ const NewBookingModalContent = (props) => {
         </button>
 
         <div className="c-modal__body">
-          <h1>Add New Booking</h1>
+          <h2>Add New Booking</h2>
           <form onSubmit={props.handleSubmit}>
             Table ID:
             <select onChange={props.handleTableIdChange}>

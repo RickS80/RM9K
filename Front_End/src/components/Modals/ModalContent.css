@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Cuprum');
+
 
 @keyframes modalFade {
   from {transform: scale(0.7);opacity: 0;}
@@ -15,15 +17,20 @@
 }
 /* modal body itself */
 .c-modal {
+  font-family: Cuprum;
+  font-size: 20px;
   animation-name: modalFade;
   animation-duration: .5s;
   position: fixed;
-  top: 10%;
+  top: 30%;
   left: 30%;
   right: 30%;
   bottom: auto;
-  text-align: center;
+  text-align: left;
   background-color:#D9E5D6;
+  border: 2px solid;
+  border-radius: 20px;
+  border-color: #ff7f50;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
   z-index: 1001;
   padding: 10px;
@@ -83,15 +90,21 @@ padding: 5px 10px;
   transition: background .15s ease-out;
   font-size: 16px;
   margin: 10px;
-  
-  &:hover {
-    background: #cbddfb;
-  }
-  &:focus {
-    outline: 0;
-    box-shadow: 0 0 4px currentColor;
-  }
+  font-family: Cuprum;
+ 
 }
+
+h2 {
+  text-align: center;
+}
+
+
+
+
+
+
+  
+
 
 .btn-delete-booking{
   padding: 5px 10px;
@@ -106,11 +119,6 @@ padding: 5px 10px;
   position: absolute;
   right: 0;
   bottom: 0;
-  &:hover {
-    background: #cbddfb;
-  }
-  &:focus {
-    outline: 0;
-    box-shadow: 0 0 4px currentColor;
-  }
+
 }
+ 

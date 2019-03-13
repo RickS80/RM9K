@@ -26,7 +26,7 @@ const EditModalContent = (props) => {
           </button>
 
           <div className="c-modal__body">
-            <h1>Edit Booking</h1>
+            <h2>Edit Booking</h2>
             <form>
               <lable>Name:</lable>
               <input
