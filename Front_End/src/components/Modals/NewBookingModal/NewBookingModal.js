@@ -17,9 +17,7 @@ class NewBookingModal extends Component {
     };
     this.handleCustomerIdChange = this.handleCustomerIdChange.bind(this);
     this.handleCustomerNameChange = this.handleCustomerNameChange.bind(this);
-    this.handleCustomerNumberChange = this.handleCustomerNumberChange.bind(
-      this
-    );
+    this.handleCustomerNumberChange = this.handleCustomerNumberChange.bind(this);
     this.handleTableIdChange = this.handleTableIdChange.bind(this);
     this.handleStartTimeChange = this.handleStartTimeChange.bind(this);
     this.handleCoverChange = this.handleCoverChange.bind(this);

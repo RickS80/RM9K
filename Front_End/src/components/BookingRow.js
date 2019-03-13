@@ -7,20 +7,21 @@ const BookingRow = (props) => {
 
     const data = []
 
+
     for(var i=0; i < times.length; i++){
-        // for (var j=0; j< props.bookingsData.length; j++){
-            // if (times[i] === props.bookingsData[j].startTime){
                 const foundBooking = props.bookingsData.find((booking) => booking.startTime === times[i])
                 if (foundBooking) {
                     let number = foundBooking.id
                 data.push(
-                    <td id={foundBooking.id} onClick={evt => {props.passUp(number)}} >{foundBooking.customer.customerName}|{foundBooking.covers}|</td>
+                    <React.Fragment>
+                    <td colspan=""  id={foundBooking.id} onClick={evt => {props.passUp(number)}} >{foundBooking.customer.customerName}|{foundBooking.covers}|</td>      
+                    </React.Fragment>
                 )
-            }else{
+            } else {
                 data.push(
                     <td></td>
-                ) 
-            }  
+                )
+            } 
     }
 
 
