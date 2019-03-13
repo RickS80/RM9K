@@ -12,3 +12,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.showhide{
+  background-color: blue;
+
+}
+.showhide2{
+  background-color: red;
+}
