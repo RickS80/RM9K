@@ -69,10 +69,12 @@ const NewBookingModalContent = (props) => {
         </button>
 
         <div className="c-modal__body">
-          <h1>Add New Booking</h1>
+          <h2>Add New Booking</h2>
           <form onSubmit={props.handleSubmit}>
             Table ID:
-            <select onChange={props.handleTableIdChange}>
+            <select 
+            className="newInput"
+            onChange={props.handleTableIdChange}>
               <option value="" disabled selected>
                 Please Select a Table
               </option>
@@ -80,29 +82,32 @@ const NewBookingModalContent = (props) => {
             </select>
   
           
-
             <br/>
-            Customer Name:
+            <br/>
+            Customer Name:  
             <input
+              className="newInput"
               type="text"
               name="customerName"
               placeholder="Customer Name"
               onChange={props.handleCustomerNameChange}
             />
-
+            <br/>
             <br />
-            Customer Number:
+            Customer Contact:  
             <input
+              className="newInput"
               type="number"
               name="customerNumber"
-              placeholder="Customer Phone"
+              placeholder="Customer Contact"
               onChange={props.handleCustomerNumberChange}
             />
 
-
+            <br/>
             <br />
             Date: 
             <input
+              className="newInput"
               type="date"
               name="bookingdate"
               onInput={evt => {
@@ -110,23 +115,29 @@ const NewBookingModalContent = (props) => {
               }}
             />
             <br />
+            <br/>
             StartTime: 
-            <select name="starttime" onChange={props.handleStartTimeChange}>
+            <select 
+            className="newInput"
+            name="starttime" onChange={props.handleStartTimeChange}>
               <option value="" disabled selected>
                 Please Select a Time
               </option>
               {makeSelectTimeOptions()}
             </select>
             <br />
+            <br/>
             Covers: 
             <input
+              className="newInput"
               type="number"
               name="covers"
               placeholder="Covers"
               onChange={props.handleCoverChange}
             />
             <br />
-            <input type="submit" value="Add Booking" />
+            <br/>
+            <input className="btn-submit" type="submit" value="Add Booking" />
           </form>
         </div>
       </div>

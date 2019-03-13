@@ -1,46 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Cuprum');
+
+
+.body {
+
+/* background-color: #3f5e5a; */
+/* background-color: #141414; */
+/* background-color: #ff7f50; */
+/* background-color: #d9e5d6; */
+/* background-color: #69bcb3; */
+
+}
 
 .header {
-  background-color: orange;
-  height: 50px;
+  background-color: #3f5e5a;
+  height: 100px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  /* flex-direction: column; */
+  display: inline-block;
+  float: none;
   align-items: left;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: black;
+  vertical-align: middle;
+  color: #141414;
+  border-bottom: 4px solid;
+  border-bottom-color: #ff7f50;
+  
+  
+  
 }
 
 .header a{
   margin-left: 10px;
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  text-align: right;
+  font-weight: bolder;
+  color: #d9e5d6;
+  font-family: Cuprum;
+  margin-top: 10px;
+  font-size: 50px;
 }
 
 .footer{
-  background-color: orange;
-  position: fixed;
+  background-color: #3f5e5a;
+  /* position: */
   left: 0;
   bottom: 0;
-  height: 50px;
+  height: 30px;
   width: 100%;
   overflow: hidden;
-  color:black;
-  font-size: calc(10px + 2vmin);
+  color:#d9e5d6;
+  font-size: 15px;
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 50px;
+  border-top: 4px solid;
+  border-top-color: #ff7f50;
+  
 }
 
-div{
+/* div{
   border: 2px solid grey;
   border-radius: 5px;
   padding: 20px;
   margin: 20px;
+} */
+
+table{
+  margin-left:auto; 
+  margin-right:auto;
+  margin-top: 40px;
+  
 }
 
-table, th, td {
+th, td {
+  table-layout: fixed;
+  width: 63px;
   border: 1px solid black;
-  padding: 5px;
-  margin: 2px;
+  /* padding: 5px; */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #141414  ;
+  margin-bottom: 60px;
+  font-size: 15px;
+}
+
+th {
+  font-size: 20px;
+  background-color: #69bcb3;
+}
+
+.restaurant-manager {
+ margin-top: 150px;
+
+ 
+}
+.table-view-container {
+  text-align: center;
+  font-size: 40px;
+  font-family: Cuprum;
+  color: #141414;
+  
+}
+
+.date-selector {
+  font-size: 50px;
+}
+
+.date-input {
+  font-size: 30px;
+  font-family: Cuprum;
+  color: #141414;
+  background-color: #8ae0d6;
+  border-color: #ff7f50;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.table_title {
+  background-color: #ff7f50;
+  font-weight: bolder;
+  font-size: 15px;
 
 }
+
+
+
+
+
+
 
 

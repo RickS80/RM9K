@@ -30,6 +30,7 @@ class EditModal extends Component {
         "Content-Type": "application/json"
       }
     });
+    this.onClose();
   }
 
   editBooking(data) {
@@ -72,7 +73,6 @@ class EditModal extends Component {
 
   toggleScrollLock = () => document.querySelector('html').classList.toggle('u-lock-scroll');
 
-  
 
   render(){
 
