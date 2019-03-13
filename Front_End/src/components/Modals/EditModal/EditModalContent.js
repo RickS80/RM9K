@@ -106,7 +106,7 @@ const EditModalContent = (props) => {
               {makeTableOptions()}
              </select>
                <br />
-               <button type="submit">edit </button>
+               <button className="btn-submit" type="submit" onClick={props.onClose}>Edit</button>
             </form>
             <button className="btn-delete-booking" onClick={props.handleDeleteClick} value="DELETE THIS BOOKING">
               DELETE THIS BOOKING
