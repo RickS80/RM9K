@@ -1,8 +1,47 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from "react-dom";
 import '../ModalContent.css';
 
-const EditModalContent = (props) => { 
+const EditModalContent = (props) => {
+
+    const [state, setState] = useState(
+        {name: "",
+        time: "",
+        date: "",
+        covers: "",
+        table: ""}
+    )
+
+    const handleChange = (e) => {
+        const {id, value} = e.target;
+        setState({...state, [id]: value})
+    }
+
+
+    function handleDateChange(date) {
+        // change date format
+        const reversedDate = date
+          .split(`-`)
+          .reverse()
+          .join(`-`);
+          return reversedDate
+      }
+
+      function makeTableOptions(){
+        const allRestaurantTables = props.restaurantTables;
+        
+        const arrayOfRestaurantTables = []
+    
+        for (var i = 1; i < 11; i++) {
+          
+          arrayOfRestaurantTables.push(
+            <option >
+            {i}
+            </option>
+          );
+        }
+        return arrayOfRestaurantTables
+      }
 
     return ReactDOM.createPortal(
       <div
@@ -27,16 +66,51 @@ const EditModalContent = (props) => {
 
           <div className="c-modal__body">
             <h1>Edit Booking</h1>
-            <form>
+            <form onSubmit = {(e) => {e.preventDefault(); props.editBooking(state)}}>
               <lable>Name:</lable>
               <input
+               id = "name"
+               onChange = {handleChange}
                 type="text"
                 placeholder={props.bookingSelected.customer.customerName}
               />
-              <lable />
+              <br />
+               <lable>Time:</lable>
+              <input
+                type= "text"
+                placeholder={props.bookingSelected.startTime}
+                id = "time"
+                onChange = {handleChange}
+              />
+              <br />
+               <lable>Date:</lable>
+              <input
+              id = "date"
+              onChange = {handleChange}
+                type="date"
+              />
+               <br />
+               <lable>Covers:</lable>
+               <input 
+               id = "covers"
+               onChange = {handleChange}
+               placeholder={props.bookingSelected.covers}></input>
+               <br />
+               <lable>Table:</lable>
+               <select 
+               id = "table"
+               onChange = {handleChange}
+               >
+              <option value="select a table" disabled selected>
+              </option>
+              {makeTableOptions()}
+             </select>
+               <br />
+               <button type="submit">edit </button>
             </form>
-            <button onClick={props.handleDeleteClick} value="DELETE THIS BOOKING">
-              DELETE THIS BOOKING
+           
+            <button onClick={props.handleDeleteClick} value="Delete this booking">
+              Delete Booking
             </button>
           </div>
         </div>

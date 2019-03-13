@@ -10,6 +10,7 @@ class EditModal extends Component {
       bookingSelected: null
     };
     // this.foundThat = this.foundThat.bind(this)
+    this.editBooking = this.editBooking.bind(this)
   }
 
   foundThat = () =>{
@@ -30,6 +31,21 @@ class EditModal extends Component {
       }
     });
   }
+
+  editBooking(data) {
+    debugger
+    const bookingIdToEdit = this.state.bookingSelected.id;
+    const path = "http://localhost:8080";
+    fetch(`${path}/bookings/${bookingIdToEdit}`, {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+  }
+
 
   onOpen = () => {
     this.setState({ isOpen: true }, () => {
@@ -56,8 +72,7 @@ class EditModal extends Component {
 
   toggleScrollLock = () => document.querySelector('html').classList.toggle('u-lock-scroll');
 
-
-
+  
 
   render(){
 
@@ -77,6 +92,7 @@ class EditModal extends Component {
             onKeyDown={this.onKeyDown}
             bookingSelected = {this.state.bookingSelected}
             handleDeleteClick = {this.handleDeleteClick}
+            editBooking = {this.editBooking}
             role="pizza"/>)}
         </React.Fragment>
     )
