@@ -6,7 +6,7 @@ import EditModal from './Modals/EditModal/EditModal';
 const Header = ({ customers, restaurantTables, refreshData, bookings, idOfEdit}) => {
        return (
          <div className="header">
-           <a>Home</a>
+           
            <NewBookingModal
              triggerText="New Booking"
              restaurantTables={restaurantTables}
@@ -19,7 +19,9 @@ const Header = ({ customers, restaurantTables, refreshData, bookings, idOfEdit})
              triggerText="Customers"
            />
            <EditModal bookings={bookings} idOfEdit={idOfEdit}/>
+           <a>Restaurant Manager 9000</a>
          </div>
+         
        );
     }
 

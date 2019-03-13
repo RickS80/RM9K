@@ -126,7 +126,7 @@ const NewBookingModalContent = (props) => {
               onChange={props.handleCoverChange}
             />
             <br />
-            <input type="submit" value="Add Booking" />
+            <input className="btn-submit" type="submit" value="Add Booking" />
           </form>
         </div>
       </div>

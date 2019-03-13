@@ -4,8 +4,8 @@ const Footer = (props) => {
 
     return (
         <div className="footer">
-            <a> Contacts</a>
-            <a> About US</a>
+            <a> Copyright RM9K 2019</a>
+            
        </div>
     )
 

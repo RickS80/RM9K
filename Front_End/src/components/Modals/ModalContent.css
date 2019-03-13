@@ -1,10 +1,7 @@
-
 @keyframes modalFade {
   from {transform: scale(0.7);opacity: 0;}
   to {transform: scale(1);opacity: 1;}
 }
-
-
 /* backdrop of the modal, obscuring background */
 .c-modal-cover { 
   position: fixed;
@@ -15,24 +12,22 @@
   background-color: rgba(33, 33, 33, 0.85);
   z-index: 1000;
 }
-
 /* modal body itself */
 .c-modal {
   animation-name: modalFade;
   animation-duration: .5s;
   position: fixed;
-  top: 20%;
-  left: 10%;
-  right: 10%;
-  bottom: 20%;
+  top: 10%;
+  left: 30%;
+  right: 30%;
+  bottom: auto;
   text-align: center;
-  background-color: rgba(250, 250, 250, 1);
+  background-color:#D9E5D6;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
   z-index: 1001;
-  padding: 2.5em 1.5em 1.5em 1.5em;
+  padding: 10px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-
   @media screen and (min-width: 500px) {
     left: 50%;
     top: 50%;
@@ -42,7 +37,6 @@
     max-height: calc(100% - 1em);
   }
 }
-
 /* Close button for Modal */
 .c-modal__close {
   position: absolute;
@@ -50,26 +44,22 @@
   right: 0;
   padding: .5em;
   line-height: 1;
-  background: #f6f6f7;
+  background: #D9E5D6;
   border: 0;
   box-shadow: 0;
   cursor: pointer;
 }
-
 .c-modal__close-icon {
   width: 25px;
   height: 25px;
   fill: transparent;
-  stroke: black;
+  stroke: #FF7F50;
   stroke-linecap: round;
   stroke-width: 2;
 }
-
 .c-modal__body {
-  padding-top: .25em;
+  padding-top: 10px;
 }
-
-
 /*  Utility class that hides the text for close button, but keeps it in place for screen readers*/
 .u-hide-visually {
   border: 0 !important;
@@ -81,4 +71,23 @@
   position: absolute !important;
   width: 1px !important;
   white-space: nowrap !important;
+}
+.btn-submit{
+padding: 5px 10px;
+  color: black;
+  background: #69bcb3;
+  border: 2px solid #3f535a;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background .15s ease-out;
+  font-size: 16px;
+  margin: 10px;
+  
+  &:hover {
+    background: #cbddfb;
+  }
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 4px currentColor;
+  }
 }

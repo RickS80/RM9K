@@ -46,9 +46,9 @@ class TableViewContainer extends Component{
     render(){
         return(
             <div className="table-view-container">
-
+            <DateSelector className="date-selector" onDateSelect={this.onDateSelect}/>
             <Table  clickEditBooking={this.props.clickEditBooking} bookingsData={this.state.bookings} passUp={this.props.passUp}/>
-            <DateSelector onDateSelect={this.onDateSelect}/>
+            
             
 
             </div>
