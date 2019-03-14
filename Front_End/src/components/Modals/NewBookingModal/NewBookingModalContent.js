@@ -71,10 +71,11 @@ const NewBookingModalContent = (props) => {
         <div className="c-modal__body">
           <h2>Add New Booking</h2>
           <form onSubmit={props.handleSubmit}>
-            Table ID:
+            Table :
             <select 
             className="newInput"
-            onChange={props.handleTableIdChange}>
+            onChange={props.handleTableIdChange}
+            required>
               <option value="" disabled selected>
                 Please Select a Table
               </option>
@@ -91,6 +92,7 @@ const NewBookingModalContent = (props) => {
               name="customerName"
               placeholder="Customer Name"
               onChange={props.handleCustomerNameChange}
+              required
             />
             <br/>
             <br />
@@ -101,6 +103,7 @@ const NewBookingModalContent = (props) => {
               name="customerNumber"
               placeholder="Customer Contact"
               onChange={props.handleCustomerNumberChange}
+              required
             />
 
             <br/>
@@ -110,16 +113,19 @@ const NewBookingModalContent = (props) => {
               className="newInput"
               type="date"
               name="bookingdate"
+              required
               onInput={evt => {
                 props.handleDateChange(evt);
-              }}
+              }
+              }
             />
             <br />
             <br/>
             StartTime: 
             <select 
             className="newInput"
-            name="starttime" onChange={props.handleStartTimeChange}>
+            name="starttime" onChange={props.handleStartTimeChange}
+            required>
               <option value="" disabled selected>
                 Please Select a Time
               </option>
@@ -134,6 +140,7 @@ const NewBookingModalContent = (props) => {
               name="covers"
               placeholder="Covers"
               onChange={props.handleCoverChange}
+              required
             />
             <br />
             <br/>

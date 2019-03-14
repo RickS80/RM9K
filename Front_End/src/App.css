@@ -25,9 +25,14 @@
   color: #141414;
   border-bottom: 4px solid;
   border-bottom-color: #ff7f50;
+
   
   
-  
+}
+
+.booked{
+  background-color:#3f5e5a;
+  color: white;
 }
 
 .header a{
@@ -48,7 +53,7 @@
   position: absolute;
   left: 0;
   bottom: 0px;
-  height: 30px;
+  height: 40px;
   width: 100%;
   overflow: hidden;
   color:#d9e5d6;
@@ -124,6 +129,21 @@ th {
   background-color: #ff7f50;
   font-weight: bolder;
   font-size: 25px;
+
+}
+
+img{
+  margin-left: 10px;
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  text-align: right;
+  margin-top: 10px;
+  font-size: 50px;
+  margin-top: 5px;
+  height: 70px;
+  width: 200px;
+
 
 }
 

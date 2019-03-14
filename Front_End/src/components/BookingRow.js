@@ -15,7 +15,7 @@ const BookingRow = (props) => {
                     i++
                 data.push(
                     <React.Fragment>
-                    <td colspan="2"  id={foundBooking.id} onClick={evt => {props.passUp(number)}} >{foundBooking.customer.customerName}|{foundBooking.covers}|</td>      
+                    <td  className="booked" colspan="2"  id={foundBooking.id} onClick={evt => {props.passUp(number)}} >{foundBooking.customer.customerName}|{foundBooking.covers}|</td>      
                     </React.Fragment>
                 )
             } else {

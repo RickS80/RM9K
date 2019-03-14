@@ -12,6 +12,7 @@ class RestaurantManager extends Component {
             bookings: [],
             customers: [],
             restaurantTables: [],
+            date: "14-04-2019",
             idForEdit: null
             }
 
@@ -50,7 +51,7 @@ class RestaurantManager extends Component {
     
   
     refreshData(){
-        const url = "http://localhost:8080/bookings/date/14-04-2019"
+        const url = `http://localhost:8080/bookings/date/${this.state.date}`
         fetch(url)
             .then((res) => res.json())
             .then((data) => {

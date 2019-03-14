@@ -7,7 +7,7 @@ const EditModalContent = (props) => {
     const [state, setState] = useState(
         {
         time: "",
-        date: "",
+        date: props.bookingSelected.date,
         covers: "",
         table: ""}
     )
@@ -17,6 +17,14 @@ const EditModalContent = (props) => {
         setState({...state, [id]: value})
     }
 
+    function handleDateChange(date) {
+      // change date format
+      const reversedDate = date
+        .split(`-`)
+        .reverse()
+        .join(`-`);
+      return reversedDate
+    }
 
       function makeTableOptions(){
         const allRestaurantTables = props.restaurantTables;
@@ -77,7 +85,8 @@ const EditModalContent = (props) => {
               id = "date"
               className="newInput"
               onChange = {handleChange}
-                type="date"
+              type="date"
+              value = {handleDateChange(props.bookingSelected.date)}
               />
               <br />
                <br />
