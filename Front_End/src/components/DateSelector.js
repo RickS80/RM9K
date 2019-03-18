@@ -1,10 +1,9 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from "react";
 
-
-const DateSelector = ({onDateSelect}) => {
+const DateSelector = ({ onDateSelect }) => {
   return (
     <Fragment>
-      <label for="date">Date   </label>
+      <label for="date">Date </label>
       <input
         className="date-input"
         type="date"
@@ -13,10 +12,12 @@ const DateSelector = ({onDateSelect}) => {
         defaultValue="2019-04-14"
         min="2018-01-01"
         max="2019-12-31"
-        onInput={(evt) => { onDateSelect(evt)}}
+        onInput={evt => {
+          onDateSelect(evt);
+        }}
       />
     </Fragment>
   );
-}
+};
 
 export default DateSelector;

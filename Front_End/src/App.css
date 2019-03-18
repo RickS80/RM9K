@@ -1,14 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Cuprum');
-
+@import url("https://fonts.googleapis.com/css?family=Cuprum");
 
 .body {
-
-/* background-color: #3f5e5a; */
-/* background-color: #141414; */
-/* background-color: #ff7f50; */
-/* background-color: #d9e5d6; */
-/* background-color: #69bcb3; */
-
+  /* background-color: #3f5e5a; */
+  /* background-color: #141414; */
+  /* background-color: #ff7f50; */
+  /* background-color: #d9e5d6; */
+  /* background-color: #69bcb3; */
 }
 
 .header {
@@ -25,17 +22,14 @@
   color: #141414;
   border-bottom: 4px solid;
   border-bottom-color: #ff7f50;
-
-  
-  
 }
 
-.booked{
-  background-color:#3f5e5a;
+.booked {
+  background-color: #3f5e5a;
   color: white;
 }
 
-.header a{
+.header a {
   margin-left: 10px;
   position: absolute;
   right: 30px;
@@ -48,7 +42,7 @@
   font-size: 50px;
 }
 
-.footer{
+.footer {
   background-color: #3f5e5a;
   position: absolute;
   left: 0;
@@ -56,14 +50,13 @@
   height: 40px;
   width: 100%;
   overflow: hidden;
-  color:#d9e5d6;
+  color: #d9e5d6;
   font-size: 15px;
   text-align: center;
   padding-top: 10px;
   margin-top: 50px;
   border-top: 4px solid;
   border-top-color: #ff7f50;
-  
 }
 
 /* div{
@@ -73,14 +66,14 @@
   margin: 20px;
 } */
 
-table{
-  margin-left:auto; 
-  margin-right:auto;
+table {
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 40px;
-  
 }
 
-th, td {
+th,
+td {
   table-layout: fixed;
   width: 110px;
   height: 40px;
@@ -88,7 +81,7 @@ th, td {
   /* padding: 5px; */
   padding-top: 10px;
   padding-bottom: 10px;
-  color: #141414  ;
+  color: #141414;
   margin-bottom: 60px;
   font-size: 25px;
 }
@@ -99,16 +92,13 @@ th {
 }
 
 .restaurant-manager {
- margin-top: 150px;
-
- 
+  margin-top: 150px;
 }
 .table-view-container {
   text-align: center;
   font-size: 40px;
   font-family: Cuprum;
   color: #141414;
-  
 }
 
 .date-selector {
@@ -129,10 +119,9 @@ th {
   background-color: #ff7f50;
   font-weight: bolder;
   font-size: 25px;
-
 }
 
-img{
+img {
   margin-left: 10px;
   position: absolute;
   right: 30px;
@@ -143,14 +132,4 @@ img{
   margin-top: 5px;
   height: 70px;
   width: 200px;
-
-
 }
-
-
-
-
-
-
-
-
